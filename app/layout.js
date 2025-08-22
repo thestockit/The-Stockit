@@ -1,13 +1,14 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SchemaMarkup from "@/components/SchemaMarkup"; // ← ADD THIS IMPORT
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "The The Stockit",
-  description: "The The Stockit is a digital agency offering services like web development, SEO, digital marketing, and video editing.",
+  title: "The Stockit",
+  description: "The Stockit is a digital agency offering services like web development, SEO, digital marketing, and video editing.",
   keywords: "digital agency, web development, SEO, digital marketing, video editing",
-  author: "The The Stockit",
+  author: "The Stockit",
   robots: "index, follow",
   icons: {
     icon: ['/favicon.ico?v=4'],
@@ -30,18 +31,18 @@ export default function RootLayout({ children }) {
 
         {/* Preload Keen Slider CSS */}
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" async as="style" />
-
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" async media="print" />
+        
         {/* Bing search verification */}
         <meta name="msvalidate.01" content="7F776B3F3070C484B922BE380BAC3C4D" />
-        {/* Bing search verification */}
+        {/* Google search verification */}
         <meta name="google-site-verification" content="2F1MJ6Euhoc4rS-al7sdV-7VB17pLQtY6mgURg-OxL0" />
 
-      </head>
-      <body className={inter.className}>{children}
+        {/* 🚀 ADD SCHEMA MARKUP HERE */}
+        <SchemaMarkup />
 
-        
-      </body>
+      </head>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
