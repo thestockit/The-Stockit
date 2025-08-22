@@ -1,8 +1,8 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ToolsCard from "@/components/ToolsCard";
-import tool01 from '@/public/The Stockit.webp'
-import tool02 from '@/public/The Stockit (1).webp'
+import tool01 from '@/public/ipchecker.webp'
+import tool02 from '@/public/iplookup.webp'
 
 
 const ToolsPage = () => {
