@@ -71,7 +71,7 @@ const Privacy = () => {
                     Cookies and web beacons
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                    Like any other website, Stockit uses “cookies”. These cookies are used to store information, including visitors preferences and the pages on the website that the visitor accessed or visited. The information is used to optimise the users experience by customising our web page content based on visitors browser type and/or other information.
+                    Like any other website, The Stockit uses “cookies”. These cookies are used to store information, including visitors preferences and the pages on the website that the visitor accessed or visited. The information is used to optimise the users experience by customising our web page content based on visitors browser type and/or other information.
                 </p>
 
                 <h3 className="text-gray-700 font-semibold text-2xl mt-4 mb-2">

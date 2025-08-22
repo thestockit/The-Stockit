@@ -18,8 +18,8 @@ const TermsCondition = () => {
                 <small className="text-gray-600 font-light text-lg ">Welcome to The Stockit!</small>
 
                 <p className="text-gray-600 leading-relaxed mt-6 mb-4">
-                    These terms and conditions outline the rules and regulations for the use of thestockit’s Website, located at https://thestockit.net.
-                    <br /> <br /> By accessing this website we assume you accept these terms and conditions. Do not continue to use thestockit.net if you do not agree to take all of the terms and conditions stated on this page.
+                    These terms and conditions outline the rules and regulations for the use of The Stockit’s Website, located at https://The Stockit.net.
+                    <br /> <br /> By accessing this website we assume you accept these terms and conditions. Do not continue to use The Stockit.net if you do not agree to take all of the terms and conditions stated on this page.
                 </p>
 
                 <p className="text-gray-600 leading-relaxed mt-6 mb-4">
@@ -30,7 +30,7 @@ const TermsCondition = () => {
                     Cookies:
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                    We employ the use of cookies. By accessing thestockit.net, you agree to use cookies in agreement with the thestockit’s Privacy Policy.
+                    We employ the use of cookies. By accessing The Stockit.net, you agree to use cookies in agreement with the The Stockit’s Privacy Policy.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
                     Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.
@@ -40,7 +40,7 @@ const TermsCondition = () => {
                     License:
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                    Unless otherwise stated, thestockit and/or its licensors own the intellectual property rights for all material on thestockit.net. All intellectual property rights are reserved. You may access this from thestockit.net for your personal use subject to restrictions set in these terms and conditions.
+                    Unless otherwise stated, The Stockit and/or its licensors own the intellectual property rights for all material on The Stockit.net. All intellectual property rights are reserved. You may access this from The Stockit.net for your personal use subject to restrictions set in these terms and conditions.
                 </p>
 
                 <p className="text-gray-600 leading-relaxed mb-4">
@@ -48,17 +48,17 @@ const TermsCondition = () => {
                 </p>
 
                 <ul className="list-item text-gray-600 mb-4">
-                    <li>Republish material from thestockit.net.</li>
-                    <li>Sell, rent or sub-license material from thestockit.net.</li>
-                    <li>Reproduce, duplicate or copy material from thestockit.net.</li>
-                    <li>Redistribute content from thestockit.net.</li>
+                    <li>Republish material from The Stockit.net.</li>
+                    <li>Sell, rent or sub-license material from The Stockit.net.</li>
+                    <li>Reproduce, duplicate or copy material from The Stockit.net.</li>
+                    <li>Redistribute content from The Stockit.net.</li>
                 </ul>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                    Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. thestockit does not filter, edit, publish or review Comments before their presence on the website. Comments do not reflect the views and opinions of thestockit, its agents and/or affiliates. Comments reflect the views and opinions of the person who posts their views and opinions. To the extent permitted by applicable laws, thestockit shall not be liable for the Comments or any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.
+                    Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. The Stockit does not filter, edit, publish or review Comments before their presence on the website. Comments do not reflect the views and opinions of The Stockit, its agents and/or affiliates. Comments reflect the views and opinions of the person who posts their views and opinions. To the extent permitted by applicable laws, The Stockit shall not be liable for the Comments or any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.
                 </p>
 
                 <p className="text-gray-600 leading-relaxed mb-4">
-                    thestockit reserves the right to monitor all Comments and to remove any Comments that can be considered inappropriate, offensive or cause a breach of these Terms and Conditions.
+                    The Stockit reserves the right to monitor all Comments and to remove any Comments that can be considered inappropriate, offensive or cause a breach of these Terms and Conditions.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
                     You warrant and represent that:
@@ -69,7 +69,7 @@ const TermsCondition = () => {
                     <li>The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</li>
                     <li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy;</li>
                     <li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity;</li>
-                    <li>You hereby grant thestockit a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any form, format or media.</li>
+                    <li>You hereby grant The Stockit a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any form, format or media.</li>
                 </ul>
                 <h3 className="text-gray-700 font-semibold text-2xl mt-4 mb-2">
                     Hyperlinking to our Content:
@@ -97,13 +97,13 @@ const TermsCondition = () => {
                     <li>Internet portals;</li>
                     <li>Accounting, law, and consulting firms; and</li>
                     <li>Educational institutions and trade associations.</li>
-                    <li>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of thestockit; and (d) the link is in the context of general resource information.</li>
+                    <li>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of The Stockit; and (d) the link is in the context of general resource information.</li>
                 </ul>
                 <p className="text-gray-600 leading-relaxed mb-4">
                     These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party’s site.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                    If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to thestockit. Please include your name, your organization name, and contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.
+                    If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to The Stockit. Please include your name, your organization name, and contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
                     Approved organizations may hyperlink to our Website as follows:
@@ -112,7 +112,7 @@ const TermsCondition = () => {
                     <li>By use of our corporate name; or</li>
                     <li>By use of the uniform resource locator being linked to; or</li>
                     <li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party’s site.</li>
-                    <li>No use of thestockit’s logo or other artwork will be allowed for linking absent a trademark license agreement.</li>
+                    <li>No use of The Stockit’s logo or other artwork will be allowed for linking absent a trademark license agreement.</li>
                 </ul>
                 <h3 className="text-gray-700 font-semibold text-lg mt-4 mb-2">
                     iFrames:

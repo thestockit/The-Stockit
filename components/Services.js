@@ -13,7 +13,7 @@ const Services = () => {
                     Why Choose Us
                 </span>
                 <h2 className="block w-full text-black font-bold text-3xl sm:text-4xl">
-                    Elevate Your Business with Stockit
+                    Elevate Your Business with The Stockit
                 </h2>
                 <p className="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
                     Our services are designed to propel your business forward with a focus on results-driven strategies and custom solutions.

@@ -47,7 +47,7 @@ export const blogData = [
         author: "The Stockit",
         date: "March 7, 2024",
         title: "Comprehensive Wix Reviews",
-        link: 'https://www.thestockit.net/blogs/comprehensive-wix-reviews/',
+        link: 'https://www.The Stockit.net/blogs/comprehensive-wix-reviews/',
         description: "Wix has emerged as a distinguished player, giving users an easy platform to create and manipulate their online presence.",
         sections: [
             { type: 'heading', content: "Introduction:" },
@@ -61,7 +61,7 @@ export const blogData = [
         author: "The Stockit",
         date: "December 11, 2022",
         title: "Best 10 Online Earning Websites On The Internet",
-        link: 'https://www.thestockit.net/blogs/best-10-online-earning-websites-on-the-internet/',
+        link: 'https://www.The Stockit.net/blogs/best-10-online-earning-websites-on-the-internet/',
         description: "Want to put your money goals into action and earn some extra cash?",
         sections: [
             { type: 'heading', content: "Introduction:" },
@@ -75,7 +75,7 @@ export const blogData = [
         author: "The Stockit",
         date: "August 31, 2023",
         title: "Best Payment Gateway For Your Website In Pakistan",
-        link: 'https://www.thestockit.net/blogs/best-payment-gateway-for-your-website-in-pakistan/',
+        link: 'https://www.The Stockit.net/blogs/best-payment-gateway-for-your-website-in-pakistan/',
         description: "In today’s digital age, having an online presence is crucial for businesses to thrive.",
     },
     {
@@ -85,7 +85,7 @@ export const blogData = [
         author: "The Stockit",
         date: "April 7, 2024 ",
         title: "Best 10 WordPress Themes For Blogging",
-        link: 'https://www.thestockit.net/blogs/best-10-wordpress-themes-for-blogging/',
+        link: 'https://www.The Stockit.net/blogs/best-10-wordpress-themes-for-blogging/',
         description: "Discover the top 10 WordPress themes perfect for blogging.",
     },
     {
@@ -95,7 +95,7 @@ export const blogData = [
         author: "The Stockit",
         date: "March 22, 2024",
         title: "GreenGeeks Web Hosting: Review and Analysis",
-        link: 'https://www.thestockit.net/blogs/greengeeks-web-hosting-review-and-analysis/',
+        link: 'https://www.The Stockit.net/blogs/greengeeks-web-hosting-review-and-analysis/',
         description: "An in-depth review and analysis of GreenGeeks web hosting.",
     },
     {
@@ -105,7 +105,7 @@ export const blogData = [
         author: "The Stockit",
         date: "March 12, 2024 ",
         title: "Hostinger vs Interserver vs Dreamhost: Choosing the Right Web Hosting Platform",
-        link: 'https://www.thestockit.net/blogs/hostinger-and-other-hosting-platforms/',
+        link: 'https://www.The Stockit.net/blogs/hostinger-and-other-hosting-platforms/',
         description: "Comparing Hostinger, Interserver, and Dreamhost to find the best web hosting platform.",
     },
     {
@@ -115,7 +115,7 @@ export const blogData = [
         author: "The Stockit",
         date: "March 12, 2024 ",
         title: "TmdHosting Vs Hostinger – Which one is the best hosting",
-        link: 'https://www.thestockit.net/blogs/tmdhosting-vs-hostinger-which-one-is-the-best-hosting/',
+        link: 'https://www.The Stockit.net/blogs/tmdhosting-vs-hostinger-which-one-is-the-best-hosting/',
         description: "Comparing TmdHosting and Hostinger to determine the best hosting option.",
     },
     {
@@ -125,7 +125,7 @@ export const blogData = [
         author: "The Stockit",
         date: "March 5, 2024 ",
         title: "Optimizing Your Website for SEO: A Comprehensive Guide",
-        link: 'https://www.thestockit.net/blogs/content-optimization-best-freepaid-seo-tools/',
+        link: 'https://www.The Stockit.net/blogs/content-optimization-best-freepaid-seo-tools/',
         description: "A comprehensive guide to optimizing your website for search engine optimization (SEO).",
     },
     {
@@ -135,7 +135,7 @@ export const blogData = [
         author: "The Stockit",
         date: "March 2, 2024 ",
         title: "High-Ticket Affiliate Programs: A Comprehensive Guide",
-        link: 'https://www.thestockit.net/blogs/high-ticket-affiliate-programs-a-comprehensive-guide/',
+        link: 'https://www.The Stockit.net/blogs/high-ticket-affiliate-programs-a-comprehensive-guide/',
         description: "A beginner’s guide to understanding and using Google Analytics effectively.",
     },
     {
@@ -145,7 +145,7 @@ export const blogData = [
         author: "The Stockit",
         date: "February 29, 2024",
         title: "Shahid Anwar Facebook Marketing Course",
-        link: 'https://www.thestockit.net/blogs/shahid-anwar-dropshipping-course/',
+        link: 'https://www.The Stockit.net/blogs/shahid-anwar-dropshipping-course/',
         description: "Explore the top 10 digital marketing strategies for 2024 to boost your online presence.",
     },
     {
@@ -155,7 +155,7 @@ export const blogData = [
         author: "The Stockit",
         date: "February 29, 2024",
         title: "How Does the Shopify Affiliate Program Work?",
-        link: 'https://www.thestockit.net/blogs/how-does-the-shopify-affiliate-program-work/',
+        link: 'https://www.The Stockit.net/blogs/how-does-the-shopify-affiliate-program-work/',
         description: "Learn how to start your own blog from scratch with this comprehensive guide."
     },
     {
@@ -165,7 +165,7 @@ export const blogData = [
         author: "The Stockit",
         date: "February 27, 2024 ",
         title: "Shopify store development  ",
-        link: 'https://www.thestockit.net/blogs/shopify-store-development/',
+        link: 'https://www.The Stockit.net/blogs/shopify-store-development/',
         description: "Boost your website's visibility with these top SEO tips for beginners."
     },
     {
@@ -175,7 +175,7 @@ export const blogData = [
         author: "The Stockit",
         date: "February 19, 2024",
         title: "What is DNS and how does it work?",
-        link: 'https://www.thestockit.net/blogs/what-is-dns-and-how-does-it-work/',
+        link: 'https://www.The Stockit.net/blogs/what-is-dns-and-how-does-it-work/',
         description: "Discover the secrets to creating content that keeps your audience engaged."
     },
     {
@@ -185,7 +185,7 @@ export const blogData = [
         author: "The Stockit",
         date: "February 15, 2024",
         title: "Dreamhost web hosting: A complete guide you need to know",
-        link: 'https://www.thestockit.net/blogs/dreamhost-web-hosting-a-complete-guide-you-need-to-know/',
+        link: 'https://www.The Stockit.net/blogs/dreamhost-web-hosting-a-complete-guide-you-need-to-know/',
         description: "Learn the best strategies to improve your email marketing campaigns."
     },
     {
@@ -195,7 +195,7 @@ export const blogData = [
         author: "The Stockit",
         date: "January 28, 2024",
         title: "Scala Hosting Review 2024| All You Need To Know",
-        link: 'https://www.thestockit.net/blogs/scala-hosting-review-2024-all-you-need-to-know/',
+        link: 'https://www.The Stockit.net/blogs/scala-hosting-review-2024-all-you-need-to-know/',
         description: "Increase your social media presence with these effective marketing tips."
     },
     {
@@ -205,7 +205,7 @@ export const blogData = [
         author: "The Stockit",
         date: "December 28, 2023",
         title: "How To Fix DNS Error In Interserver Web Hosting 2024",
-        link: 'https://www.thestockit.net/blogs/how-to-fix-dns-error-in-interserver-web-hosting-2024/',
+        link: 'https://www.The Stockit.net/blogs/how-to-fix-dns-error-in-interserver-web-hosting-2024/',
         description: "Step-by-step guide to building a successful online store."
     },
     {
@@ -215,7 +215,7 @@ export const blogData = [
         author: "The Stockit",
         date: "June 21, 2023",
         title: "The Most Affordable Web Hostings In 2023",
-        link: 'https://www.thestockit.net/blogs/the-most-affordable-web-hostings-in-2023/',
+        link: 'https://www.The Stockit.net/blogs/the-most-affordable-web-hostings-in-2023/',
         description: "Understand the importance of website analytics and how to use them."
     },
     {
@@ -225,7 +225,7 @@ export const blogData = [
         author: "The Stockit",
         date: "June 1, 2023",
         title: "How To Change Domain In StableHost",
-        link: 'https://www.thestockit.net/blogs/how-to-change-domain-in-stablehost/',
+        link: 'https://www.The Stockit.net/blogs/how-to-change-domain-in-stablehost/',
         description: "Tips and tricks to improve your website's user experience."
     },
     {
@@ -235,7 +235,7 @@ export const blogData = [
         author: "The Stockit",
         date: "April 4, 2023",
         title: "Web Hosting Explained | How It Works | All You Need To Know",
-        link: 'https://www.thestockit.net/blogs/why-web-hosting-is-important-and-how-it-works/',
+        link: 'https://www.The Stockit.net/blogs/why-web-hosting-is-important-and-how-it-works/',
         description: "Learn how blogging can benefit your business and drive traffic."
     },
     {
@@ -245,7 +245,7 @@ export const blogData = [
         author: "The Stockit",
         date: "February 12, 2023",
         title: "$25 Per Sign Up| Best Affiliate Programs For Beginners",
-        link: 'https://www.thestockit.net/blogs/25-per-sign-up-best-affiliate-programs-for-beginners/',
+        link: 'https://www.The Stockit.net/blogs/25-per-sign-up-best-affiliate-programs-for-beginners/',
         description: "Effective content marketing strategies to boost your online presence."
     },
     {
@@ -255,7 +255,7 @@ export const blogData = [
         author: "The Stockit",
         date: "January 8, 2023",
         title: "What Is Email Marketing |All You Need To Know",
-        link: 'https://www.thestockit.net/blogs/what-is-email-marketing-all-you-need-to-know/',
+        link: 'https://www.The Stockit.net/blogs/what-is-email-marketing-all-you-need-to-know/',
         description: "Stay ahead of the curve with these top web design trends."
     },
     {
@@ -265,7 +265,7 @@ export const blogData = [
         author: "The Stockit",
         date: "December 31, 2022",
         title: "Content Optimization |Best Free&Paid SEO Tools",
-        link: 'https://www.thestockit.net/blogs/content-optimization-best-freepaid-seo-tools/',
+        link: 'https://www.The Stockit.net/blogs/content-optimization-best-freepaid-seo-tools/',
         description: "Proven methods to increase traffic to your website."
     },
     {
@@ -275,7 +275,7 @@ export const blogData = [
         author: "The Stockit",
         date: "December 5, 2022",
         title: "Top Ad Networks For New Publishers To Monetize Site",
-        link: 'https://www.thestockit.net/blogs/top-ad-networks-for-new-publishers-to-monetize-site/',
+        link: 'https://www.The Stockit.net/blogs/top-ad-networks-for-new-publishers-to-monetize-site/',
         description: "Learn how to create an about page that resonates with your audience."
     },
     {
@@ -285,7 +285,7 @@ export const blogData = [
         author: "The Stockit",
         date: "November 29, 2022",
         title: "Ad Exchange Vs Ad Network| What Publishers Need to Know",
-        link: 'https://www.thestockit.net/blogs/ad-exchange-vs-ad-network-what-publishers-need-to-know/',
+        link: 'https://www.The Stockit.net/blogs/ad-exchange-vs-ad-network-what-publishers-need-to-know/',
         description: "Ensure your website is mobile-friendly with these optimization tips."
     },
     {
@@ -295,7 +295,7 @@ export const blogData = [
         author: "The Stockit",
         date: "November 26, 2022",
         title: "MonetizeMore Review 2023 |All You Need To Know",
-        link: 'https://www.thestockit.net/blogs/monetizemore-review/',
+        link: 'https://www.The Stockit.net/blogs/monetizemore-review/',
         description: "Learn how to use Google Analytics to track and improve your website's performance."
     },
     {
@@ -305,7 +305,7 @@ export const blogData = [
         author: "The Stockit",
         date: "November 19, 2022",
         title: "MyLead Affiliate Network |All You Need To Know",
-        link: 'https://www.thestockit.net/blogs/mylead-affiliate-network-all-you-need-to-know/',
+        link: 'https://www.The Stockit.net/blogs/mylead-affiliate-network-all-you-need-to-know/',
         description: "Discover the best tools for your email marketing campaigns."
     },
     {
@@ -315,7 +315,7 @@ export const blogData = [
         author: "The Stockit",
         date: "November 7, 2022",
         title: "Propeller Ads Network | How to Double website Earnings",
-        link: 'https://www.thestockit.net/blogs/propeller-ads-network-how-to-double-website-earnings/',
+        link: 'https://www.The Stockit.net/blogs/propeller-ads-network-how-to-double-website-earnings/',
         description: "Maximize your business's social media presence with these tips."
     },
     {
@@ -325,7 +325,7 @@ export const blogData = [
         author: "The Stockit",
         date: "October 22, 2022",
         title: "Inbound Digital Marketing | All You Need To Know",
-        link: 'https://www.thestockit.net/blogs/inbound-digital-marketing-all-you-need-to-know/',
+        link: 'https://www.The Stockit.net/blogs/inbound-digital-marketing-all-you-need-to-know/',
         description: "Explore the best free website builders available today."
     },
     {
@@ -335,7 +335,7 @@ export const blogData = [
         author: "The Stockit",
         date: "October 15, 2022",
         title: "The Best Free Organic Traffic Sources You Are Missing Out",
-        link: 'https://www.thestockit.net/blogs/the-best-free-organic-traffic-sources-you-are-missing-out/',
+        link: 'https://www.The Stockit.net/blogs/the-best-free-organic-traffic-sources-you-are-missing-out/',
         description: "Tips and tricks to start and grow a successful podcast."
     },
     {
@@ -345,7 +345,7 @@ export const blogData = [
         author: "The Stockit",
         date: "September 30, 2022",
         title: "How To Promote Affiliate Links Without Traffic | Top 5 Ways",
-        link: 'https://www.thestockit.net/blogs/affiliate-links/',
+        link: 'https://www.The Stockit.net/blogs/affiliate-links/',
         description: "Learn how to create effective video marketing campaigns."
     },
     {
@@ -355,7 +355,7 @@ export const blogData = [
         author: "The Stockit",
         date: "September 28, 2022",
         title: "5 Best E-Commerce Platforms To Sell Your Products Free",
-        link: 'https://www.thestockit.net/blogs/5-best-e-commerce-platforms-where-you-can-sell-your-products-free/',
+        link: 'https://www.The Stockit.net/blogs/5-best-e-commerce-platforms-where-you-can-sell-your-products-free/',
         description: "Grow your business using Pinterest with these tips."
     },
     {
@@ -365,7 +365,7 @@ export const blogData = [
         author: "The Stockit",
         date: "September 25, 2022",
         title: "H12 Media | The Perfect Ad Network For New Publishers",
-        link: 'https://www.thestockit.net/blogs/h12-media-the-perfect-ad-network-for-new-publishers/',
+        link: 'https://www.The Stockit.net/blogs/h12-media-the-perfect-ad-network-for-new-publishers/',
         description: "Learn how to create and grow a successful YouTube channel."
     },
     {
@@ -375,7 +375,7 @@ export const blogData = [
         author: "The Stockit",
         date: "September 24, 2022",
         title: "SSL Certificate | Everything You Need To Know",
-        link: 'https://www.thestockit.net/blogs/ssl-certificate-for-website-everything-you-need-to-know/',
+        link: 'https://www.The Stockit.net/blogs/ssl-certificate-for-website-everything-you-need-to-know/',
         description: "Harness the power of influencer marketing to boost your brand."
     },
     {
@@ -385,7 +385,7 @@ export const blogData = [
         author: "The Stockit",
         date: "September 24, 2022",
         title: "5 InterServer Facts You Need to Know (2024)",
-        link: 'https://www.thestockit.net/blogs/5-interserver-facts-you-need-to-know-2024/',
+        link: 'https://www.The Stockit.net/blogs/5-interserver-facts-you-need-to-know-2024/',
         description: "Learn how to develop a strong content strategy for your business."
     },
     {
@@ -395,7 +395,7 @@ export const blogData = [
         author: "The Stockit",
         date: "September 24, 2022",
         title: "Best Web Hosting Under $3 To Consider In 2023",
-        link: 'https://www.thestockit.net/blogs/best-cheap-web-hosting-under-3-to-consider-in-2023/',
+        link: 'https://www.The Stockit.net/blogs/best-cheap-web-hosting-under-3-to-consider-in-2023/',
         description: "Discover the best practices for conducting keyword research."
     },
     {
@@ -405,7 +405,7 @@ export const blogData = [
         author: "The Stockit",
         date: "September 24, 2022",
         title: "Earn For Lifetime With 5 Affiliate Programs | New Bloggers",
-        link: 'https://www.thestockit.net/blogs/earn-for-lifetime-with-5-affiliate-programs-new-bloggers/',
+        link: 'https://www.The Stockit.net/blogs/earn-for-lifetime-with-5-affiliate-programs-new-bloggers/',
         description: "Learn how to create an effective content calendar for your business."
     },
     {
@@ -415,7 +415,7 @@ export const blogData = [
         author: "The Stockit",
         date: "September 23, 2022",
         title: "ZEYDOO CPA Network | All You Need To know",
-        link: 'https://www.thestockit.net/blogs/zeydoo-cpa-network-all-you-need-to-know/',
+        link: 'https://www.The Stockit.net/blogs/zeydoo-cpa-network-all-you-need-to-know/',
         description: "Explore the top tools you need for successful digital marketing."
     },
     {
@@ -425,7 +425,7 @@ export const blogData = [
         author: "The Stockit",
         date: "September 22, 2022",
         title: "Tier 2 Affiliate Programs | How To Earn For Lifetime",
-        link: 'https://www.thestockit.net/blogs/https-thestockit-com-tier-2-affiliate-programs-how-to-earn-for-lifetime/',
+        link: 'https://www.The Stockit.net/blogs/https-The Stockit-com-tier-2-affiliate-programs-how-to-earn-for-lifetime/',
         description: "Maximize your business's potential on LinkedIn with these tips."
     }  
     

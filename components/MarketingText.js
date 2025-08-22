@@ -11,10 +11,10 @@ const MarketingText = () => {
         </h1>
 
         <div className='leading-relaxed mt-5'>
-          TheStockit is a leading digital marketing agency that has established successful partnerships with numerous prominent brands. Our expertise in generating sales and building brand identity has made us the go-to agency for industry leaders. Notably, esteemed brands like Fiaka Karim have entrusted us with their digital marketing needs, leveraging our innovative strategies to elevate their online presence and drive business growth.
+          The Stockit is a leading digital marketing agency that has established successful partnerships with numerous prominent brands. Our expertise in generating sales and building brand identity has made us the go-to agency for industry leaders. Notably, esteemed brands like Fiaka Karim have entrusted us with their digital marketing needs, leveraging our innovative strategies to elevate their online presence and drive business growth.
         </div>
         <div className='leading-relaxed mt-5'>
-          Our comprehensive digital marketing services are tailored to meet the unique needs of each client, ensuring maximum ROI and brand visibility. By collaborating with TheStockit, businesses can:
+          Our comprehensive digital marketing services are tailored to meet the unique needs of each client, ensuring maximum ROI and brand visibility. By collaborating with The Stockit, businesses can:
           <ul className='list-none text-gray-700 mt-3'>
             <li className='flex items-center'>
               <svg

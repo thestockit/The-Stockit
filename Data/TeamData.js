@@ -12,7 +12,7 @@ import batoolImg from '@/public/batool.webp'
 export const teamMembers = [
     {
         name: 'Luqman Pervez',
-        role: 'CEO TheStockit',
+        role: 'CEO The Stockit',
         description: 'Directs vision and aligns team goals.',
         imageUrl: imgLuqman,
         socialLinks: {

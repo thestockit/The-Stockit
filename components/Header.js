@@ -92,7 +92,7 @@ const Header = () => {
 
         {/* Let's Connect Button for Desktop */}
         <div className="hidden lg:block">
-          <Link href="#contact" className="px-6 py-2 bg-gradient-to-r from-purple-400 to-blue-500 text-white rounded-full hover:shadow-lg transition">
+          <Link href="contact" className="px-6 py-2 bg-gradient-to-r from-purple-400 to-blue-500 text-white rounded-full hover:shadow-lg transition">
             Lets Connect
           </Link>
         </div>

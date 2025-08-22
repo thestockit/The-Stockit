@@ -1,8 +1,8 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ToolsCard from "@/components/ToolsCard";
-import tool01 from '@/public/the stockit.webp'
-import tool02 from '@/public/the stockit (1).webp'
+import tool01 from '@/public/The Stockit.webp'
+import tool02 from '@/public/The Stockit (1).webp'
 
 
 const ToolsPage = () => {
@@ -11,13 +11,13 @@ const ToolsPage = () => {
             imgSrc: tool01,
             title: "IP CHECKER",
             description: "Quickly identify your public IP address and obtain detailed information about your network. Ideal for troubleshooting and security checks.",
-            url: 'https://thestockit.net/tools/ip-detailer/'
+            url: 'https://The Stockit.net/tools/ip-detailer/'
         },
         {
             imgSrc: tool02,
             title: "IP LOOKUP",
             description: "Discover detailed information about an IP address, including geolocation data, country, timezone details, and more.",
-            url: 'https://thestockit.net/tools/ip-detailer/ip-lookup'
+            url: 'https://The Stockit.net/tools/ip-detailer/ip-lookup'
         },
     ];
 

@@ -46,7 +46,7 @@ const InstagramEmbed = () => {
                 </a>
                 <blockquote
                     className="instagram-media"
-                    data-instgrm-permalink="https://www.instagram.com/thestockit/"
+                    data-instgrm-permalink="https://www.instagram.com/The Stockit/"
                     data-instgrm-version="14"
                     style={{
                         background: '#FFF',

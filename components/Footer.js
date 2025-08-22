@@ -55,7 +55,7 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#services" className="transition-colors hover:underline cursor-pointer duration-300 text-white hover:text-teal-accent-400">
+                                    <Link href="services" className="transition-colors hover:underline cursor-pointer duration-300 text-white hover:text-teal-accent-400">
                                         Services
                                     </Link>
                                 </li>
@@ -138,7 +138,7 @@ const Footer = () => {
                                     10 Haslingden Drive, BD95HR, West Yorkshire, UK
                                 </li>
                                 <li className="transition-colors duration-300 text-white">
-                                    info@stockit.net
+                                    info@thestockit.com
                                 </li>
                                 <li className="transition-colors duration-300 text-white">
                                     +44 7360 506217
@@ -155,7 +155,7 @@ const Footer = () => {
 
                     <div className="flex items-center mt-4 space-x-4 sm:mt-0">
                         <Link
-                            href="https://web.facebook.com/thestockit"
+                            href="https://web.facebook.com/The Stockit"
                             className="transition-colors duration-300 text-white hover:text-teal-accent-400"
                         >
                             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
@@ -164,7 +164,7 @@ const Footer = () => {
                         </Link>
 
                         <Link
-                            href="https://www.instagram.com/thestockit/"
+                            href="https://www.instagram.com/The Stockit/"
                             className="transition-colors duration-300 text-white hover:text-teal-accent-400"
                         >
                             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
@@ -185,7 +185,7 @@ const Footer = () => {
                         </Link>
 
                         <Link
-                            href="https://www.youtube.com/@thestockit"
+                            href="https://www.youtube.com/@The Stockit"
                             className="transition-colors duration-300 text-white hover:text-teal-accent-400"
                         >
                             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">

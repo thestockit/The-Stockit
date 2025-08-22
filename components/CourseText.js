@@ -12,7 +12,7 @@ const CourseText = () => {
                 <div className="">
                     <h4 className="text-xl font-bold text-black">Account Details For Registration</h4>
                     <ul className="mt-2 text-gray-700">
-                        <li><strong>Account Name:</strong> THESTOCKIT</li>
+                        <li><strong>Account Name:</strong> The Stockit</li>
 
                         <li><strong>Bank Name:</strong> Bankislami Pakistan Ltd</li>
                         <li><strong>SWIFT CODE:</strong> BKIPPKKA</li>
