@@ -1,7 +1,7 @@
 import React from 'react';
-import img01 from '@/public/hostarmada.webp';
+import img01 from '@/public/misshosting.webp';
 import img02 from '@/public/Untitled-design-3-1024x1024.webp';
-import img03 from '@/public/liquid.webp';
+import img03 from '@/public/atsspace.webp';
 import img04 from '@/public/chemi.webp';
 import img05 from '@/public/shopifyy.webp';
 import img06 from '@/public/Scala-Hosting-1024x1024.webp';
@@ -12,10 +12,10 @@ import img10 from '@/public/bluehost-logo-square.webp';
 
 import contentImage01 from '@/public/scalahosting banner.webp';
 import contentImage02 from '@/public/blue-host-1.webp';
-import contentImage03 from '@/public/hostarmada-review.webp';
+import contentImage03 from '@/public/mhostingbanner.jpg';
 import contentImage04 from '@/public/Hostinger-Banner-1140x570-2.webp';
 import contentImage05 from '@/public/Top-Web-Hosting-Provider.webp';
-import contentImage06 from '@/public/What-is-Liquid-Web-Hosting-698x400.webp';
+import contentImage06 from '@/public/atsspacebanner.jpg';
 import contentImage07 from '@/public/Migrating-Web-Hosting-To-Shopify-ColorWhistle.webp';
 import contentImage08 from '@/public/interserver.webp';
 import contentImage09 from '@/public/fastcomet.webp';
@@ -35,9 +35,9 @@ const Hosting = () => {
   ];
 
   const dataTwo = [
-    { img: img03, link: 'https://liquidweb.i3f2.net/WqDnA3', description: 'Fast servers and top-notch support for your business. Ensure your website runs smoothly with Liquid Web.' },
+    { img: img03, link: 'http://www.atspace.com?aid=MTkyNDE4MjYyNTI2MjE=', description: 'Fast servers and top-notch support for your business. Ensure your website runs smoothly with ATS Space web hosting.' },
     { img: img02, link: 'https://partners.inmotionhosting.com/nL1GPx', description: 'Affordable plans and excellent service. InMotion Hosting provides reliable hosting solutions for everyone.' },
-    { img: img01, link: 'https://affiliates.hostarmada.com/scripts/q1yoac4x8oq?a_aid=moha', description: 'Scalable solutions with free SSL and great performance. HostArmada is your go-to hosting provider.' },
+    { img: img01, link: 'https://tracking.missaffiliate.com/SHga', description: 'Scalable solutions with free SSL and great performance. Misshosting is your go-to hosting provider.' },
   ];
 
   const dataThree = [
@@ -65,11 +65,11 @@ const Hosting = () => {
       btnLink: "https://bluehost.sjv.io/c/3675093/1376228/11352"
     },
     {
-      title: "HostArmada: A New Player in Hosting",
+      title: "Miss Hosting: A New Player in Hosting",
       imageUrl: contentImage03,
-      content: "HostArmada is a relatively new hosting provider that has quickly gained a reputation for its high-speed servers and excellent customer support. Their hosting plans are competitively priced and offer great value for money. HostArmada focuses on performance and security, providing features like daily backups, free website migration, and a free domain name. Their commitment to customer satisfaction and innovative solutions makes them a strong contender in the hosting market.",
-      btnText: "Visit HostArmada",
-      btnLink: "https://affiliates.hostarmada.com/scripts/q1yoac4x8oq?a_aid=moha"
+      content: "Miss Hosting is a relatively new hosting provider that has quickly gained a reputation for its high-speed servers and excellent customer support. Their hosting plans are competitively priced and offer great value for money. Miss Hosting focuses on performance and security, providing features like daily backups, free website migration, and a free domain name. Their commitment to customer satisfaction and innovative solutions makes them a strong contender in the hosting market.",
+      btnText: "Visit Miss Hosting",
+      btnLink: "https://tracking.missaffiliate.com/SHga"
     },
     {
       title: "Hostinger: Affordable and Reliable",
@@ -86,11 +86,11 @@ const Hosting = () => {
       btnLink: "https://partners.inmotionhosting.com/nL1GPx"
     },
     {
-      title: "What is Liquid Web Hosting?",
+      title: "What is ATS Space Hosting?",
       imageUrl: contentImage06,
-      content: "Liquid Web is known for its managed hosting solutions, offering high-performance services tailored for mission-critical websites and applications. They provide dedicated, VPS, and cloud hosting options, along with managed WordPress and WooCommerce hosting. Liquid Web's focus on reliability and performance makes it a preferred choice for businesses that require robust and scalable hosting solutions. Their expert support team is available 24/7 to assist with any technical issues, ensuring your website remains operational at all times.",
-      btnText: "Visit Liquid Web",
-      btnLink: "https://liquidweb.i3f2.net/WqDnA3"
+      content: "ATS Space is known for its managed hosting solutions, offering high-performance services tailored for mission-critical websites and applications. They provide dedicated, VPS, and cloud hosting options, along with managed WordPress and WooCommerce hosting. ATS Space's focus on reliability and performance makes it a preferred choice for businesses that require robust and scalable hosting solutions. Their expert support team is available 24/7 to assist with any technical issues, ensuring your website remains operational at all times.",
+      btnText: "Visit ATS Space Web Hosting",
+      btnLink: "http://www.atspace.com?aid=MTkyNDE4MjYyNTI2MjE="
     },
     {
       title: "Migrating to Shopify",
