@@ -23,6 +23,21 @@ export async function generateStaticParams() {
     .map((filename) => ({ slug: filename.replace(/\.(md|mdx)$/, "") }));
 }
 
+// ✅ Affiliate Banner Component
+const Banner = ({ src, link, width, height }) => (
+  <div className="my-8 flex justify-center">
+    <a href={link} target="_blank" rel="noopener noreferrer">
+      <Image
+        src={src}
+        alt="Affiliate Banner"
+        width={parseInt(width) || 300}
+        height={parseInt(height) || 250}
+        className="rounded-lg shadow-md hover:scale-105 transition-transform"
+      />
+    </a>
+  </div>
+);
+
 export default async function BlogPost({ params }) {
   const postsDirectory = path.join(process.cwd(), "posts");
   const filePath = path.join(postsDirectory, `${params.slug}.md`);
@@ -94,6 +109,7 @@ export default async function BlogPost({ params }) {
             <Markdown
               options={{
                 overrides: {
+                  // ✅ Handle normal images
                   img: {
                     component: (props) => {
                       let src = props.src || "";
@@ -112,6 +128,7 @@ export default async function BlogPost({ params }) {
                       );
                     },
                   },
+                  // ✅ Handle links
                   a: {
                     component: ({ href, children }) => {
                       if (href?.startsWith("/")) {
@@ -136,6 +153,8 @@ export default async function BlogPost({ params }) {
                       );
                     },
                   },
+                  // ✅ Handle <Banner> in Markdown
+                  Banner: { component: Banner },
                 },
               }}
             >

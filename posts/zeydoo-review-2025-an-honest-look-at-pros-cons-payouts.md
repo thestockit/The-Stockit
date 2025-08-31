@@ -18,6 +18,13 @@ Founded back in 2011, PropellerAds is a global ad giant serving over 12 billion 
 
 **In simple terms:** Zeydoo is the affiliate-facing arm of the PropellerAds ecosystem.
 
+<a href="https://jethost.com/web-hosting/?a_aid=thestockit&amp;a_bid=01e8514c"
+target="_top"><img
+src="jh920.png"
+alt="JetHost Web Hosting" title="JetHost Web Hosting" width="728"
+height="90" /></a>
+
+
 ### How Does a CPA Network Work?
 
 CPA stands for **Cost Per Action**. Affiliates (publishers) are paid a commission each time they drive a user who completes a specific action—like a sign-up, download, or purchase. The network (Zeydoo) acts as the middleman, connecting advertisers with affiliates, handling tracking, payments, and support.
@@ -67,6 +74,13 @@ The dashboard is a major strength. It's clean, fast, and provides all the data y
     *   WebMoney – $100
     *   Wire Transfers – $1000
 *   **Payment Terms:** NET-30. Earnings from January are paid around the end of February.
+
+<a href="https://jethost.com/ai-website-builder/?a_aid=thestockit&amp;a_bid=398f0545"
+target="_top"><img
+src="jh300.png"
+alt="JetHost AI Builder - Launch Your Website Smarter" title="JetHost
+AI Builder - Launch Your Website Smarter" width="300" height="250"
+/></a>
 
 ## Zeydoo vs. The Competition (2025)
 
