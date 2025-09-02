@@ -7,13 +7,13 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TableOfContents from "@/components/Toc";
 
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), "posts");
-
   try {
     await fs.promises.access(postsDirectory);
-  } catch (err) {
+  } catch {
     return [];
   }
 
@@ -23,7 +23,6 @@ export async function generateStaticParams() {
     .map((filename) => ({ slug: filename.replace(/\.(md|mdx)$/, "") }));
 }
 
-// ✅ Affiliate Banner Component
 const Banner = ({ src, link, width, height }) => (
   <div className="my-8 flex justify-center">
     <a href={link} target="_blank" rel="noopener noreferrer">
@@ -42,17 +41,18 @@ export default async function BlogPost({ params }) {
   const postsDirectory = path.join(process.cwd(), "posts");
   const filePath = path.join(postsDirectory, `${params.slug}.md`);
 
-  let resolvedPath = filePath;
   const exists = await fs.promises
-    .access(resolvedPath)
+    .access(filePath)
     .then(() => true)
     .catch(() => false);
 
   if (!exists) {
     return (
       <>
-        <Header />
-        <div style={{ padding: "2rem", minHeight: "60vh" }}>
+        <div className="pt-20">
+          <Header />
+        </div>
+        <div className="container mx-auto px-4 py-10 min-h-[60vh]">
           <h1>Post not found</h1>
           <Link href="/blog">Back to Blog</Link>
         </div>
@@ -61,25 +61,26 @@ export default async function BlogPost({ params }) {
     );
   }
 
-  const fileContents = await fs.promises.readFile(resolvedPath, "utf8");
+  const fileContents = await fs.promises.readFile(filePath, "utf8");
   const { data: frontmatter, content } = matter(fileContents);
 
   return (
     <>
-      <Header />
+      <div className="pt-10">
+        <Header />
+      </div>
+
+      {/* Container */}
       <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        
         {/* Main Blog Content */}
         <article className="md:col-span-2 bg-white shadow-lg rounded-2xl p-6">
+          
           {/* Breadcrumbs */}
           <nav className="text-sm mb-4 text-gray-500">
-            <Link href="/" className="hover:underline">
-              Home
-            </Link>{" "}
-            /{" "}
-            <Link href="/blog" className="hover:underline">
-              Blog
-            </Link>{" "}
-            / <span className="text-gray-700">{frontmatter.title}</span>
+            <Link href="/" className="hover:underline">Home</Link> /{" "}
+            <Link href="/blog" className="hover:underline">Blog</Link> /{" "}
+            <span className="text-gray-700">{frontmatter.title}</span>
           </nav>
 
           {/* Cover Image */}
@@ -95,21 +96,45 @@ export default async function BlogPost({ params }) {
             </div>
           )}
 
+          {/* // CHANGED: Added mobile-only TOC above blog content */}
+
           {/* Title */}
           <h1 className="text-3xl font-bold mb-4">{frontmatter.title}</h1>
 
           {/* Meta Info */}
           <div className="text-gray-500 text-sm mb-6">
-            By {frontmatter.author || "Admin"}{" "}
-            {frontmatter.date ? `| ${frontmatter.date}` : ""}
+            By {frontmatter.author || "Admin"}
+            {frontmatter.date ? ` | ${frontmatter.date}` : ""}
           </div>
-
-          {/* Blog Content with Tailwind Typography */}
+          {/* ✅ Mobile TOC inserted here */}
+          <div className="block md:hidden mb-6">
+            <TableOfContents />
+          </div>
+          {/* Blog Content */}
           <div className="prose prose-lg max-w-none">
             <Markdown
               options={{
                 overrides: {
-                  // ✅ Handle normal images
+                  h2: {
+                    component: (props) => {
+                      const id = props.children
+                        ?.toString()
+                        ?.toLowerCase()
+                        ?.replace(/\s+/g, "-")
+                        ?.replace(/[^\w-]+/g, "");
+                      return <h2 id={id} {...props} />;
+                    },
+                  },
+                  h3: {
+                    component: (props) => {
+                      const id = props.children
+                        ?.toString()
+                        ?.toLowerCase()
+                        ?.replace(/\s+/g, "-")
+                        ?.replace(/[^\w-]+/g, "");
+                      return <h3 id={id} {...props} />;
+                    },
+                  },
                   img: {
                     component: (props) => {
                       let src = props.src || "";
@@ -128,15 +153,11 @@ export default async function BlogPost({ params }) {
                       );
                     },
                   },
-                  // ✅ Handle links
                   a: {
                     component: ({ href, children }) => {
                       if (href?.startsWith("/")) {
                         return (
-                          <Link
-                            href={href}
-                            className="text-blue-600 font-semibold hover:underline"
-                          >
+                          <Link href={href} className="text-blue-600 font-semibold hover:underline">
                             {children}
                           </Link>
                         );
@@ -153,7 +174,6 @@ export default async function BlogPost({ params }) {
                       );
                     },
                   },
-                  // ✅ Handle <Banner> in Markdown
                   Banner: { component: Banner },
                 },
               }}
@@ -163,32 +183,12 @@ export default async function BlogPost({ params }) {
           </div>
         </article>
 
-        {/* Sidebar */}
-        <aside className="bg-gray-50 p-4 shadow rounded-2xl">
-          <h3 className="text-lg font-semibold mb-4">Special Offer</h3>
-          {frontmatter.sidebarBanner && (
-            <div className="mb-4 relative w-full h-56">
-              <Link
-                href={frontmatter.sidebarLink || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="relative w-full h-full">
-                  <Image
-                    src={frontmatter.sidebarBanner}
-                    alt="Affiliate Banner"
-                    fill
-                    className="object-contain rounded-lg"
-                  />
-                </div>
-              </Link>
-            </div>
-          )}
-          <p className="text-gray-600 text-sm">
-            Discover exclusive discounts on the best hosting providers of 2025.
-          </p>
+        {/* Desktop TOC */}
+        <aside className="hidden md:block space-y-6 md:sticky md:top-24 self-start">
+          <TableOfContents />
         </aside>
       </div>
+
       <Footer />
     </>
   );
