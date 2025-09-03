@@ -16,12 +16,14 @@ export default async function BlogPage() {
   } catch (err) {
     return (
       <>
-        <Header />
-        <div style={{ padding: "2rem", minHeight: "60vh" }}>
-          <h1 style={{ fontSize: "2rem", marginBottom: "1.5rem" }}>
-            Blog Posts
-          </h1>
-          <p>No blog posts found. Please create posts in the <code>/posts</code> directory.</p>
+        <div className="pt-10">
+          <Header />
+        </div>
+        <div className="max-w-6xl mx-auto px-4 py-10 min-h-[60vh]">
+          <h1 className="text-3xl font-bold mb-6">Blog Posts</h1>
+          <p className="text-gray-600">
+            No blog posts found. Please create posts in the <code className="bg-gray-100 px-2 py-1 rounded">/posts</code> directory.
+          </p>
         </div>
         <Footer />
       </>
@@ -45,59 +47,60 @@ export default async function BlogPage() {
         excerpt: data.excerpt || "No description available.",
         coverImage: data.coverImage || "/datacenter.avif",
         date: data.date || null,
+        author: data.author || "Admin",
       };
     })
   );
 
   return (
     <>
-      <Header />
-      <div style={{ padding: "2rem", minHeight: "60vh" }}>
-        <h1 style={{ fontSize: "2rem", marginBottom: "1.5rem" }}>
-          Blog Posts
-        </h1>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-            gap: "1.5rem",
-          }}
-        >
+      {/* HEADER */}
+      <div className="pt-10">
+        <Header />
+      </div>
+
+      {/* MAIN CONTENT */}
+      <div className="max-w-6xl mx-auto px-4 py-8 min-h-[60vh]">
+        {/* Breadcrumb Navigation */}
+        <nav className="text-sm mb-6 text-gray-500">
+          <Link href="/" className="hover:underline">Home</Link> /{" "}
+          <span className="text-gray-700">Blog</span>
+        </nav>
+
+        <h1 className="text-3xl font-bold mb-8">Blog Posts</h1>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <div
               key={post.slug}
-              style={{
-                border: "1px solid #ddd",
-                borderRadius: "10px",
-                overflow: "hidden",
-                boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-              }}
+              className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              <Image
-                src={post.coverImage}
-                alt={post.title}
-                width={600}
-                height={300}
-                style={{ objectFit: "cover" }}
-                priority={false}
-              />
-              <div style={{ padding: "1rem" }}>
-                <h2 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>
+              <div className="relative w-full h-48">
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  priority={false}
+                />
+              </div>
+              <div className="p-6">
+                <h2 className="text-xl font-semibold mb-2 line-clamp-2 hover:text-blue-600 transition-colors">
                   {post.title}
                 </h2>
-                <p style={{ color: "#666", marginBottom: "1rem" }}>
+                
+                <div className="text-gray-500 text-sm mb-3">
+                  By {post.author}
+                  {post.date ? ` | ${post.date}` : ""}
+                </div>
+                
+                <p className="text-gray-600 mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
+                
                 <Link
                   href={`/blog/${post.slug}`}
-                  style={{
-                    display: "inline-block",
-                    background: "#0070f3",
-                    color: "white",
-                    padding: "0.5rem 1rem",
-                    borderRadius: "5px",
-                    textDecoration: "none",
-                  }}
+                  className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-200 font-semibold"
                 >
                   Read More →
                 </Link>
@@ -106,6 +109,8 @@ export default async function BlogPage() {
           ))}
         </div>
       </div>
+
+      {/* FOOTER */}
       <Footer />
     </>
   );

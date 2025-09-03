@@ -8,6 +8,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TableOfContents from "@/components/Toc";
+import Sidebarad from "@/components/Sidebarad"; // ✅ Affiliate banner
 
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), "posts");
@@ -22,20 +23,6 @@ export async function generateStaticParams() {
     .filter((f) => /\.(md|mdx)$/i.test(f))
     .map((filename) => ({ slug: filename.replace(/\.(md|mdx)$/, "") }));
 }
-
-const Banner = ({ src, link, width, height }) => (
-  <div className="my-8 flex justify-center">
-    <a href={link} target="_blank" rel="noopener noreferrer">
-      <Image
-        src={src}
-        alt="Affiliate Banner"
-        width={parseInt(width) || 300}
-        height={parseInt(height) || 250}
-        className="rounded-lg shadow-md hover:scale-105 transition-transform"
-      />
-    </a>
-  </div>
-);
 
 export default async function BlogPost({ params }) {
   const postsDirectory = path.join(process.cwd(), "posts");
@@ -64,26 +51,36 @@ export default async function BlogPost({ params }) {
   const fileContents = await fs.promises.readFile(filePath, "utf8");
   const { data: frontmatter, content } = matter(fileContents);
 
+  // ✅ Dynamic banner props from frontmatter
+  const bannerProps = {
+    heading: frontmatter.bannerHeading || "Exclusive for readers",
+    question: frontmatter.bannerQuestion || "Want to try this hosting?",
+    discount: frontmatter.bannerDiscount || 50,
+    affiliateLink: frontmatter.bannerLink || "#",
+    expiryDate: frontmatter.bannerExpiry || null,
+  };
+
   return (
     <>
+      {/* HEADER */}
       <div className="pt-10">
         <Header />
       </div>
 
-      {/* Container */}
-      <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* MAIN CONTAINER */}
+      <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-[1fr_300px] gap-8">
         
-        {/* Main Blog Content */}
-        <article className="md:col-span-2 bg-white shadow-lg rounded-2xl p-6">
+        {/* ------------------ MAIN BLOG CONTENT ------------------ */}
+        <article className="bg-white shadow-lg rounded-2xl p-6">
           
-          {/* Breadcrumbs */}
+          {/* Breadcrumb Navigation */}
           <nav className="text-sm mb-4 text-gray-500">
             <Link href="/" className="hover:underline">Home</Link> /{" "}
             <Link href="/blog" className="hover:underline">Blog</Link> /{" "}
             <span className="text-gray-700">{frontmatter.title}</span>
           </nav>
 
-          {/* Cover Image */}
+          {/* Blog Cover Image */}
           {frontmatter.coverImage && (
             <div className="mb-6 relative w-full h-64 md:h-96">
               <Image
@@ -96,21 +93,21 @@ export default async function BlogPost({ params }) {
             </div>
           )}
 
-          {/* // CHANGED: Added mobile-only TOC above blog content */}
-
-          {/* Title */}
+          {/* Blog Title */}
           <h1 className="text-3xl font-bold mb-4">{frontmatter.title}</h1>
 
-          {/* Meta Info */}
+          {/* Blog Meta Info */}
           <div className="text-gray-500 text-sm mb-6">
             By {frontmatter.author || "Admin"}
             {frontmatter.date ? ` | ${frontmatter.date}` : ""}
           </div>
-          {/* ✅ Mobile TOC inserted here */}
-          <div className="block md:hidden mb-6">
+
+          {/* ===== MOBILE: TOC AFTER INTRODUCTION ===== */}
+          <div className="block md:hidden mb-8 bg-gray-50 rounded-xl p-5 border-l-4 border-blue-500">
             <TableOfContents />
           </div>
-          {/* Blog Content */}
+
+          {/* Blog Body Content */}
           <div className="prose prose-lg max-w-none">
             <Markdown
               options={{
@@ -174,7 +171,6 @@ export default async function BlogPost({ params }) {
                       );
                     },
                   },
-                  Banner: { component: Banner },
                 },
               }}
             >
@@ -183,12 +179,21 @@ export default async function BlogPost({ params }) {
           </div>
         </article>
 
-        {/* Desktop TOC */}
-        <aside className="hidden md:block space-y-6 md:sticky md:top-24 self-start">
-          <TableOfContents />
+        {/* ------------------ DESKTOP SIDEBAR ------------------ */}
+        <aside className="hidden md:flex flex-col gap-6 sticky top-28 self-start h-fit">
+          <div className="flex flex-col gap-6">
+            <TableOfContents />
+            <Sidebarad {...bannerProps} />
+          </div>
         </aside>
       </div>
 
+      {/* ===== MOBILE: BANNER AT VERY BOTTOM ===== */}
+      <div className="block md:hidden px-4 pb-8 max-w-6xl mx-auto">
+        <Sidebarad {...bannerProps} />
+      </div>
+
+      {/* FOOTER */}
       <Footer />
     </>
   );
