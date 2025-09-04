@@ -8,8 +8,8 @@ coverImage: "/misshosting.avif"
 
 
 # Sidebar affiliate settings
-bannerHeading: "Exclusive for readers"
-bannerQuestion: "Want to try Hostinger?"
+bannerHeading: "Exclusive For Readers"
+bannerQuestion: "Want to try MissHosting?"
 bannerDiscount: 70
 bannerLink: "https://misshosting.com/aff-link"
 

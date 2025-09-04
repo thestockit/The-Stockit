@@ -8,7 +8,7 @@ export default function Sidebarad({
   affiliateLink = "#",
 }) {
   return (
-    <div className="sticky top-24 w-full max-w-xs mx-auto">
+    <div className="w-full">
       {/* Gradient Border Wrapper */}
       <div className="p-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl">
         

@@ -180,9 +180,11 @@ export default async function BlogPost({ params }) {
         </article>
 
         {/* ------------------ DESKTOP SIDEBAR ------------------ */}
-        <aside className="hidden md:flex flex-col gap-6 sticky top-28 self-start h-fit">
-          <div className="flex flex-col gap-6">
+        <aside className="hidden md:flex flex-col sticky top-28 self-start h-[calc(100vh-120px)]">
+          <div className="flex flex-col gap-6 overflow-y-auto">
             <TableOfContents />
+          </div>
+          <div className="mt-auto pt-4 border-t border-gray-200">
             <Sidebarad {...bannerProps} />
           </div>
         </aside>
