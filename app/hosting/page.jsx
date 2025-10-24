@@ -6,9 +6,9 @@ import img04 from '@/public/chemi.webp';
 import img05 from '@/public/shopifyy.webp';
 import img06 from '@/public/Scala-Hosting-1024x1024.webp';
 import img07 from '@/public/fastcome.webp';
-import img08 from '@/public/interserver2000.webp';
 import img09 from '@/public/hostinger.webp';
 import img10 from '@/public/bluehost-logo-square.webp';
+import img11 from '@/public/jethostcard.png';
 
 import contentImage01 from '@/public/scalahosting banner.webp';
 import contentImage02 from '@/public/blue-host-1.webp';
@@ -20,6 +20,7 @@ import contentImage07 from '@/public/Migrating-Web-Hosting-To-Shopify-ColorWhist
 import contentImage08 from '@/public/interserver.webp';
 import contentImage09 from '@/public/fastcomet.webp';
 import contentImage10 from '@/public/chemicloud-review-2022.webp';
+import contentImage11 from '@/public/jethost-banner.png';
 
 import Image from 'next/image';
 import Card from '@/constant/Card';
@@ -31,7 +32,7 @@ const Hosting = () => {
   const dataOne = [
     { img: img06, link: 'https://www.scalahosting.com/#661e37f21eb85', description: 'High-performance and reliable services for your website. Experience unmatched uptime and security with our hosting solutions.' },
     { img: img10, link: 'https://bluehost.sjv.io/c/3675093/1376228/11352', description: 'Trusted by millions worldwide, Bluehost offers 24/7 support and a seamless hosting experience.' },
-    { img: img04, link: 'https://chemicloud.com/#660526c05255d', description: 'Secure hosting with great uptime and excellent customer service. Perfect for businesses of all sizes.' },
+    { img: img11, link: 'https://jethost.com/?a_aid=thestockit', description: 'Secure hosting with great uptime and excellent customer service. Perfect for businesses of all sizes.' },
   ];
 
   const dataTwo = [
@@ -43,7 +44,7 @@ const Hosting = () => {
   const dataThree = [
     { img: img05, link: 'https://shopify.pxf.io/ZQdaoK', description: 'E-commerce hosting made easy. Get your online store up and running with Shopify.' },
     { img: img07, link: 'https://affiliate.fastcomet.com/scripts/2wc9ym?a_aid=659e4ffcaedda', description: 'Global reach with secure infrastructure. FastComet ensures your website is always online.' },
-    { img: img08, link: 'https://www.interserver.net/r/899620', description: 'Flexible plans with unlimited storage. InterServer provides everything you need for your website.' },
+    { img: img04, link: 'https://chemicloud.com/#660526c05255d', description: 'Flexible plans with unlimited storage. InterServer provides everything you need for your website.' },
     { img: img09, link: 'https://hostinger.sjv.io/rnV05j', description: 'High-speed and user-friendly hosting solutions. Hostinger makes website management a breeze.' },
   ];
 
@@ -57,6 +58,13 @@ const Hosting = () => {
       btnText: "Visit Scala Hosting",
       btnLink: "https://www.scalahosting.com/#661e37f21eb85"
     },
+  {    title: "JetHost: Our Go-To Hosting Provider",
+      imageUrl: contentImage11,
+      content: "JetHost is known for its reliable and secure hosting services. They offer a variety of plans that cater to different needs, from personal blogs to large business websites. JetHost provides excellent customer support, ensuring that any issues are resolved quickly and efficiently. Their hosting solutions come with robust security features, including SSL certificates and regular backups, making them a trustworthy choice for hosting your website.",
+      btnText: "Visit JetHost",
+      btnLink: "https://jethost.com/?a_aid=thestockit"
+    }, 
+
     {
       title: "Bluehost: Is it Worth It?",
       imageUrl: contentImage02,
