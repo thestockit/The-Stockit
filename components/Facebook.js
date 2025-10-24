@@ -31,7 +31,7 @@ const Facebook = () => {
                 <div className="relative mx-auto  ">
                     {isClient && (
                         <iframe
-                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FThe Stockit&tabs=timeline&width=1000&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTheStockit&tabs=timeline&width=1000&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
                             
                             className='mx-auto min-h-[500px] lg:w-[500px] lg:h-[500px]'
                             style={{ border: 'none', }}
