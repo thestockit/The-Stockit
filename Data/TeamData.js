@@ -7,6 +7,7 @@ import imgAbida from '@/public/abida.webp'
 import tahaimg from '@/public/taha.webp'
 import aliImg from '@/public/ali.webp'
 import batoolImg from '@/public/batool.webp'
+import imgtajamal from '@/public/tajamal.jpeg'
 
 
 export const teamMembers = [
@@ -60,13 +61,25 @@ export const teamMembers = [
     },
     {
         name: 'Aleeza Rubab',
-        role: 'React Developer',
+        role: 'NextJS Developer',
         description: 'Develops interactive interfaces for web app.',
         imageUrl: imgAleeza,
         socialLinks: {
             linkedin: 'https://www.linkedin.com/in/aleezarubab/',
             github: 'https://github.com/aleeza23',
             facebook: 'https://web.facebook.com/people/Aleeza-Rubab/pfbid0oX24vS64Zc1TsCvbg4yTQ6LDL2Au9Q9BJckXq3VS4rQHMLicpJGtvRrTix67cGMkl/'
+        },
+        duration: 1.2
+    },
+    {
+        name: 'Tajamal Iqbal',
+        role: 'React Developer',
+        description: 'Develops interactive backend interfaces for web app.',
+        imageUrl: imgtajamal,
+        socialLinks: {
+            linkedin: 'https://www.linkedin.com/in/rana-tajamal-iqbal-314805382/',
+            github: 'https://github.com/tajamaliqbal',
+            facebook: 'https://www.facebook.com/share/1Y2p6r42PM/'
         },
         duration: 1.2
     },
@@ -95,7 +108,7 @@ export const teamMembers = [
         duration: 1.5
     },
     {
-        name: 'Ali',
+        name: 'Mohammad Ali',
         role: 'Graphic Designer',
         description: 'Creates visually stunning graphics and designs.',
         imageUrl: aliImg,

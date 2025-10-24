@@ -29,7 +29,7 @@ const Teams = () => {
                         className="flex flex-wrap justify-center"
                     >
                         {/* Cards */}
-                        {(showAll ? teamMembers : teamMembers.slice(0, 5 )).map((member, index) => (
+                        {(showAll ? teamMembers : teamMembers.slice(0, 6 )).map((member, index) => (
                             <TeamCard key={index} member={member} index={index} />
                         ))}
                     </div>
