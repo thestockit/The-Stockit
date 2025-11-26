@@ -29,20 +29,10 @@ import img22 from '@/public/cars.webp'
 
 
 const portfolioItems = [
-    { ImageHref: img01, title: "Temia Quran ", category: "wordpress", description: "Online Quran Learning", link: "https://temiaquran.com/" },
     { ImageHref: img02, title: "Cybernated Media", category: "wordpress", description: "Youtube Editing Service", link: "https://cybernatedmedia.com/" },
-    { ImageHref: img03, title: "BotixAi", category: "development", description: "AI Automation Company", link: "https://botixai.com/" },
-    { ImageHref: img04, title: "Tech Chow", category: "wordpress", description: "IT Agency", link: "https://techchow.net/index.html" },
-    { ImageHref: img05, title: "Guru Advance Shop", category: "wordpress", description: "Online Shopping Store", link: "https://guruadvanceshop.com/" },
-    { ImageHref: img07, title: "Design Studio", category: "development", description: "Top-notch design solutions", link: "https://designstudio786.com/" },
-    { ImageHref: img12, title: "SKMH Traders", category: "wordpress", description: "Online Store", link: "https://www.skmhtraders.com/" },
-    { ImageHref: img08, title: "FaizanCars", category: "wordpress", description: "Qualified in the automotive field", link: "https://www.faizancars.com/" },
+    { ImageHref: img07, title: "KMK Studio", category: "development", description: "Top-notch design solutions", link: "https://kmkstudio.uk/" },
     { ImageHref: img09, title: "Portfolio Website", category: "wordpress", description: "Animated website", link: "https://www.muhammadmushtaq.com/" },
-    { ImageHref: img10, title: "Luqman Restuarant", category: "wordpress", description: "Restuarant Website", link: "https://www.luqmanrestaurant.com/" },
     { ImageHref: img19, title: "Medely ", category: "development", description: "Online Restuarant", link: "https://medely.com/" },
-    { ImageHref: img20, title: "Redgramint", category: "development", description: "Online Restuarant", link: "https://redgramint.site/" },
-    { ImageHref: img21, title: "Chaudhry Mobiles", category: "development", description: "Online Restuarant", link: "https://chaudharymobiles.com/" },
-    { ImageHref: img22, title: "Active Cars", category: "development", description: "Cars Selling Store", link: "https://activecarspk.com/home" },
     
     { ImageHref: img13, title: "Fire n Steak House", category: "development", description: "Online Restuarant", link: "https://firensteakhouse.com/" },
     { ImageHref: img14, title: "La Ruby", category: "shopify", description: "Online Store", link: "https://www.laruby.store/" },

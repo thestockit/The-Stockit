@@ -15,16 +15,9 @@ import img13 from '@/public/FNS (1).webp';
 
 
 export const images = [
-  { src: img01, title: "Temia Quran ", description: "Online Quran Learning", link: "https://temiaquran.com/" },
   { src: img02, title: "Cybernated Media", description: "Youtube Editing Service", link: "https://cybernatedmedia.com/" },
-  { src: img03, title: "BotixAi", description: "AI Automation Company", link: "https://botixai.com/" },
-  { src: img04, title: "Tech Chow", description: "IT Agency", link: "https://techchow.net/index.html" },
-  { src: img05, title: "Guru Advance Shop", description: "Online Shopping Store", link: "https://guruadvanceshop.com/" },
   { src: img07, title: "KMK Studio", description: "Top-notch design solutions", link: "https://kmkstudio.uk/" },
-  { src: img12, title: "SKMH Traders", description: "Online Store", link: "https://www.skmhtraders.com/" },
-  { src: img08, title: "FaizanCars", description: "Qualified in the automotive field", link: "https://www.faizancars.com/" },
   { src: img09, title: "Portfolio Website", description: "Animated website", link: "https://www.muhammadmushtaq.com/" },
-  { src: img10, title: "Luqman Restuarant", description: "Restuarant Website", link: "https://www.luqmanrestaurant.com/" },
   { src: img13, title: "Fire n Steak House", description: "Online Restuarant", link: "https://firensteakhouse.com/" },
 
 ];
