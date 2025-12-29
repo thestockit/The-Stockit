@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 // Critical components for initial load
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import GlassCTABanner from '@/components/CTABanner';
 
 // Dynamically imported components
 const Projects = dynamic(() => import('@/components/Projects'), {
@@ -37,6 +38,7 @@ export default function Home() {
         <Hero />
       </div>
       <Services />
+      <GlassCTABanner />
       <Tech />
       <Projects />
       <DigitalMarketing />

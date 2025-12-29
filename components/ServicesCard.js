@@ -1,89 +1,77 @@
 "use client"
-import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { motion } from 'framer-motion'
+import { useRouter } from "next/navigation"
+import { motion } from "framer-motion"
+import { useState } from "react"
 
-const ServicesCard = ({ index, elm }) => {
-    const router = useRouter()
-    const [isHovered, setIsHovered] = useState(false)
+const ServicesCard = ({ elm, index }) => {
+  const router = useRouter()
+  const [hovered, setHovered] = useState(null)
 
-    const handleClick = () => {
-        if (elm.path) {
-            router.push(elm.path)
-        }
-    }
-
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="relative group"
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="bg-[#f7f7f8] rounded-2xl border border-gray-200 overflow-hidden"
+    >
+      {/* Card Header */}
+      <div className="flex items-center justify-between px-6 py-5 border-b border-gray-200">
+        <h3
+          className="text-xl font-semibold
+          bg-gradient-to-r from-indigo-600 to-pink-600
+          text-transparent bg-clip-text"
         >
-            {/* Main Card */}
-            <div 
-                onClick={handleClick}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                className="relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 overflow-hidden"
-            >
-                {/* Top Gradient Bar */}
-                <div className="h-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
-                
-                {/* Content */}
-                <div className="p-8">
-                    {/* Icon - Fixed Hover */}
-                    <div className="relative mb-6">
-                        <div className={`w-16 h-16 rounded-xl bg-gradient-to-br from-indigo-50 to-pink-50 flex items-center justify-center transition-all duration-300 ${isHovered ? 'scale-110 shadow-md' : 'shadow-sm'}`}>
-                            <div className="text-2xl text-indigo-600">
-                                {elm.icon}
-                            </div>
-                        </div>
-                        
-                        {/* Floating Dots on Hover */}
-                        {isHovered && (
-                            <>
-                                <div className="absolute top-0 right-0 w-3 h-3 rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 animate-ping"></div>
-                                <div className="absolute bottom-0 left-0 w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-indigo-500 animate-ping delay-100"></div>
-                            </>
-                        )}
-                    </div>
+          {elm.title}
+        </h3>
 
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-indigo-600 transition-colors duration-300">
-                        {elm.title}
-                    </h3>
+        <div className="flex items-center gap-2">
+          <span className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-300 text-gray-600">
+            ↗
+          </span>
 
-                    {/* Description */}
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                        {elm.description}
-                    </p>
+          <span
+            className="w-9 h-9 flex items-center justify-center rounded-full text-white
+            bg-gradient-to-br from-indigo-600 to-pink-600"
+          >
+            {elm.icon}
+          </span>
+        </div>
+      </div>
 
-                    {/* CTA */}
-                    <div className="flex items-center text-sm font-medium text-indigo-600 group-hover:text-pink-600 transition-colors duration-300">
-                        <span>Learn more</span>
-                        <svg 
-                            className={`w-4 h-4 ml-2 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </div>
-                </div>
-
-                {/* Subtle Hover Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-            </div>
-
-            {/* Number Badge */}
-            <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 flex items-center justify-center text-white text-sm font-bold shadow-lg">
-                {index + 1}
-            </div>
-        </motion.div>
-    )
+      {/* Services List */}
+      <div className="divide-y divide-gray-200">
+        {elm.subServices.map((sub, i) => (
+          <motion.button
+          key={i}
+          onMouseEnter={() => setHovered(i)}
+          onMouseLeave={() => setHovered(null)}
+          onClick={() => router.push(sub.path)}
+          whileHover={{ x: 6 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="group w-full px-6 py-4 flex items-center justify-between text-left
+          hover:bg-white/70"
+        >
+          <span className="text-gray-800 font-medium">
+            {sub.name}
+          </span>
+        
+          <motion.span
+            animate={{
+              rotate: hovered === i ? 45 : 0,
+              x: hovered === i ? 4 : 0,
+            }}
+            transition={{ duration: 0.25 }}
+            className="text-gray-400 group-hover:text-indigo-500"
+          >
+            ↗
+          </motion.span>
+        </motion.button>
+        
+        ))}
+      </div>
+    </motion.div>
+  )
 }
 
 export default ServicesCard
