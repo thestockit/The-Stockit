@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import GlassCTABanner from '@/components/CTABanner';
 import FounderMessage from '@/components/FoundersMessage';
+import ServiceFaqs from '@/components/ServiceFaqs';
 
 // Dynamically imported components
 const Projects = dynamic(() => import('@/components/Projects'), {
@@ -22,7 +23,7 @@ const Testimonials = dynamic(() => import('@/components/Testimonials'), {
 const Blogs = dynamic(() => import('@/components/Blogs'), {
   ssr: false,
 });
-const ContactUs = dynamic(() => import('@/components/ContactUs'));
+const CTA = dynamic(() => import('@/components/CTA'));
 const Footer = dynamic(() => import('@/components/Footer'));
 const Facebook = dynamic(() => import('@/components/Facebook'), {
   ssr: false,
@@ -49,7 +50,8 @@ export default function Home() {
       <Blogs />
       <Facebook />
       <InstagramEmbed />
-      <ContactUs />
+      <ServiceFaqs />
+      <CTA />
       <Footer />
     </>
   );
