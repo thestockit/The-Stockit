@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import GlassCTABanner from '@/components/CTABanner';
+import FounderMessage from '@/components/FoundersMessage';
 
 // Dynamically imported components
 const Projects = dynamic(() => import('@/components/Projects'), {
@@ -37,6 +38,7 @@ export default function Home() {
         <Header />
         <Hero />
       </div>
+      <FounderMessage />
       <Services />
       <GlassCTABanner />
       <Tech />
