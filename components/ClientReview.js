@@ -6,7 +6,7 @@ import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ClientReview = () => {
-  // Testimonials data
+  // Testimonials data - with escaped quotes
   const testimonials = [
     {
       id: 1,
@@ -394,7 +394,7 @@ const ClientReview = () => {
                       <div className="relative mb-4 flex-grow">
                         <Quote className="absolute -top-1 -left-1 w-5 h-5 text-gray-200" />
                         <p className="text-gray-700 leading-relaxed text-sm pl-4 line-clamp-5">
-                          "{testimonial.content}"
+                          &ldquo;{testimonial.content}&rdquo;
                         </p>
                       </div>
 
