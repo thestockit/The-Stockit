@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import GlassCTABanner from '@/components/CTABanner';
 import FounderMessage from '@/components/FoundersMessage';
 import ServiceFaqs from '@/components/ServiceFaqs';
+import ClientReview from '@/components/ClientReview';
 
 // Dynamically imported components
 const Projects = dynamic(() => import('@/components/Projects'), {
@@ -15,9 +16,6 @@ const Services = dynamic(() => import('@/components/Services'));
 const Tech = dynamic(() => import('@/components/Tech'));
 const DigitalMarketing = dynamic(() => import('@/components/DigitalMarketing'));
 const Teams = dynamic(() => import('@/components/Teams'), {
-  ssr: false,
-});
-const Testimonials = dynamic(() => import('@/components/Testimonials'), {
   ssr: false,
 });
 const Blogs = dynamic(() => import('@/components/Blogs'), {
@@ -46,7 +44,7 @@ export default function Home() {
       <Projects />
       <DigitalMarketing />
       <Teams />
-      <Testimonials />
+      <ClientReview />
       <Blogs />
       <Facebook />
       <InstagramEmbed />
