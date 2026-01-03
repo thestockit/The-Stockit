@@ -58,26 +58,32 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        {/* The Grid - Original border-separated design */}
+        {/* The Grid - Inner borders only */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => {
-            // Logic to handle borders so they look like a single continuous grid
             const isLastInRow = (index + 1) % 3 === 0;
             const isInFirstRow = index < 3;
+            const isInFirstColumn = index % 3 === 0;
+            const isInLastColumn = (index + 1) % 3 === 0;
+            const isInFirstColumnMd = index % 2 === 0;
 
             return (
               <div
                 key={index}
                 className={`
                   relative p-8 md:p-10 lg:p-12 
-                  border-gray-200
-                  ${index < 3 ? 'border-t' : ''} /* Top border for first row only */
-                  border-b 
-                  ${!isLastInRow ? 'lg:border-r' : ''} /* Right border for all except last in row */
-                  ${(index + 1) % 2 !== 0 ? 'md:border-r lg:border-r-inherit' : ''} /* Right border for medium grid */
                   transition-colors duration-300
                   hover:bg-gray-50/50
                   group
+                  
+                  /* Inner right borders for desktop */
+                  ${!isLastInRow ? 'lg:border-r lg:border-gray-200' : ''}
+                  
+                  /* Inner right borders for tablet */
+                  ${index % 2 === 0 && index < 4 ? 'md:border-r md:border-gray-200' : ''}
+                  
+                  /* Inner bottom borders - all except last row */
+                  ${index < 3 ? 'border-b border-gray-200' : ''}
                 `}
               >
                 {/* Icon Container with Gradient */}
