@@ -7,6 +7,7 @@ import GlassCTABanner from '@/components/CTABanner';
 import FounderMessage from '@/components/FoundersMessage';
 import ServiceFaqs from '@/components/ServiceFaqs';
 import ClientReview from '@/components/ClientReview';
+import WhyChoosUs from '@/components/WhyChoosUs';
 
 // Dynamically imported components
 const Projects = dynamic(() => import('@/components/Projects'), {
@@ -43,6 +44,7 @@ export default function Home() {
       <Tech />
       <Projects />
       <DigitalMarketing />
+      <WhyChoosUs />
       <Teams />
       <ClientReview />
       <Blogs />
