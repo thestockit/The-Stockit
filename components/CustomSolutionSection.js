@@ -83,7 +83,7 @@ const CustomSolutionSection = () => {
           </div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
-            WHY IT'S WORTH INVESTING IN A{' '}
+            WHY IT&apos;S WORTH INVESTING IN A{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">
               CUSTOM SOLUTION
             </span>
