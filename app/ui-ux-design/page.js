@@ -5,6 +5,7 @@ import ChallengesSection from '@/components/ChallengesSection'
 import CustomSolutionSection from '@/components/CustomSolutionSection'
 import FeaturesSection from '@/components/FeaturesSection'
 import ServiceFaqs from '@/components/ServiceFaqs'
+import FoundersMessage from '@/components/FoundersMessage'
 import React from 'react'
 
 const UIUXDesgining = () => {
@@ -14,6 +15,7 @@ const UIUXDesgining = () => {
                 <Header />
             </div>
             <ServiceHero />
+            <FoundersMessage />
             <FeaturesSection />
             <CustomSolutionSection />
             <ChallengesSection />
