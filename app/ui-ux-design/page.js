@@ -4,6 +4,7 @@ import ServiceHero from '@/components/ServiceHero'
 import ChallengesSection from '@/components/ChallengesSection'
 import CustomSolutionSection from '@/components/CustomSolutionSection'
 import FeaturesSection from '@/components/FeaturesSection'
+import ServiceFaqs from '@/components/ServiceFaqs'
 import React from 'react'
 
 const UIUXDesgining = () => {
@@ -16,6 +17,7 @@ const UIUXDesgining = () => {
             <FeaturesSection />
             <CustomSolutionSection />
             <ChallengesSection />
+            <ServiceFaqs />
             <Footer />
         </div>
     )

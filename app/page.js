@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import GlassCTABanner from '@/components/CTABanner';
 import FounderMessage from '@/components/FoundersMessage';
-import ServiceFaqs from '@/components/ServiceFaqs';
+
 import ClientReview from '@/components/ClientReview';
 import WhyChoosUs from '@/components/WhyChoosUs';
 
@@ -50,7 +50,7 @@ export default function Home() {
       <Blogs />
       <Facebook />
       <InstagramEmbed />
-      <ServiceFaqs />
+
       <CTA />
       <Footer />
     </>

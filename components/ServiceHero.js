@@ -46,7 +46,7 @@ const ServiceHero = () => {
                   preload="metadata"
                   poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 >
-                  <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4" type="video/mp4" />
+                  <source src="https://res.cloudinary.com/ddndoajjw/video/upload/v1767090936/UIUX-Showreel_online-video-cutter.com_uujuxb.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 
