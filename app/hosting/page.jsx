@@ -8,6 +8,7 @@ import img06 from '@/public/Scala-Hosting-1024x1024.webp';
 import img07 from '@/public/fastcome.webp';
 import img09 from '@/public/hostinger.webp';
 import img10 from '@/public/bluehost-logo-square.webp';
+import img50 from '@/public/flashcloud.png';
 import img11 from '@/public/jethostcard.png';
 
 import contentImage01 from '@/public/scalahosting banner.webp';
@@ -21,6 +22,7 @@ import contentImage08 from '@/public/interserver.webp';
 import contentImage09 from '@/public/fastcomet.webp';
 import contentImage10 from '@/public/chemicloud-review-2022.webp';
 import contentImage11 from '@/public/jethost-banner.png';
+import contentImage50 from '@/public/flashcloud.png';
 
 import Image from 'next/image';
 import Card from '@/constant/Card';
@@ -32,7 +34,7 @@ const Hosting = () => {
   const dataOne = [
     { img: img06, link: 'https://www.scalahosting.com/#661e37f21eb85', description: 'High-performance and reliable services for your website. Experience unmatched uptime and security with our hosting solutions.' },
     { img: img10, link: 'https://bluehost.sjv.io/c/3675093/1376228/11352', description: 'Trusted by millions worldwide, Bluehost offers 24/7 support and a seamless hosting experience.' },
-    { img: img11, link: 'https://jethost.com/?a_aid=thestockit', description: 'Secure hosting with great uptime and excellent customer service. Perfect for businesses of all sizes.' },
+    { img: img50, link: 'https://affiliates.flashcloud.com/scripts/89m1uc?a_aid=thestockit', description: 'Secure hosting with great uptime and excellent customer service. Perfect for businesses of all sizes.' },
   ];
 
   const dataTwo = [
@@ -58,11 +60,11 @@ const Hosting = () => {
       btnText: "Visit Scala Hosting",
       btnLink: "https://www.scalahosting.com/#661e37f21eb85"
     },
-  {    title: "JetHost: Our Go-To Hosting Provider",
-      imageUrl: contentImage11,
-      content: "JetHost is known for its reliable and secure hosting services. They offer a variety of plans that cater to different needs, from personal blogs to large business websites. JetHost provides excellent customer support, ensuring that any issues are resolved quickly and efficiently. Their hosting solutions come with robust security features, including SSL certificates and regular backups, making them a trustworthy choice for hosting your website.",
-      btnText: "Visit JetHost",
-      btnLink: "https://jethost.com/?a_aid=thestockit"
+  {    title: "FlashCloud: Our Go-To Hosting Provider",
+      imageUrl: contentImage50,
+      content: "FlashCloud is known for its reliable and secure hosting services. They offer a variety of plans that cater to different needs, from personal blogs to large business websites. FlashCloud provides excellent customer support, ensuring that any issues are resolved quickly and efficiently. Their hosting solutions come with robust security features, including SSL certificates and regular backups, making them a trustworthy choice for hosting your website.",
+      btnText: "Visit FlashCloud",
+      btnLink: "https://affiliates.flashcloud.com/scripts/89m1uc?a_aid=thestockit"
     }, 
 
     {
