@@ -7,10 +7,7 @@ import Teams from '@/components/Teams';
 const ServicesPage = () => {
     return (
         <> 
-            {/* Header with homepage styling */}
-            <div className="pt-10 ">
-                <Header />  {/* ← ONLY ONE HEADER */}
-            </div>
+            <Header />
             
             {/* Page content */}
             <Services />

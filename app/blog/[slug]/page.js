@@ -63,9 +63,7 @@ export default async function BlogPost({ params }) {
   return (
     <>
       {/* HEADER */}
-      <div className="pt-10">
-        <Header />
-      </div>
+      <Header />
 
       {/* MAIN CONTAINER */}
       <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-[1fr_300px] gap-8">

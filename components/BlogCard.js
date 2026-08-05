@@ -1,61 +1,81 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import AosAnimation from './AosAnimation'
+import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
 
+const BlogCard = ({ blog, index }) => {
+  return (
+    <a
+      href="/blog"
+      aria-label={`Read more: ${blog.title}`}
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_4px_20px_-10px_rgba(79,70,229,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_-14px_rgba(79,70,229,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+    >
+      {/* Hover gradient ring */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-10 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          mask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
+          WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
+          WebkitMaskComposite: 'xor',
+          maskComposite: 'exclude',
+          padding: '1.5px',
+        }}
+      />
 
-const BlogCard = ({ blog }) => {
-    return (
-        <AosAnimation>
-            <div
-                className="group relative block rounded-xl focus:outline-none" data-aos="zoom-in-right"  data-aos-duration={blog.id * 20}
-            >
-                <Link key={blog.id} href={blog.link}
-                    rel="noopener noreferrer" >
-                    <div className="shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70">
-                        <Image
-                            className="absolute top-0 start-0 object-cover w-full h-full"
-                            src={blog.imageUrl}
-                            alt="Blog Image"
-                            fill
-                            priority
-                        />
-                    </div>
-                    <div className="absolute top-0 inset-x-0 z-10">
-                        <div className="p-4 flex flex-col h-full sm:p-6">
-                            {/* Avatar */}
-                            <div className="flex items-center">
-                                <div className="shrink-0">
-                                    <Image
-                                        className="border-2 border-white rounded-full"
-                                        src={blog.avatarUrl}
-                                        alt="Avatar"
-                                        width={46}
-                                        height={46}
-                                    />
-                                </div>
-                                <div className="ms-2.5 sm:ms-4">
-                                    <h4 className="font-semibold text-white">{blog.author}</h4>
-                                    <p className="text-xs text-white/80">{blog.date}</p>
-                                </div>
-                            </div>
-                            {/* End Avatar */}
-                        </div>
-                    </div>
-                    <div className="absolute bottom-0 inset-x-0 z-10">
-                        <div className="flex flex-col h-full p-4 sm:p-6">
-                            <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-white/80 group-focus:text-white/80">
-                                {blog.title}
-                            </h3>
-                            <p className="mt-2 text-white/80">
-                                {blog.description}
-                            </p>
-                        </div>
-                    </div>
-                </Link>
-            </div >
-        </AosAnimation>
-    )
-}
+      {/* Cover */}
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Image
+          src={blog.imageUrl}
+          alt={blog.title}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          loading={index === 0 ? 'eager' : 'lazy'}
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        />
+      </div>
 
-export default BlogCard
+      {/* Body */}
+      <div className="relative flex flex-1 flex-col p-6">
+        {/* Author row */}
+        <div className="flex items-center gap-3">
+          <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow">
+            <Image
+              src={blog.avatarUrl}
+              alt=""
+              width={36}
+              height={36}
+              className="object-cover"
+            />
+          </span>
+          <span className="min-w-0">
+            <span className="block truncate text-sm font-bold text-gray-900">
+              {blog.author}
+            </span>
+            <span className="block text-xs text-gray-500">{blog.date}</span>
+          </span>
+        </div>
+
+        <h3 className="mt-4 text-lg font-extrabold leading-snug tracking-tight text-gray-900 transition-colors duration-200 group-hover:text-blue-700">
+          {blog.title}
+        </h3>
+
+        <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-gray-600">
+          {blog.description}
+        </p>
+
+        <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-blue-600">
+          Read article
+          <ArrowUpRight
+            aria-hidden
+            className="h-4 w-4 text-gray-300 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blue-600"
+          />
+        </span>
+      </div>
+    </a>
+  );
+};
+
+export default BlogCard;

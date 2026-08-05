@@ -17,10 +17,10 @@ import img13 from '@/public/FNS (1).webp';
 
 
 export const images = [
-  { src: img02, title: "Cybernated Media", description: "Youtube Editing Service", link: "https://cybernatedmedia.com/" },
-  { src: img07, title: "KMK Studio", description: "Top-notch design solutions", link: "https://kmkstudio.uk/" },
-  { src: img09, title: "Portfolio Website", description: "Animated website", link: "https://www.muhammadmushtaq.com/" },
-  { src: img13, title: "Fire n Steak House", description: "Online Restuarant", link: "https://firensteakhouse.com/" },
-  { src: img13, title: "Praktijk Groenendijk", description: "Clinic in Belgium", link: "https://www.praktijkgroenendijk.be/" },
-  { src: img007, title: "Syed Consultants", description: "Visa Consultancy", link: "https://www.syedsconsultancy.com/" },
+  { src: img02, title: "Cybernated Media", description: "YouTube Editing Service", category: "Video", link: "https://cybernatedmedia.com/" },
+  { src: img07, title: "KMK Studio", description: "Top-notch design solutions", category: "Design", link: "https://kmkstudio.uk/" },
+  { src: img09, title: "Portfolio Website", description: "Animated website", category: "Web Development", link: "https://www.muhammadmushtaq.com/" },
+  { src: img13, title: "Fire n Steak House", description: "Online Restuarant", category: "Restaurant", link: "https://firensteakhouse.com/" },
+  { src: img10, title: "Praktijk Groenendijk", description: "Clinic in Belgium", category: "Healthcare", link: "https://www.praktijkgroenendijk.be/" },
+  { src: img007, title: "Syed Consultants", description: "Visa Consultancy", category: "Consultancy", link: "https://www.syedsconsultancy.com/" },
 ];

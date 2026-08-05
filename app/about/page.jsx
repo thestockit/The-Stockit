@@ -11,9 +11,7 @@ const AosAnimation = dynamic(() => import('@/components/AosAnimation'), { ssr: f
 const About = () => {
     return (
         <>
-            <div className="pt-10">
-                <Header />
-            </div>
+            <Header />
             <AosAnimation>
                 <div className="container px-5 lg:px-20 mx-auto pt-10 lg:pt-20">
                     <div className="flex flex-col lg:flex-row items-center">

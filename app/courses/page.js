@@ -13,7 +13,7 @@ const CoursesDetails = dynamic(() => import('@/components/CoursesDetails'), { ss
 export default function CoursesPage() {
     return (
         <>
-            <div className="bg-gray-100 pt-10 pb-16">
+            <div className="bg-gray-100 pb-16">
                 <Header />
                 <CoursePolicy />
             </div>

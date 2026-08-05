@@ -6,10 +6,7 @@ import ContactUs from '@/components/ContactUs';
 const ContactPage = () => {  // ← Change this name
     return (
         <>
-        {/* Header with homepage styling */}
-        <div className="pt-10 ">
-                <Header />  {/* ← ONLY ONE HEADER */}
-            </div>
+        <Header />
 
 
 

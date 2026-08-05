@@ -3,12 +3,12 @@ const ServicesData = [
   {
     title: 'Design Services',
     subServices: [
-      { name: 'UI/UX Design', path: '/services/design/ui-ux' },
-      { name: 'Web Design', path: '/services/design/web' },
-      { name: 'Mobile App Design', path: '/services/design/mobile' },
-      { name: 'Landing Page Design', path: '/services/design/landing-page' },
-      { name: 'Branding & Identity', path: '/services/design/branding' },
-      { name: 'Graphic Design', path: '/services/design/graphic' }
+      { name: 'UI/UX Design', href: '/ui-ux-design' },
+      { name: 'Web Design', href: '/contact' },
+      { name: 'Mobile App Design', href: '/contact' },
+      { name: 'Landing Page Design', href: '/contact' },
+      { name: 'Branding & Identity', href: '/contact' },
+      { name: 'Graphic Design', href: '/contact' }
     ],
     icon: (
       <svg
@@ -34,12 +34,12 @@ const ServicesData = [
   {
     title: 'Development Services',
     subServices: [
-      { name: 'Web Development', path: '/services/development/web' },
-      { name: 'Software Development', path: '/services/development/software' },
-      { name: 'CMS Development', path: '/services/development/cms' },
-      { name: 'Shopify Development', path: '/services/development/shopify' },
-      { name: 'Webflow Development', path: '/services/development/webflow' },
-      { name: 'Mobile Development', path: '/services/development/mobile' }
+      { name: 'Web Development', href: '/contact' },
+      { name: 'Software Development', href: '/contact' },
+      { name: 'CMS Development', href: '/contact' },
+      { name: 'Shopify Development', href: '/contact' },
+      { name: 'Webflow Development', href: '/contact' },
+      { name: 'Mobile Development', href: '/contact' }
     ],
     icon: (
       <svg

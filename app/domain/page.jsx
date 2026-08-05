@@ -21,9 +21,7 @@ const Domain = () => {
 
     return (
         <div >
-            <div className="pt-10">
-                <Header />
-            </div>
+            <Header />
             <div className="relative px-6 mt-10 mb-10 md:mt-20 mx-auto max-w-5xl text-center">
                 <h2 className="block w-full text-black font-bold text-3xl sm:text-4xl">
                     Our Domain Partners

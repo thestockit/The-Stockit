@@ -1,77 +1,79 @@
-"use client"
-import { useRouter } from "next/navigation"
-import { motion } from "framer-motion"
-import { useState } from "react"
+"use client";
+
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import usePrefersReducedMotion from './usePrefersReducedMotion';
+
+const EASE = [0.16, 1, 0.3, 1];
 
 const ServicesCard = ({ elm, index }) => {
-  const router = useRouter()
-  const [hovered, setHovered] = useState(null)
+  const reduce = usePrefersReducedMotion();
+  const cardNumber = String(index + 1).padStart(2, '0');
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 18 }}
+      initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="bg-[#f7f7f8] rounded-2xl border border-gray-200 overflow-hidden"
+      transition={{ duration: 0.7, ease: EASE, delay: index * 0.12 }}
+      viewport={{ once: true, margin: '-60px' }}
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_4px_20px_-10px_rgba(79,70,229,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_-14px_rgba(79,70,229,0.32)]"
     >
-      {/* Card Header */}
-      <div className="flex items-center justify-between px-6 py-5 border-b border-gray-200">
-        <h3
-          className="text-xl font-semibold
-          bg-gradient-to-r from-indigo-600 to-pink-600
-          text-transparent bg-clip-text"
-        >
-          {elm.title}
-        </h3>
+      {/* Hover gradient ring */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          mask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
+          WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
+          WebkitMaskComposite: 'xor',
+          maskComposite: 'exclude',
+          padding: '1.5px',
+        }}
+      />
 
-        <div className="flex items-center gap-2">
-          <span className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-300 text-gray-600">
-            ↗
+      {/* Card header */}
+      <div className="relative flex items-start justify-between gap-4 p-6 md:p-7">
+        <div>
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+            {cardNumber}
           </span>
-
-          <span
-            className="w-9 h-9 flex items-center justify-center rounded-full text-white
-            bg-gradient-to-br from-indigo-600 to-pink-600"
-          >
-            {elm.icon}
+          <h3 className="mt-1.5 text-2xl font-extrabold tracking-tight text-gray-900">
+            {elm.title}
+          </h3>
+          <span className="mt-1 block text-sm text-gray-500">
+            {elm.subServices.length} services
           </span>
         </div>
+
+        <span
+          aria-hidden
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-md shadow-blue-600/25 transition-transform duration-300 group-hover:scale-110"
+        >
+          {elm.icon}
+        </span>
       </div>
 
-      {/* Services List */}
-      <div className="divide-y divide-gray-200">
-        {elm.subServices.map((sub, i) => (
-          <motion.button
-          key={i}
-          onMouseEnter={() => setHovered(i)}
-          onMouseLeave={() => setHovered(null)}
-          onClick={() => router.push(sub.path)}
-          whileHover={{ x: 6 }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          className="group w-full px-6 py-4 flex items-center justify-between text-left
-          hover:bg-white/70"
-        >
-          <span className="text-gray-800 font-medium">
-            {sub.name}
-          </span>
-        
-          <motion.span
-            animate={{
-              rotate: hovered === i ? 45 : 0,
-              x: hovered === i ? 4 : 0,
-            }}
-            transition={{ duration: 0.25 }}
-            className="text-gray-400 group-hover:text-indigo-500"
+      {/* Sub-service list */}
+      <div className="relative flex-1 divide-y divide-gray-100 border-t border-gray-100">
+        {elm.subServices.map((sub) => (
+          <Link
+            key={sub.name}
+            href={sub.href}
+            className="group/row flex items-center justify-between gap-4 px-6 py-3.5 transition-colors duration-200 hover:bg-blue-50/40 focus-visible:bg-blue-50/40 focus-visible:outline-none md:px-7"
           >
-            ↗
-          </motion.span>
-        </motion.button>
-        
+            <span className="font-medium text-gray-800 transition-colors duration-200 group-hover/row:text-gray-900">
+              {sub.name}
+            </span>
+            <ArrowUpRight
+              className="h-4 w-4 shrink-0 text-gray-300 transition-all duration-200 group-hover/row:text-blue-600 group-hover/row:translate-x-0.5 group-hover/row:-translate-y-0.5"
+              aria-hidden
+            />
+          </Link>
         ))}
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default ServicesCard
+export default ServicesCard;

@@ -11,9 +11,7 @@ import React from 'react'
 const UIUXDesgining = () => {
     return (
         <div className=" min-h-screen">
-            <div className="pt-10">
-                <Header />
-            </div>
+            <Header />
             <ServiceHero />
             <FoundersMessage />
             <FeaturesSection />

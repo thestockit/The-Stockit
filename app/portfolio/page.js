@@ -9,9 +9,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 const Portfolio = () => {
     return (
         <>
-            <div className="pt-10">
-                <Header />
-            </div>
+            <Header />
             <section className="pt-10 lg:pt-20 px-5 lg:px-24 pb-12 lg:pb-[30px]">
                 <div className="container mx-auto">
                     <div className="text-center mb-[40px] max-w-[810px] mx-auto">

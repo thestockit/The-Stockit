@@ -40,6 +40,15 @@
 .slide-track:hover {
   animation-play-state: paused;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
 .slide {
   height: auto; /* Increase height */
   width: 400px; /* Increase width */

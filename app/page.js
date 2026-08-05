@@ -34,7 +34,7 @@ const InstagramEmbed = dynamic(() => import('@/components/InstagramEmbed'), {
 export default function Home() {
   return (
     <>
-      <div className="bg-gray-100 pt-10 pb-16">
+      <div className="bg-gray-100 pb-16">
         <Header />
         <Hero />
       </div>

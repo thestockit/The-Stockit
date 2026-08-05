@@ -1,98 +1,82 @@
 "use client";
 
-import { Calendar } from "lucide-react";
-import { motion } from "framer-motion";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Calendar, ArrowRight } from 'lucide-react';
+import usePrefersReducedMotion from './usePrefersReducedMotion';
+
+const EASE = [0.16, 1, 0.3, 1];
 
 const CTASection = () => {
+  const reduce = usePrefersReducedMotion();
+
+  const fadeUp = {
+    hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 28 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: EASE },
+    },
+  };
+
   return (
-    <section className="relative py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Main container */}
-      <div className="max-w-4xl mx-auto relative">
+    <section
+      id="cta"
+      className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600"
+    >
+      {/* Decorative background */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:56px_56px]" />
+        <div className="absolute -left-24 -top-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-pink-500/20 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          className="text-center"
         >
-          {/* Gradient CTA Card Background */}
-          <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]">
-            {/* Main gradient background for the entire card */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/80 via-pink-50/80 to-indigo-50/80 backdrop-blur-sm" />
-            
-            {/* Subtle gradient overlay for depth */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-pink-500/5 to-indigo-500/5" />
-            
-            {/* Content container with padding */}
-            <div className="relative p-8 md:p-12">
-              {/* Notched Corner */}
-              <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                <div 
-                  className="absolute -top-1 -right-1 w-20 h-20 rotate-45"
-                  style={{
-                    clipPath: 'polygon(0% 0%, 100% 0%, 0% 100%)',
-                    background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.9) 0%, rgba(236, 72, 153, 0.9) 100%)',
-                  }}
-                />
-              </div>
-              
-              {/* Content */}
-              <div className="max-w-2xl mx-auto text-center">
-                {/* Heading */}
-                <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-                  Ready to discuss your project with us?
-                </h2>
-                
-                {/* Description */}
-                <p className="text-base md:text-lg text-gray-700 mb-8 md:mb-10 leading-relaxed max-w-2xl mx-auto">
-                  Let&apos;s talk about how we can craft a user experience that not only looks great but drives real growth for your product.
-                </p>
-                
-                {/* CTA Button */}
-                <motion.a
-                  href="/contact"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="
-                    group relative bg-[#4318FF] text-white font-semibold
-                    px-6 py-3 md:px-8 md:py-4 rounded-full
-                    flex items-center justify-center gap-2 mx-auto
-                    shadow-md shadow-indigo-500/30
-                    hover:shadow-lg hover:shadow-indigo-500/40
-                    transition-all duration-300
-                    hover:bg-[#5b37ff]
-                  "
-                >
-                  <span className="text-sm md:text-base tracking-wide">
-                    BOOK A CALL
-                  </span>
-                  
-                  {/* Calendar Icon in White Circle */}
-                  <span className="relative">
-                    <span className="absolute inset-0 bg-white rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-300" />
-                    <span className="relative w-8 h-8 md:w-9 md:h-9 bg-white rounded-full flex items-center justify-center">
-                      <Calendar className="w-4 h-4 md:w-4.5 md:h-4.5 text-[#4318FF]" />
-                    </span>
-                  </span>
-                  
-                  {/* Button Hover Gradient Effect */}
-                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-                </motion.a>
-                
-                {/* Trust Indicator */}
-                <div className="mt-6 flex items-center justify-center gap-2 text-xs md:text-sm text-gray-600">
-                  <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>No strings attached • 30-minute consultation</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Decorative gradient corners */}
-            <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-indigo-500/10 to-pink-500/10 rounded-full blur-xl -translate-x-1/4 -translate-y-1/4" />
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500/10 to-indigo-500/10 rounded-full blur-xl translate-x-1/4 translate-y-1/4" />
+          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
+            <span className="relative flex h-2 w-2" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+            </span>
+            Free consultation
+          </span>
+
+          <h2 className="mx-auto max-w-2xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+            Ready to discuss your project with us?
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-blue-100 md:text-lg">
+            Let&apos;s talk about how we can craft a user experience that not
+            only looks great but drives real growth for your product.
+          </p>
+
+          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-sm font-bold text-blue-700 shadow-lg shadow-blue-900/20 transition-all duration-300 hover:bg-blue-50 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600"
+            >
+              <Calendar className="h-4 w-4" aria-hidden />
+              Book a call
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden />
+            </Link>
+
+            <a
+              href="mailto:info@thestockit.com"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600"
+            >
+              Email us instead
+            </a>
           </div>
+
+          <p className="mt-6 text-xs font-medium text-blue-100/80 md:text-sm">
+            No strings attached • 30-minute consultation
+          </p>
         </motion.div>
       </div>
     </section>

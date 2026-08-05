@@ -2,204 +2,172 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronDown, Users } from 'lucide-react';
 import { teamMembers } from '@/Data/TeamData';
 import TeamMemberCard from './TeamCard';
+import usePrefersReducedMotion from './usePrefersReducedMotion';
+
+const EASE = [0.16, 1, 0.3, 1];
 
 const Teams = () => {
-    const [showAll, setShowAll] = useState(false);
-    const [activeFilter, setActiveFilter] = useState('all');
-    
-    const displayedMembers = showAll ? teamMembers : teamMembers.slice(0, 8);
-    
-    // Filter team members by department
-    const departments = ['all', ...new Set(teamMembers.map(member => member.department).filter(Boolean))];
-    
-    const filteredMembers = activeFilter === 'all' 
-        ? displayedMembers 
-        : displayedMembers.filter(member => member.department === activeFilter);
+  const reduce = usePrefersReducedMotion();
+  const [showAll, setShowAll] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('all');
 
-    return (
-        <section id="team" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8">
-            {/* Animated Background Elements */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white via-indigo-50/10 to-white" />
-            
-            {/* Floating Gradient Orbs */}
-            <div className="absolute top-20 left-10 w-64 h-64">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-pink-500/5 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute inset-10 bg-gradient-to-br from-indigo-600/10 to-pink-600/10 rounded-full blur-xl" />
-            </div>
-            
-            <div className="absolute bottom-20 right-10 w-64 h-64">
-                <div className="absolute inset-0 bg-gradient-to-tl from-pink-500/5 to-indigo-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
-                <div className="absolute inset-10 bg-gradient-to-tl from-pink-600/10 to-indigo-600/10 rounded-full blur-xl" />
-            </div>
-            
-            <div className="max-w-7xl mx-auto relative">
-                {/* Premium Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-center mb-20"
+  const displayedMembers = showAll ? teamMembers : teamMembers.slice(0, 8);
+  const departments = [
+    'all',
+    ...new Set(teamMembers.map((m) => m.department).filter(Boolean)),
+  ];
+  const filteredMembers =
+    activeFilter === 'all'
+      ? displayedMembers
+      : displayedMembers.filter((m) => m.department === activeFilter);
+
+  const fadeUp = {
+    hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 28 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: EASE },
+    },
+  };
+
+  const container = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.1 } },
+  };
+
+  return (
+    <section id="team" className="relative overflow-hidden bg-white">
+      {/* Decorative background */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.04)_1px,transparent_1px)] bg-[size:56px_56px]" />
+        <div className="absolute -left-24 top-1/4 h-96 w-96 rounded-full bg-pink-500/10 blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
+      </div>
+
+      {/* Hairline divider */}
+      <div
+        aria-hidden
+        className="relative h-px bg-gradient-to-r from-transparent via-blue-200/80 to-transparent"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
+        {/* Section header */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          className="mx-auto mb-12 max-w-2xl text-center md:mb-16"
+        >
+          <motion.span
+            variants={fadeUp}
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-pink-100 bg-pink-50/80 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-pink-700"
+          >
+            <span className="relative flex h-2 w-2" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-500 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-pink-600" />
+            </span>
+            Meet our experts
+          </motion.span>
+
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl"
+          >
+            The minds
+            <span className="block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              behind the magic
+            </span>
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUp}
+            className="mt-4 text-base leading-relaxed text-gray-600 md:text-lg"
+          >
+            A collective of visionary creators, technical experts, and strategic
+            thinkers dedicated to crafting exceptional digital experiences.
+          </motion.p>
+        </motion.div>
+
+        {/* Department filters */}
+        {departments.length > 1 && (
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            className="mb-12 flex flex-wrap justify-center gap-2 md:mb-14"
+            role="group"
+            aria-label="Filter team members by department"
+          >
+            {departments.map((dept) => {
+              const active = activeFilter === dept;
+              return (
+                <button
+                  key={dept}
+                  type="button"
+                  onClick={() => setActiveFilter(dept)}
+                  aria-pressed={active}
+                  className={
+                    active
+                      ? 'rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
+                      : 'rounded-full border border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-gray-600 transition-all duration-300 hover:border-blue-200 hover:bg-blue-50/50 hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
+                  }
                 >
-                    {/* Decorative Element */}
-                    <div className="inline-flex items-center justify-center gap-4 mb-8">
-                        <div className="w-16 h-px bg-gradient-to-r from-transparent via-indigo-600 to-transparent" />
-                        <div className="w-4 h-4 rounded-full bg-gradient-to-r from-indigo-600 to-pink-600 rotate-45" />
-                        <div className="w-16 h-px bg-gradient-to-r from-transparent via-pink-600 to-transparent" />
-                    </div>
-                    
-                    {/* Subtitle with gradient */}
-                    <div className="mb-6">
-                        <span className="
-                            inline-block px-6 py-2 rounded-full text-sm font-semibold uppercase tracking-wider
-                            bg-gradient-to-r from-indigo-600/10 to-pink-600/10 border border-indigo-200/50
-                            text-gray-700
-                        ">
-                            Meet Our Experts
-                        </span>
-                    </div>
-                    
-                    {/* Main Heading */}
-                    <h2 className="
-                        text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
-                        font-extrabold text-gray-900 tracking-tight mb-6
-                        leading-[1.1]
-                    ">
-                        <span className="
-                            bg-gradient-to-r from-gray-900 via-gray-900 to-gray-900
-                            bg-clip-text
-                        ">
-                            The Minds
-                        </span>
-                        <br />
-                        <span className="
-                            bg-gradient-to-r from-indigo-600 via-pink-600 to-indigo-600 
-                            text-transparent bg-clip-text bg-200% animate-gradient-x
-                        ">
-                            Behind The Magic
-                        </span>
-                    </h2>
-                    
-                    {/* Description */}
-                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        A collective of visionary creators, technical experts, and strategic thinkers 
-                        dedicated to crafting exceptional digital experiences.
-                    </p>
-                    
-                    {/* Department Filters */}
-                    {departments.length > 2 && (
-                        <div className="flex flex-wrap justify-center gap-2 mt-10 p-4 bg-white/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-sm">
-                            {departments.map((dept) => (
-                                <motion.button
-                                    key={dept}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    onClick={() => setActiveFilter(dept)}
-                                    className={`
-                                        px-5 py-2.5 rounded-full text-sm font-medium 
-                                        transition-all duration-300 transform
-                                        ${activeFilter === dept
-                                            ? 'bg-gradient-to-r from-indigo-600 to-pink-600 text-white shadow-lg'
-                                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                                        }
-                                    `}
-                                >
-                                    {dept === 'all' ? 'All Teams' : dept}
-                                </motion.button>
-                            ))}
-                        </div>
-                    )}
-                </motion.div>
-                
-                {/* Team Grid with Enhanced Layout */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="relative"
-                >
-                    {/* Grid Background Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-50/5 to-transparent -z-10" />
-                    
-                    {/* Team Cards Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10">
-                        {filteredMembers.map((member, index) => (
-                            <TeamMemberCard
-                                key={member.id || index}
-                                member={member}
-                                index={index}
-                            />
-                        ))}
-                    </div>
-                    
-                    {/* Enhanced Load More Button */}
-                    {teamMembers.length > 8 && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="mt-20 text-center"
-                        >
-                            <div className="relative inline-block">
-                                {/* Decorative Rings */}
-                                <div className="absolute -inset-4 bg-gradient-to-r from-indigo-600/20 to-pink-600/20 rounded-full blur-xl opacity-50" />
-                                <div className="absolute -inset-2 bg-gradient-to-r from-indigo-600/10 to-pink-600/10 rounded-full" />
-                                
-                                {/* Main Button */}
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    onClick={() => setShowAll(!showAll)}
-                                    className="
-                                        group relative px-10 py-4 rounded-2xl
-                                        bg-gradient-to-r from-indigo-600 to-pink-600
-                                        text-white font-bold text-lg
-                                        shadow-xl shadow-indigo-500/30
-                                        hover:shadow-2xl hover:shadow-indigo-500/40
-                                        transition-all duration-500
-                                    "
-                                >
-                                    <span className="flex items-center justify-center gap-3">
-                                        {showAll ? 'Show Less' : 'View All Team Members'}
-                                        <svg 
-                                            className={`
-                                                w-5 h-5 transition-all duration-500
-                                                ${showAll ? 'rotate-180' : ''}
-                                                group-hover:translate-x-1
-                                            `}
-                                            fill="none" 
-                                            stroke="currentColor" 
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                        </svg>
-                                    </span>
-                                    
-                                    {/* Button Hover Effect */}
-                                    <div className="
-                                        absolute inset-0 rounded-2xl bg-white/10 opacity-0 
-                                        group-hover:opacity-100 transition-opacity duration-500
-                                    " />
-                                </motion.button>
-                            </div>
-                            
-                            {/* Counter */}
-                            <p className="mt-6 text-sm text-gray-500 font-medium">
-                                {showAll 
-                                    ? `Showing all ${teamMembers.length} team members` 
-                                    : `Displaying 8 of ${teamMembers.length} talented professionals`
-                                }
-                            </p>
-                        </motion.div>
-                    )}
-                </motion.div>
-            </div>
-        </section>
-    );
+                  {dept === 'all' ? 'All Teams' : dept}
+                </button>
+              );
+            })}
+          </motion.div>
+        )}
+
+        {/* Team grid */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-8"
+        >
+          {filteredMembers.map((member, index) => (
+            <TeamMemberCard key={member.id || index} member={member} index={index} />
+          ))}
+        </motion.div>
+
+        {/* Show more */}
+        {teamMembers.length > 8 && (
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            className="mt-14 text-center"
+          >
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            >
+              <Users className="h-4 w-4" aria-hidden />
+              {showAll ? 'Show less' : 'View all team members'}
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
+                aria-hidden
+              />
+            </button>
+            <p className="mt-4 text-sm font-medium text-gray-500">
+              {showAll
+                ? `Showing all ${teamMembers.length} team members`
+                : `Displaying 8 of ${teamMembers.length} talented professionals`}
+            </p>
+          </motion.div>
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default Teams;

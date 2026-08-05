@@ -5,9 +5,7 @@ import React from 'react';
 const Privacy = () => {
     return (
         <div className="min-h-screen">
-            <div className="pt-10">
-                <Header />
-            </div>
+            <Header />
 
             <div className="relative px-6 mt-10 mb-10 md:mt-20 mx-auto max-w-4xl bg-white">
                 <h2 className="text-black font-bold text-4xl sm:text-5xl mb-6">
