@@ -3,22 +3,41 @@ import { useState } from "react";
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [errors, setErrors] = useState({});
     const [status, setStatus] = useState("");
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        setErrors((prev) => ({ ...prev, [e.target.name]: undefined }));
         setStatus("");
+    };
+
+    const validate = () => {
+        const nextErrors = {};
+        if (!formData.name.trim()) {
+            nextErrors.name = "Please enter your name.";
+        }
+        if (!formData.email.trim()) {
+            nextErrors.email = "Please enter your email address.";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            nextErrors.email = "Please enter a valid email address.";
+        }
+        if (!formData.message.trim()) {
+            nextErrors.message = "Please enter a message.";
+        }
+        return nextErrors;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const { name, email, message } = formData;
-
-        if (!name.trim() || !email.trim() || !message.trim()) {
-            setStatus("Please fill in all fields before sending.");
+        const nextErrors = validate();
+        setErrors(nextErrors);
+        if (Object.keys(nextErrors).length > 0) {
+            setStatus("");
             return;
         }
 
+        const { name, email, message } = formData;
         const subject = encodeURIComponent(`Website inquiry from ${name}`);
         const body = encodeURIComponent(`${message}\n\n---\nName: ${name}\nEmail: ${email}`);
         window.location.href = `mailto:info@thestockit.com?subject=${subject}&body=${body}`;
@@ -78,8 +97,13 @@ const ContactUs = () => {
                                 onChange={handleChange}
                                 placeholder='Enter your full name...'
                                 required
+                                aria-invalid={errors.name ? "true" : "false"}
+                                aria-describedby={errors.name ? "name-error" : undefined}
                                 className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                             />
+                            {errors.name && (
+                                <p id="name-error" className="text-xs text-red-600 mt-1" role="alert">{errors.name}</p>
+                            )}
                         </div>
                         <div className="relative mb-4">
                             <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
@@ -91,8 +115,13 @@ const ContactUs = () => {
                                 onChange={handleChange}
                                 placeholder='Enter your email address...'
                                 required
+                                aria-invalid={errors.email ? "true" : "false"}
+                                aria-describedby={errors.email ? "email-error" : undefined}
                                 className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                             />
+                            {errors.email && (
+                                <p id="email-error" className="text-xs text-red-600 mt-1" role="alert">{errors.email}</p>
+                            )}
                         </div>
                         <div className="relative mb-4">
                             <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
@@ -103,8 +132,13 @@ const ContactUs = () => {
                                 onChange={handleChange}
                                 placeholder='Share your thoughts or inquiries...'
                                 required
+                                aria-invalid={errors.message ? "true" : "false"}
+                                aria-describedby={errors.message ? "message-error" : undefined}
                                 className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                             ></textarea>
+                            {errors.message && (
+                                <p id="message-error" className="text-xs text-red-600 mt-1" role="alert">{errors.message}</p>
+                            )}
                         </div>
                         <button
                             type="submit"

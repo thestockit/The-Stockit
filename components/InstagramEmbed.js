@@ -32,21 +32,9 @@ const InstagramEmbed = () => {
             </div>
 
             <div className="igwrapper flex-1 bg-white relative">
-                <style jsx>{`
-                    .igwrapper a {
-                        color: rgba(0, 0, 0, 0);
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        z-index: 0;
-                    }
-                `}</style>
-                <a href="https://www.taxuni.com/oregon-state-income-tax/">
-                    Oregon State Income Tax
-                </a>
                 <blockquote
                     className="instagram-media"
-                    data-instgrm-permalink="https://www.instagram.com/The Stockit/"
+                    data-instgrm-permalink="https://www.instagram.com/thestockit/"
                     data-instgrm-version="14"
                     style={{
                         background: '#FFF',
