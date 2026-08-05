@@ -49,7 +49,8 @@ const CTASection = () => {
                 </p>
                 
                 {/* CTA Button */}
-                <motion.button
+                <motion.a
+                  href="/contact"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="
@@ -76,7 +77,7 @@ const CTASection = () => {
                   
                   {/* Button Hover Gradient Effect */}
                   <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-                </motion.button>
+                </motion.a>
                 
                 {/* Trust Indicator */}
                 <div className="mt-6 flex items-center justify-center gap-2 text-xs md:text-sm text-gray-600">

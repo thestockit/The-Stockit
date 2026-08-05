@@ -1,6 +1,7 @@
  "use client";
 
 import React, { useRef, useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const HeroSection = () => {
   const videoRef = useRef(null);
@@ -102,12 +103,12 @@ const HeroSection = () => {
                     </div>
                     
                     {/* CTA Button - Professional Style */}
-                    <button className={`w-full sm:w-auto px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 flex-shrink-0 shadow-md hover:shadow-xl ${isAnimating ? 'animate-button-glow delay-1000' : 'opacity-0'}`}>
+                    <Link href="/contact" className={`w-full sm:w-auto px-4 py-2.5 md:px-5 md:py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 flex-shrink-0 shadow-md hover:shadow-xl ${isAnimating ? 'animate-button-glow delay-1000' : 'opacity-0'}`}>
                       <span className="text-sm md:text-base font-medium">Book Consultation</span>
                       <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                       </svg>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

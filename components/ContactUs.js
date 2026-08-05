@@ -1,5 +1,30 @@
+"use client";
+import { useState } from "react";
 
 const ContactUs = () => {
+    const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [status, setStatus] = useState("");
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setStatus("");
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const { name, email, message } = formData;
+
+        if (!name.trim() || !email.trim() || !message.trim()) {
+            setStatus("Please fill in all fields before sending.");
+            return;
+        }
+
+        const subject = encodeURIComponent(`Website inquiry from ${name}`);
+        const body = encodeURIComponent(`${message}\n\n---\nName: ${name}\nEmail: ${email}`);
+        window.location.href = `mailto:info@thestockit.com?subject=${subject}&body=${body}`;
+        setStatus("Thank you! Your email app should open with your message ready to send.");
+    };
+
     return (
         <section className="text-gray-600 body-font relative" id='contact'>
             <div className="container px-5 py-14 mx-auto flex sm:flex-nowrap flex-wrap">
@@ -27,9 +52,9 @@ const ContactUs = () => {
                         </div>
                         <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
                             <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-                            <a className="text-red-500 leading-relaxed">info@thestockit.com</a>
+                            <a href="mailto:info@thestockit.com" className="text-red-500 leading-relaxed hover:underline">info@thestockit.com</a>
                             <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-                            <p className="leading-relaxed">+44 7360506217</p>
+                            <a href="tel:+447360506217" className="leading-relaxed hover:underline">+44 7360506217</a>
                         </div>
                     </div>
                 </div>
@@ -42,38 +67,57 @@ const ContactUs = () => {
                     <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">Contact Us</h2>
                     <p className="leading-relaxed mb-5 text-gray-600">
                         We’re here to help you elevate your digital presence. </p>
-                    <div className="relative mb-4">
-                        <label htmlFor="name" className="leading-7 text-sm text-gray-600">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder='Enter your full name...'
-                            className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                        />
-                    </div>
-                    <div className="relative mb-4">
-                        <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder='Enter your email address...'
-                            className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                        />
-                    </div>
-                    <div className="relative mb-4">
-                        <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            placeholder='Share your thoughts or inquiries...'
-                            className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                        ></textarea>
-                    </div>
-                    <button className="bg-gradient-to-r from-indigo-400 to-pink-600 text-white border-0 py-2 px-6 focus:outline-none hover:bg-gradient-to-r hover:from-indigo-500 hover:to-pink-700 rounded text-lg">
-                        Send Message
-                    </button>
+                    <form onSubmit={handleSubmit} className="w-full" noValidate>
+                        <div className="relative mb-4">
+                            <label htmlFor="name" className="leading-7 text-sm text-gray-600">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                placeholder='Enter your full name...'
+                                required
+                                className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            />
+                        </div>
+                        <div className="relative mb-4">
+                            <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                placeholder='Enter your email address...'
+                                required
+                                className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            />
+                        </div>
+                        <div className="relative mb-4">
+                            <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
+                                placeholder='Share your thoughts or inquiries...'
+                                required
+                                className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            className="bg-gradient-to-r from-indigo-400 to-pink-600 text-white border-0 py-2 px-6 focus:outline-none hover:bg-gradient-to-r hover:from-indigo-500 hover:to-pink-700 rounded text-lg"
+                        >
+                            Send Message
+                        </button>
+                        {status && (
+                            <p className="text-sm text-green-600 mt-3" role="status">
+                                {status}
+                            </p>
+                        )}
+                    </form>
                     <p className="text-xs text-gray-500 mt-3">
                         We look forward to connecting with you and exploring how we can help you achieve your digital goals.
                     </p>
