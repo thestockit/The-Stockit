@@ -95,7 +95,9 @@ const Services = () => {
         {/* Services grid */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
           {ServicesData.map((elm, i) => (
-            <ServicesCard key={elm.title} elm={elm} index={i} />
+            <div key={elm.title} id={elm.id} className="scroll-mt-36">
+              <ServicesCard elm={elm} index={i} />
+            </div>
           ))}
         </div>
       </div>
