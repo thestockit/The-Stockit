@@ -12,32 +12,50 @@ import Projects from '@/components/Projects';
 import ExploreMore from '@/components/ExploreMore';
 import ServiceFaqs from '@/components/ServiceFaqs';
 import CTABanner from '@/components/CTABanner';
-import CTA from '@/components/CTA';
+import FinalCTA from '@/components/FinalCTA';
 import {
   servicesFaqItems,
   servicesExpertProfile,
 } from '@/Data/ServicesFaqsData';
 
 export const metadata = {
-  title: 'Web Design & Development Services',
+  title: 'Web Design, Development & Digital Marketing Services in Pakistan',
   description:
-    'Full-service digital agency offering web design, web development, UI/UX, SEO, digital marketing and video editing. 500+ projects delivered for clients in the US, UK & Europe.',
+    'Full-service digital agency in Islamabad & Rawalpindi offering web design, development, AI, SEO, and video editing for Pakistani businesses. PKR pricing, Urdu support, 100+ clients.',
   keywords:
-    'web design services, web development services, digital marketing agency, SEO services, UI UX design agency, video editing services, The Stockit',
+    'web design services Pakistan, web development Islamabad, digital marketing agency Lahore, SEO services Karachi, AI services Pakistan, video editing services, The Stockit',
   alternates: {
     canonical: 'https://thestockit.com/services',
   },
   openGraph: {
-    title: 'Web Design & Development Services | The Stockit',
+    title: 'Web Design & Development Services in Pakistan | The Stockit',
     description:
-      'Full-service digital agency offering web design, web development, UI/UX, SEO, digital marketing and video editing. 500+ projects delivered.',
+      'Full-service digital agency in Islamabad & Rawalpindi for Pakistani businesses — web, AI, SEO, and video. PKR pricing and Urdu support.',
     url: 'https://thestockit.com/services',
   },
   twitter: {
-    title: 'Web Design & Development Services | The Stockit',
+    title: 'Web Design & Development Services in Pakistan | The Stockit',
     description:
-      'Full-service digital agency offering web design, web development, UI/UX, SEO, digital marketing and video editing. 500+ projects delivered.',
+      'Full-service digital agency in Islamabad & Rawalpindi for Pakistani businesses — web, AI, SEO, and video. PKR pricing and Urdu support.',
   },
+};
+
+const servicesProblemSolution = {
+  eyebrow: 'Why The Stockit',
+  titleA: 'Local service for',
+  titleB: 'Pakistani businesses',
+  problems: [
+    'Freelancers or agencies charging in dollars with no local accountability',
+    'Generic websites with no WhatsApp, Urdu, or JazzCash support',
+    'Marketing spend with no measurable return in PKR',
+    'Slow communication across time zones when you need a same-day fix',
+  ],
+  solutions: [
+    'A PSEB-registered local team with PKR pricing and FBR-compliant invoices',
+    'Websites and stores built around how Pakistanis actually buy',
+    'Data-driven campaigns with transparent monthly reporting',
+    'Same-day WhatsApp support from Islamabad / Rawalpindi',
+  ],
 };
 
 const ServicesPage = () => {
@@ -47,7 +65,7 @@ const ServicesPage = () => {
       <ServicesHero />
       <ServicesSubNav />
       <TrustBar />
-      <ProblemSolution />
+      <ProblemSolution data={servicesProblemSolution} />
       <Services />
       <OurProcess />
       <Tech />
@@ -59,11 +77,11 @@ const ServicesPage = () => {
           faqItems={servicesFaqItems}
           expertProfile={servicesExpertProfile}
           sectionTitle="Services FAQ"
-          sectionDescription="Common questions about our services, pricing, timelines, and working together — answered by our team."
+          sectionDescription="Common questions about our services, PKR pricing, timelines, and working together — answered by our team."
         />
       </div>
       <CTABanner />
-      <CTA />
+      <FinalCTA />
       <Footer />
     </>
   );

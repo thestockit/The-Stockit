@@ -59,7 +59,7 @@ The three highest-intent conversion points on the site are dead. This is the sin
 - The email address is a bare `<a>` with **no `href`** (`ContactUs.js:30`) — not clickable, invalid HTML.
 - Phone number is plain text — no `tel:` link.
 
-**Fix:** Wrap in `<form onSubmit=...>`, add `required` + validation messages, wire `mailto:`/API handler, add `href="mailto:info@thestockit.com"` and `href="tel:+447360506217"`.
+**Fix:** Wrap in `<form onSubmit=...>`, add `required` + validation messages, wire `mailto:`/API handler, add `href="mailto:info@thestockit.com"` and `href="tel:+923245304585"`.
 
 #### UIUX-03 — Hidden SEO-spam link on homepage
 | | |

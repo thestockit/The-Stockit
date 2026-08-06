@@ -144,13 +144,13 @@ const Footer = () => {
               <ul className="mt-4 space-y-3 text-sm text-gray-400">
                 <li>
                   <a
-                    href="https://maps.google.com/?q=10+Haslingden+Drive,+BD95HR,+West+Yorkshire,+UK"
+                    href="https://maps.google.com/?q=Asian+Business+Center,+Bahria+Town+Phase+7,+Rawalpindi,+Pakistan"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-2.5 transition-colors duration-200 hover:text-white"
                   >
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" aria-hidden />
-                    10 Haslingden Drive, BD95HR, West Yorkshire, UK
+                    Asian Business Center, First Floor, Bahria Town Phase 7, Rawalpindi, Pakistan
                   </a>
                 </li>
                 <li>
@@ -164,11 +164,11 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="tel:+447360506217"
+                    href="tel:+923245304585"
                     className="flex items-center gap-2.5 transition-colors duration-200 hover:text-white"
                   >
                     <Phone className="h-4 w-4 shrink-0 text-blue-500" aria-hidden />
-                    +44 7360 506217
+                    +92 324 5304585
                   </a>
                 </li>
               </ul>

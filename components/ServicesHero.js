@@ -1,17 +1,17 @@
 import Link from 'next/link';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, MessageCircle } from 'lucide-react';
+import { whatsappLink, defaultWhatsAppMessage } from '@/constant/site';
 
 const stats = [
-  { value: '500+', label: 'Projects delivered' },
-  { value: '12+', label: 'Years of experience' },
-  { value: '99%', label: 'Client satisfaction' },
-  { value: '24/7', label: 'Support & maintenance' },
+  { value: '100+', label: 'Pakistani clients' },
+  { value: 'Since 2020', label: 'Serving Islamabad & Rawalpindi' },
+  { value: '9+', label: 'Cities served in Pakistan' },
+  { value: '24/7', label: 'WhatsApp support' },
 ];
 
 const ServicesHero = () => {
   return (
     <section className="relative overflow-hidden bg-white">
-      {/* Decorative background */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.04)_1px,transparent_1px)] bg-[size:56px_56px]" />
         <div className="absolute -left-24 top-1/4 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
@@ -19,14 +19,12 @@ const ServicesHero = () => {
         <div className="absolute -bottom-32 left-1/3 h-80 w-80 rounded-full bg-pink-500/10 blur-3xl" />
       </div>
 
-      {/* Hairline divider */}
       <div
         aria-hidden
         className="relative h-px bg-gradient-to-r from-transparent via-blue-200/80 to-transparent"
       />
 
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
-        {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="mb-8">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li>
@@ -56,17 +54,18 @@ const ServicesHero = () => {
           </span>
 
           <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-            Web design, development &amp;{' '}
+            Web design, development, AI &amp;{' '}
             <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              digital marketing services
+              digital marketing for Pakistan
             </span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 md:text-lg">
-            The Stockit is a full-service digital agency serving clients in the US,
-            UK &amp; Europe from Rawalpindi, Pakistan. From UI/UX design and web
+            The Stockit is a full-service digital agency based in Islamabad &
+            Rawalpindi, serving 100+ Pakistani businesses. From UI/UX design and web
             development to SEO and video editing, we plan, design, build, and grow
-            digital products that convert.
+            digital products that convert — with PKR pricing, Urdu support, and
+            local payments.
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -78,6 +77,15 @@ const ServicesHero = () => {
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
             <a
+              href={whatsappLink(defaultWhatsAppMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-7 py-3.5 text-sm font-semibold text-white shadow-md shadow-green-600/25 transition-all duration-300 hover:bg-green-400"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden />
+              WhatsApp Us Now
+            </a>
+            <a
               href="#design"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-gray-800 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50/60 hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             >
@@ -86,7 +94,6 @@ const ServicesHero = () => {
           </div>
         </div>
 
-        {/* Trust strip */}
         <dl className="mt-14 grid grid-cols-2 gap-6 border-t border-gray-100 pt-10 md:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label}>

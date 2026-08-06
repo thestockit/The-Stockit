@@ -1,40 +1,40 @@
 export const servicesFaqItems = [
   {
     id: 1,
-    question: 'What services does The Stockit offer?',
-    answer: 'The Stockit is a full-service digital agency covering web design, UI/UX design, web and software development, CMS and e-commerce builds, SEO, digital marketing, content creation, and video editing. You can work with us on a single service or combine design, development, and marketing into one managed project.'
+    question: 'How much do your services cost in Pakistan?',
+    answer: 'All our packages are priced in PKR. Starter packages begin around Rs. 50,000, business packages at Rs. 150,000, and complex or enterprise builds are quoted after a free consultation. You get fixed-price quotes in rupees — no hidden costs and no dollar conversions.'
   },
   {
     id: 2,
-    question: 'How much does a website design and development project cost?',
-    answer: 'Pricing depends on the scope, the number of pages, features, and the platform. Simple landing pages start at a fixed quote, while full custom web applications are quoted after a discovery call. We provide transparent, fixed-price quotes up front with no hidden costs, and we match projects to the right tech stack so you are not paying for more than you need.'
+    question: 'Do you provide services in Urdu?',
+    answer: 'Yes. We work with you in Urdu or English, and we build bilingual websites, apps, and marketing content with Urdu support where your customers need it.'
   },
   {
     id: 3,
-    question: 'How long does it take to build a website?',
-    answer: 'A landing page or brochure site typically takes 2-4 weeks, an e-commerce or CMS build takes 4-8 weeks, and complex web applications take 8-12+ weeks. Every project runs in sprints with clear milestones and weekly check-ins, so you always know exactly where things stand.'
+    question: 'Can you integrate JazzCash and Easypaisa payments?',
+    answer: 'Yes. For e-commerce, apps, and lead-generation tools we connect JazzCash, Easypaisa, and bank transfers so your customers can pay the way they already pay in Pakistan.'
   },
   {
     id: 4,
-    question: 'Do you provide SEO and digital marketing after the website goes live?',
-    answer: 'Yes. SEO is built into every site we deliver, and we offer ongoing SEO, content marketing, social media, and paid ads packages after launch. Whether you need a one-time technical SEO audit or a monthly growth retainer, we can scale the engagement to match your goals.'
+    question: 'How long does it take to deliver a project?',
+    answer: 'A landing page or business website takes 2-6 weeks, e-commerce builds 4-8 weeks, and software or AI projects are scoped in sprints. Since we are based in Islamabad/Rawalpindi, you get regular face-to-face or video updates throughout.'
   },
   {
     id: 5,
-    question: 'Can you work with clients outside Pakistan?',
-    answer: 'Absolutely. While our team is based in Rawalpindi/Islamabad, Pakistan, we serve clients across the US, UK, Canada, and Europe. We communicate in English, schedule calls around your time zone, and provide weekly written updates, daily availability on Slack, and transparent time-tracking.'
+    question: 'Do you offer maintenance packages in PKR?',
+    answer: 'Yes. We offer monthly maintenance plans in Pakistani Rupees covering updates, backups, security, and small changes — plus priority support over WhatsApp.'
   },
   {
     id: 6,
-    question: 'Do you offer support and maintenance after launch?',
-    answer: 'Yes. Every project includes a post-launch support window, and we offer flexible maintenance plans covering updates, security patches, backups, performance monitoring, and feature additions. You can also move to a monthly retainer that bundles development, marketing, and support.'
+    question: 'Can you work with businesses in Lahore and Karachi remotely?',
+    answer: 'Absolutely. We serve clients across Lahore, Karachi, Faisalabad, Sialkot, Multan, Peshawar, and all of Pakistan remotely — with daily WhatsApp support, video calls, and in-person meetings in Islamabad/Rawalpindi whenever you visit.'
   }
 ];
 
 export const servicesExpertProfile = {
   name: 'Luqman Pervez',
   title: 'CEO @ The Stockit',
-  quote: 'A great website is not enough on its own. Design, development, and marketing have to work as one system to win traffic, build trust, and turn visitors into paying customers.',
+  quote: 'We build digital products for the way Pakistani businesses actually work — local payments, WhatsApp, Urdu, and results you can measure in rupees.',
   avatarUrl: '/luqman.7594d0c02542d797b36e.webp',
   linkedinUrl: 'https://linkedin.com/in/luqmanpervez'
 };

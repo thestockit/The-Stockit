@@ -6,7 +6,7 @@ export default function SchemaMarkup() {
       "description": "The Stockit is a digital agency offering services like web development, SEO, digital marketing, and video editing.",
       "url": "https://thestockit.com",
       "logo": "https://thestockit.com/logo.png",
-      "telephone": "+44-7360506217",
+      "telephone": "+92-3245304585",
       "email": "info@thestockit.com",
       "address": {
         "@type": "PostalAddress",

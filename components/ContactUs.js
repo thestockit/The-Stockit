@@ -73,7 +73,7 @@ const ContactUs = () => {
                             <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
                             <a href="mailto:info@thestockit.com" className="text-red-500 leading-relaxed hover:underline">info@thestockit.com</a>
                             <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-                            <a href="tel:+447360506217" className="leading-relaxed hover:underline">+44 7360506217</a>
+                            <a href="tel:+923245304585" className="leading-relaxed hover:underline">+92 324 5304585</a>
                         </div>
                     </div>
                 </div>

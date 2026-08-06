@@ -41,7 +41,7 @@ const About = () => {
                         <FaMapMarkerAlt className="text-indigo-400 text-5xl mr-3" />
                         <div className="flex flex-col">
                             <h5 className="text-lg font-semibold uppercase">Our Office</h5>
-                            <p className="m-0">10 Haslingden Drive, BD95HR, West Yorkshire, UK</p>
+                            <p className="m-0">Asian Business Center, First Floor, Bahria Town Phase 7, Rawalpindi, Pakistan</p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center bg-gray-100 rounded-lg p-5 h-40" data-aos="fade-down">
@@ -55,7 +55,7 @@ const About = () => {
                         <FaPhoneAlt className="text-indigo-400 text-5xl mr-3" />
                         <div className="flex flex-col">
                             <h5 className="text-lg font-semibold uppercase">Call Us</h5>
-                            <p className="m-0">+44 7360 506217</p>
+                            <p className="m-0">+92 324 5304585</p>
                         </div>
                     </div>
                 </div>

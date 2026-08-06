@@ -22,7 +22,7 @@ const Portfolio = () => {
                     </div>
                     <PortfolioFilter />
 
-                    {/* <Link href="https://wa.me/447360506217" className="px-6 py-2 mx-auto w-max flex justify-center items-center bg-gradient-to-r from-purple-400 to-blue-500 text-white rounded-full hover:shadow-lg transition">
+                    {/* <Link href="https://wa.me/923245304585" className="px-6 py-2 mx-auto w-max flex justify-center items-center bg-gradient-to-r from-purple-400 to-blue-500 text-white rounded-full hover:shadow-lg transition">
                     Lets Discuss <IoIosArrowRoundForward className="text-xl ms-2" />
                     </Link> */}
 

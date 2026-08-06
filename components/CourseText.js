@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 const CourseText = () => {
-    const whatsappNumber = '447360506217'; 
+    const whatsappNumber = '923245304585'; 
         const message = encodeURIComponent('Hello, I would like to know more about your courses.'); 
     return (
         <>
@@ -22,7 +22,7 @@ const CourseText = () => {
                         <li><strong>IBAN:</strong> PK38BKIP0312800027550001</li>
                     </ul>
                     <p className="mt-4 text-gray-700">
-                        To confirm your <strong>payment</strong>, send the payment screenshot on whatsApp to <strong>+44 7360 506217</strong>.
+                        To confirm your <strong>payment</strong>, send the payment screenshot on whatsApp to <strong>+92 324 5304585</strong>.
                     </p>
                 </div>
 
