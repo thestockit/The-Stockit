@@ -1,7 +1,8 @@
 import PakistanServicePage from '@/components/PakistanServicePage';
-import { contentCreation } from '@/Data/PakistanServices/content-creation';
+import { getServiceBySlug } from '@/Data/PakistanServices';
 import { buildServiceMetadata } from '@/Data/PakistanServices/_metadata';
 
+const contentCreation = getServiceBySlug('content-creation');
 export const metadata = buildServiceMetadata(contentCreation);
 
 export default function ContentCreationPage() {

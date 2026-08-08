@@ -1,7 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Instagram, Youtube, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import {
+  Facebook,
+  Instagram,
+  Youtube,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  BadgeCheck,
+  Landmark,
+  MessageCircle,
+  ArrowUpRight,
+} from 'lucide-react';
 import logo from '@/public/logo.2eb85d29b6c42e62c4ad.webp';
+import { SITE, whatsappLink, defaultWhatsAppMessage } from '@/constant/site';
 
 const footerLinks = [
   { label: 'About us', href: '/about' },
@@ -18,10 +31,11 @@ const legalLinks = [
 ];
 
 const serviceLinks = [
-  'Web Development',
-  'UI/UX Design',
-  'SEO Optimization',
-  'Digital Marketing',
+  { label: 'Web Development', href: '/services/web-development' },
+  { label: 'App Development', href: '/services/app-development' },
+  { label: 'AI Services', href: '/services/ai-services' },
+  { label: 'E-commerce', href: '/services/e-commerce' },
+  { label: 'Digital Marketing', href: '/services/digital-marketing' },
 ];
 
 const socialLinks = [
@@ -74,9 +88,25 @@ const Footer = () => {
               out in the digital landscape.
             </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
-              With a commitment to excellence and a passion for innovation, we
-              craft tailored solutions that drive growth and success.
+              A PSEB-registered &amp; SECP-incorporated digital agency serving
+              Pakistani businesses from Islamabad and Rawalpindi since 2020 —
+              websites, SEO, AI and marketing in PKR with Urdu support.
             </p>
+
+            <ul className="mt-5 flex flex-wrap gap-2">
+              <li className="inline-flex items-center gap-1.5 rounded-full border border-gray-800 bg-gray-900 px-3 py-1.5 text-xs font-semibold text-gray-300">
+                <BadgeCheck className="h-3.5 w-3.5 text-green-400" aria-hidden />
+                PSEB Registered
+              </li>
+              <li className="inline-flex items-center gap-1.5 rounded-full border border-gray-800 bg-gray-900 px-3 py-1.5 text-xs font-semibold text-gray-300">
+                <Landmark className="h-3.5 w-3.5 text-blue-400" aria-hidden />
+                SECP Incorporated
+              </li>
+              <li className="inline-flex items-center gap-1.5 rounded-full border border-gray-800 bg-gray-900 px-3 py-1.5 text-xs font-semibold text-gray-300">
+                <Clock className="h-3.5 w-3.5 text-amber-400" aria-hidden />
+                Mon–Sat 9AM–7PM PKT
+              </li>
+            </ul>
 
             {/* Socials */}
             <div className="mt-7 flex items-center gap-3">
@@ -124,13 +154,17 @@ const Footer = () => {
                 Services
               </h3>
               <ul className="mt-4 space-y-3">
-                {serviceLinks.map((service) => (
-                  <li key={service}>
+                {serviceLinks.map(({ label, href }) => (
+                  <li key={label}>
                     <Link
-                      href="/services"
-                      className="text-sm text-gray-400 transition-colors duration-200 hover:text-white"
+                      href={href}
+                      className="group inline-flex items-center gap-1 text-sm text-gray-400 transition-colors duration-200 hover:text-white"
                     >
-                      {service}
+                      {label}
+                      <ArrowUpRight
+                        className="h-3.5 w-3.5 text-blue-500 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
+                        aria-hidden
+                      />
                     </Link>
                   </li>
                 ))}
@@ -150,7 +184,24 @@ const Footer = () => {
                     className="flex items-start gap-2.5 transition-colors duration-200 hover:text-white"
                   >
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" aria-hidden />
-                    Asian Business Center, First Floor, Bahria Town Phase 7, Rawalpindi, Pakistan
+                    <span>
+                      <span className="block font-semibold text-gray-200">Rawalpindi (HQ)</span>
+                      Asian Business Center, Bahria Town Phase 7
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://maps.google.com/?q=Blue+Area,+Islamabad,+Pakistan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-2.5 transition-colors duration-200 hover:text-white"
+                  >
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" aria-hidden />
+                    <span>
+                      <span className="block font-semibold text-gray-200">Islamabad</span>
+                      Blue Area / Centaurus Mall area
+                    </span>
                   </a>
                 </li>
                 <li>
@@ -168,8 +219,23 @@ const Footer = () => {
                     className="flex items-center gap-2.5 transition-colors duration-200 hover:text-white"
                   >
                     <Phone className="h-4 w-4 shrink-0 text-blue-500" aria-hidden />
-                    +92 324 5304585
+                    {SITE.phoneDisplay}
                   </a>
+                </li>
+                <li>
+                  <a
+                    href={whatsappLink(defaultWhatsAppMessage)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2.5 transition-colors duration-200 hover:text-white"
+                  >
+                    <MessageCircle className="h-4 w-4 shrink-0 text-green-500" aria-hidden />
+                    WhatsApp {SITE.whatsappDisplay}
+                  </a>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <Clock className="h-4 w-4 shrink-0 text-amber-500" aria-hidden />
+                  Mon–Sat, 9:00 AM – 7:00 PM PKT
                 </li>
               </ul>
 

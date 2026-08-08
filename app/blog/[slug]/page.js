@@ -5,13 +5,33 @@ import matter from "gray-matter";
 import Markdown from "markdown-to-jsx";
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TableOfContents from "@/components/Toc";
-import Sidebarad from "@/components/Sidebarad"; // ✅ Affiliate banner
+import Sidebarad from "@/components/Sidebarad";
+import { SITE } from "@/constant/site";
+import {
+  createMetadata,
+  blogPostingSchema,
+  breadcrumbSchema,
+} from "@/Data/Seo/seo-utils";
+
+const postsDirectory = path.join(process.cwd(), "posts");
+
+const readPost = async (slug) => {
+  const filePath = path.join(postsDirectory, `${slug}.md`);
+  try {
+    await fs.promises.access(filePath);
+  } catch {
+    return null;
+  }
+  const fileContents = await fs.promises.readFile(filePath, "utf8");
+  const { data: frontmatter, content } = matter(fileContents);
+  return { frontmatter, content };
+};
 
 export async function generateStaticParams() {
-  const postsDirectory = path.join(process.cwd(), "posts");
   try {
     await fs.promises.access(postsDirectory);
   } catch {
@@ -20,44 +40,74 @@ export async function generateStaticParams() {
 
   const filenames = await fs.promises.readdir(postsDirectory);
   return filenames
-    .filter((f) => /\.(md|mdx)$/i.test(f))
-    .map((filename) => ({ slug: filename.replace(/\.(md|mdx)$/, "") }));
+    .filter((f) => /\.md$/i.test(f))
+    .map((filename) => ({ slug: filename.replace(/\.md$/, "") }));
+}
+
+export async function generateMetadata({ params }) {
+  const post = await readPost(params.slug);
+  if (!post) return {};
+
+  const url = `${SITE.baseUrl}/blog/${params.slug}`;
+
+  return createMetadata({
+    title: post.frontmatter.title,
+    description:
+      post.frontmatter.description ||
+      post.frontmatter.excerpt ||
+      "A guide from The Stockit for Pakistani businesses.",
+    keywords: post.frontmatter.category
+      ? `${post.frontmatter.category}, The Stockit blog, Pakistan`
+      : "The Stockit blog, Pakistan",
+    url,
+    image: post.frontmatter.coverImage,
+    type: "article",
+    authors: post.frontmatter.author ? [post.frontmatter.author] : undefined,
+    publishedTime: post.frontmatter.date,
+  });
 }
 
 export default async function BlogPost({ params }) {
-  const postsDirectory = path.join(process.cwd(), "posts");
-  const filePath = path.join(postsDirectory, `${params.slug}.md`);
+  const post = await readPost(params.slug);
 
-  const exists = await fs.promises
-    .access(filePath)
-    .then(() => true)
-    .catch(() => false);
-
-  if (!exists) {
-    return (
-      <>
-        <div className="pt-20">
-          <Header />
-        </div>
-        <div className="container mx-auto px-4 py-10 min-h-[60vh]">
-          <h1>Post not found</h1>
-          <Link href="/blog">Back to Blog</Link>
-        </div>
-        <Footer />
-      </>
-    );
+  if (!post) {
+    notFound();
   }
 
-  const fileContents = await fs.promises.readFile(filePath, "utf8");
-  const { data: frontmatter, content } = matter(fileContents);
+  const { frontmatter, content } = post;
+  const postUrl = `${SITE.baseUrl}/blog/${params.slug}`;
 
-  // ✅ Dynamic banner props from frontmatter
+  // Dynamic banner props from frontmatter
   const bannerProps = {
     heading: frontmatter.bannerHeading || "Exclusive for readers",
     question: frontmatter.bannerQuestion || "Want to try this hosting?",
-    discount: frontmatter.bannerDiscount || 50,
+    discount: frontmatter.bannerDiscount ?? 50,
     affiliateLink: frontmatter.bannerLink || "#",
     expiryDate: frontmatter.bannerExpiry || null,
+  };
+
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      blogPostingSchema({
+        title: frontmatter.title,
+        description:
+          frontmatter.description ||
+          frontmatter.excerpt ||
+          "A guide from The Stockit for Pakistani businesses.",
+        url: postUrl,
+        datePublished: frontmatter.date,
+        dateModified: frontmatter.date,
+        author: frontmatter.author,
+        coverImage: frontmatter.coverImage,
+        category: frontmatter.category,
+      }),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blog" },
+        { name: frontmatter.title, path: `/blog/${params.slug}` },
+      ]),
+    ],
   };
 
   return (
@@ -65,14 +115,20 @@ export default async function BlogPost({ params }) {
       {/* HEADER */}
       <Header />
 
+      {/* BLOG SCHEMA */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+
       {/* MAIN CONTAINER */}
       <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-[1fr_300px] gap-8">
-        
+
         {/* ------------------ MAIN BLOG CONTENT ------------------ */}
         <article className="bg-white shadow-lg rounded-2xl p-6">
-          
+
           {/* Breadcrumb Navigation */}
-          <nav className="text-sm mb-4 text-gray-500">
+          <nav className="text-sm mb-4 text-gray-500" aria-label="Breadcrumb">
             <Link href="/" className="hover:underline">Home</Link> /{" "}
             <Link href="/blog" className="hover:underline">Blog</Link> /{" "}
             <span className="text-gray-700">{frontmatter.title}</span>
@@ -85,8 +141,8 @@ export default async function BlogPost({ params }) {
                 src={frontmatter.coverImage}
                 alt={frontmatter.title}
                 fill
-                className="object-cover rounded-xl"
                 priority
+                className="object-cover rounded-xl"
               />
             </div>
           )}
@@ -101,7 +157,7 @@ export default async function BlogPost({ params }) {
           </div>
 
           {/* ===== MOBILE: TOC AFTER INTRODUCTION ===== */}
-          <div className="block md:hidden mb-8 bg-gray-50 rounded-xl p-5 border-l-4 border-blue-500">
+          <div className="block md:hidden mb-8">
             <TableOfContents />
           </div>
 
@@ -179,18 +235,28 @@ export default async function BlogPost({ params }) {
 
         {/* ------------------ DESKTOP SIDEBAR ------------------ */}
         <aside className="hidden md:flex flex-col sticky top-28 self-start h-[calc(100vh-120px)]">
-          <div className="flex flex-col gap-6 overflow-y-auto">
+          <div className="flex flex-col gap-6 overflow-y-auto pr-1">
             <TableOfContents />
           </div>
           <div className="mt-auto pt-4 border-t border-gray-200">
-            <Sidebarad {...bannerProps} />
+            <Sidebarad
+              heading={bannerProps.heading}
+              discount={bannerProps.discount}
+              hostingName={bannerProps.question}
+              affiliateLink={bannerProps.affiliateLink}
+            />
           </div>
         </aside>
       </div>
 
       {/* ===== MOBILE: BANNER AT VERY BOTTOM ===== */}
       <div className="block md:hidden px-4 pb-8 max-w-6xl mx-auto">
-        <Sidebarad {...bannerProps} />
+        <Sidebarad
+          heading={bannerProps.heading}
+          discount={bannerProps.discount}
+          hostingName={bannerProps.question}
+          affiliateLink={bannerProps.affiliateLink}
+        />
       </div>
 
       {/* FOOTER */}

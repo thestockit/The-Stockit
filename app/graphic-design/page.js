@@ -1,7 +1,8 @@
 import PakistanServicePage from '@/components/PakistanServicePage';
-import { graphicDesign } from '@/Data/PakistanServices/graphic-design';
+import { getServiceBySlug } from '@/Data/PakistanServices';
 import { buildServiceMetadata } from '@/Data/PakistanServices/_metadata';
 
+const graphicDesign = getServiceBySlug('graphic-design');
 export const metadata = buildServiceMetadata(graphicDesign);
 
 export default function GraphicDesignPage() {

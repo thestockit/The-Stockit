@@ -1,7 +1,8 @@
 import PakistanServicePage from '@/components/PakistanServicePage';
-import { emailMarketing } from '@/Data/PakistanServices/email-marketing';
+import { getServiceBySlug } from '@/Data/PakistanServices';
 import { buildServiceMetadata } from '@/Data/PakistanServices/_metadata';
 
+const emailMarketing = getServiceBySlug('email-marketing');
 export const metadata = buildServiceMetadata(emailMarketing);
 
 export default function EmailMarketingPage() {

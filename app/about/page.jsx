@@ -3,8 +3,24 @@ import aboutImg from '@/public/about (1).jpg';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Teams from '@/components/Teams';
+import AwardsTrust from '@/components/AwardsTrust';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import { FaMapMarkerAlt, FaEnvelopeOpen, FaPhoneAlt } from 'react-icons/fa';
 import dynamic from 'next/dynamic';
+import { SITE } from '@/constant/site';
+import { pkTestimonialsFeatured } from '@/Data/Locations/testimonials';
+import { createMetadata } from '@/Data/Seo/seo-utils';
+
+export const metadata = createMetadata({
+  title: 'About Us | The Stockit',
+  description:
+    'Learn how The Stockit became a trusted Pakistani web design and digital marketing agency — serving Islamabad, Rawalpindi, Lahore and Karachi with PKR pricing, Urdu support and measurable results.',
+  keywords:
+    'about The Stockit, digital agency Pakistan, web design company Islamabad, The Stockit team, Pakistani digital marketing agency',
+  url: `${SITE.baseUrl}/about`,
+  image: '/og/og-default.jpg',
+  type: 'website',
+});
 
 const AosAnimation = dynamic(() => import('@/components/AosAnimation'), { ssr: false });
 
@@ -40,8 +56,8 @@ const About = () => {
                     <div className="flex items-center justify-center bg-gray-100 rounded-lg p-5 h-40" data-aos="fade-left">
                         <FaMapMarkerAlt className="text-indigo-400 text-5xl mr-3" />
                         <div className="flex flex-col">
-                            <h5 className="text-lg font-semibold uppercase">Our Office</h5>
-                            <p className="m-0">Asian Business Center, First Floor, Bahria Town Phase 7, Rawalpindi, Pakistan</p>
+                            <h5 className="text-lg font-semibold uppercase">Our Offices</h5>
+                            <p className="m-0">Rawalpindi — Bahria Town Phase 7 · Islamabad — Blue Area / Centaurus</p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center bg-gray-100 rounded-lg p-5 h-40" data-aos="fade-down">
@@ -54,13 +70,16 @@ const About = () => {
                     <div className="flex items-center justify-center bg-gray-100 rounded-lg p-5 h-40" data-aos="fade-right">
                         <FaPhoneAlt className="text-indigo-400 text-5xl mr-3" />
                         <div className="flex flex-col">
-                            <h5 className="text-lg font-semibold uppercase">Call Us</h5>
-                            <p className="m-0">+92 324 5304585</p>
+                            <h5 className="text-lg font-semibold uppercase">Call / WhatsApp</h5>
+                            <p className="m-0">+92 324 5304585 · Mon–Sat 9AM–7PM PKT</p>
                         </div>
                     </div>
                 </div>
             </div>
             </AosAnimation>
+
+            <AwardsTrust />
+            <TestimonialsSection cityName="Pakistan" testimonials={pkTestimonialsFeatured} />
 
             <Footer />
         </>

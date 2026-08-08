@@ -1,7 +1,8 @@
 import PakistanServicePage from '@/components/PakistanServicePage';
-import { uiUxDesign } from '@/Data/PakistanServices/ui-ux-design';
+import { getServiceBySlug } from '@/Data/PakistanServices';
 import { buildServiceMetadata } from '@/Data/PakistanServices/_metadata';
 
+const uiUxDesign = getServiceBySlug('ui-ux-design');
 export const metadata = buildServiceMetadata(uiUxDesign);
 
 export default function UiUxDesignPage() {

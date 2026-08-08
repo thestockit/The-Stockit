@@ -1,7 +1,8 @@
 import PakistanServicePage from '@/components/PakistanServicePage';
-import { seoServices } from '@/Data/PakistanServices/seo-services';
+import { getServiceBySlug } from '@/Data/PakistanServices';
 import { buildServiceMetadata } from '@/Data/PakistanServices/_metadata';
 
+const seoServices = getServiceBySlug('seo-services');
 export const metadata = buildServiceMetadata(seoServices);
 
 export default function SeoServicesPage() {

@@ -25,6 +25,9 @@ import {
   Truck,
   Handshake,
   CalendarClock,
+  Landmark,
+  Gem,
+  MapPin,
 } from 'lucide-react';
 
 const ICONS = {
@@ -54,6 +57,10 @@ const ICONS = {
   delivery: Truck,
   handshake: Handshake,
   timeline: CalendarClock,
+  search: Search,
+  landmark: Landmark,
+  gem: Gem,
+  'map-pin': MapPin,
 };
 
 const defaultItems = [

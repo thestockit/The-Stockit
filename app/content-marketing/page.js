@@ -1,7 +1,8 @@
 import PakistanServicePage from '@/components/PakistanServicePage';
-import { contentMarketing } from '@/Data/PakistanServices/content-marketing';
+import { getServiceBySlug } from '@/Data/PakistanServices';
 import { buildServiceMetadata } from '@/Data/PakistanServices/_metadata';
 
+const contentMarketing = getServiceBySlug('content-marketing');
 export const metadata = buildServiceMetadata(contentMarketing);
 
 export default function ContentMarketingPage() {

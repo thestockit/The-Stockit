@@ -1,84 +1,29 @@
-import { SITE } from '@/constant/site';
+import {
+  serviceSchema,
+  faqPageSchema,
+  breadcrumbSchema,
+} from '@/Data/Seo/seo-utils';
 
 const ServiceSchema = ({ serviceName, slug, description, faqItems }) => {
-  const url = `${SITE.baseUrl}/${slug}`;
-
   const schema = [
     {
       '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: `${serviceName} Services in Pakistan`,
-      serviceType: serviceName,
-      description: description || `${serviceName} services for Pakistani businesses.`,
-      url,
-      provider: {
-        '@type': 'Organization',
-        name: SITE.name,
-        url: SITE.baseUrl,
-        telephone: SITE.phoneDisplay,
-        email: SITE.email,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'Asian Business Center, First Floor, Bahria Town Phase 7',
-          addressLocality: 'Rawalpindi',
-          addressRegion: 'Punjab',
-          postalCode: '46000',
-          addressCountry: 'PK',
-        },
-      },
-      areaServed: [
-        {
-          '@type': 'City',
-          name: 'Islamabad',
-        },
-        {
-          '@type': 'City',
-          name: 'Rawalpindi',
-        },
-        {
-          '@type': 'City',
-          name: 'Lahore',
-        },
-        {
-          '@type': 'City',
-          name: 'Karachi',
-        },
-        {
-          '@type': 'City',
-          name: 'Faisalabad',
-        },
-        {
-          '@type': 'City',
-          name: 'Sialkot',
-        },
-        {
-          '@type': 'City',
-          name: 'Gujranwala',
-        },
-        {
-          '@type': 'City',
-          name: 'Multan',
-        },
-        {
-          '@type': 'City',
-          name: 'Peshawar',
-        },
-      ],
+      ...serviceSchema({ serviceName, slug, description }),
+    },
+    {
+      '@context': 'https://schema.org',
+      ...breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: serviceName, path: `/${slug}` },
+      ]),
     },
   ];
 
   if (faqItems && faqItems.length > 0) {
     schema.push({
       '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqItems.map(({ question, answer }) => ({
-        '@type': 'Question',
-        name: question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: answer,
-        },
-      })),
+      ...faqPageSchema(faqItems),
     });
   }
 

@@ -6,6 +6,19 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FeaturedSlider from "@/components/BlogSlider";
+import { SITE } from "@/constant/site";
+import { createMetadata } from "@/Data/Seo/seo-utils";
+
+export const metadata = createMetadata({
+  title: "Blog | The Stockit",
+  description:
+    "Web design, SEO, hosting and digital marketing guides for Pakistani businesses. Practical tips on WordPress, Shopify, social media and online growth — from The Stockit.",
+  keywords:
+    "digital marketing blog Pakistan, web design tips, SEO guide, WordPress hosting Pakistan, Shopify tips, The Stockit blog",
+  url: `${SITE.baseUrl}/blog`,
+  image: "/og/og-default.jpg",
+  type: "website",
+});
 
 const SearchIcon = () => (
   <svg
@@ -54,7 +67,7 @@ export default async function BlogPage() {
   }
 
   const featuredPosts = posts.slice(0, 3);
-  const regularPosts = posts.slice(3);
+  const regularPosts = posts;
 
   return (
     <div className="bg-white min-h-screen text-slate-900">

@@ -4,6 +4,19 @@ import PortfolioFilter from "@/components/PortfolioFilter";
 import Link from "next/link";
 import React from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { SITE } from "@/constant/site";
+import { createMetadata } from "@/Data/Seo/seo-utils";
+
+export const metadata = createMetadata({
+  title: "Portfolio | The Stockit",
+  description:
+    "Explore The Stockit portfolio — websites, e-commerce stores, branding and digital marketing projects delivered for Pakistani businesses across Islamabad, Rawalpindi, Lahore and Karachi.",
+  keywords:
+    "The Stockit portfolio, web design portfolio Pakistan, Pakistani web agency projects, e-commerce portfolio, digital marketing case studies",
+  url: `${SITE.baseUrl}/portfolio`,
+  image: "/og/og-default.jpg",
+  type: "website",
+});
 
 
 const Portfolio = () => {

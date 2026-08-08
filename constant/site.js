@@ -27,3 +27,19 @@ export const whatsappLink = (message) =>
 
 export const defaultWhatsAppMessage =
   'Assalam-o-Alaikum! I would like to discuss a project with The Stockit.';
+
+export const whatsappBusinessApi = {
+  enabled: false,
+  apiVersion: 'v21.0',
+  phoneNumberId: '',
+  accessToken: '',
+  webhookVerifyToken: '',
+  defaultTemplate: 'project_inquiry',
+};
+
+export const languageToggle = {
+  enabled: false,
+  defaultLanguage: 'en',
+  languages: ['en', 'ur'],
+  futureUrduRoutes: '/ur',
+};

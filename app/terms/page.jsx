@@ -1,6 +1,19 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import React from 'react'
+import { SITE } from '@/constant/site';
+import { createMetadata } from '@/Data/Seo/seo-utils';
+
+export const metadata = createMetadata({
+  title: 'Terms & Conditions | The Stockit',
+  description:
+    'Read the terms and conditions for using The Stockit — web design, development, SEO and digital marketing services for businesses in Pakistan, priced in PKR.',
+  keywords:
+    'The Stockit terms and conditions, web agency terms Pakistan, service agreement digital marketing',
+  url: `${SITE.baseUrl}/terms`,
+  image: '/og/og-default.jpg',
+  type: 'website',
+});
 
 const TermsCondition = () => {
     return (

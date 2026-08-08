@@ -1,0 +1,58 @@
+import {
+  Code2,
+  TerminalSquare,
+  LayoutDashboard,
+  PenTool,
+  Palette,
+  Target,
+  Smartphone,
+  Gem,
+  Bot,
+  Phone,
+  Workflow,
+  Search,
+  Users,
+  FileSearch,
+  ShoppingBag,
+  TrendingUp,
+  Share2,
+  Mail,
+  FileText,
+  Layers,
+  CheckCircle2,
+  Zap,
+  Monitor,
+  Rocket,
+} from 'lucide-react';
+
+export const HUB_ICONS = {
+  code: Code2,
+  terminal: TerminalSquare,
+  layout: LayoutDashboard,
+  'pen-tool': PenTool,
+  palette: Palette,
+  target: Target,
+  smartphone: Smartphone,
+  gem: Gem,
+  bot: Bot,
+  phone: Phone,
+  workflow: Workflow,
+  search: Search,
+  users: Users,
+  'file-search': FileSearch,
+  'shopping-bag': ShoppingBag,
+  'trending-up': TrendingUp,
+  share: Share2,
+  mail: Mail,
+  'file-text': FileText,
+  layers: Layers,
+  check: CheckCircle2,
+  zap: Zap,
+  monitor: Monitor,
+  rocket: Rocket,
+};
+
+export const getHubIcon = (key, props) => {
+  const Icon = HUB_ICONS[key] || Layers;
+  return <Icon {...props} />;
+};

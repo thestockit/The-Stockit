@@ -28,6 +28,19 @@ import Image from 'next/image';
 import Card from '@/constant/Card';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { SITE } from '@/constant/site';
+import { createMetadata } from '@/Data/Seo/seo-utils';
+
+export const metadata = createMetadata({
+  title: 'Web Hosting Reviews & Deals | The Stockit',
+  description:
+    'Compare the best web hosting for Pakistani websites — Hostinger, Bluehost, ChemiCloud and more. In-depth reviews, promo codes and tips to choose hosting that loads fast in Pakistan.',
+  keywords:
+    'best web hosting Pakistan, cheap hosting Islamabad, Hostinger review, web hosting for Pakistani websites, hosting promo codes, The Stockit hosting',
+  url: `${SITE.baseUrl}/hosting`,
+  image: '/og/og-default.jpg',
+  type: 'website',
+});
 import Content from '@/components/Content';
 
 const Hosting = () => {

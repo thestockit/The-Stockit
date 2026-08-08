@@ -1,6 +1,19 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import React from 'react';
+import { SITE } from '@/constant/site';
+import { createMetadata } from '@/Data/Seo/seo-utils';
+
+export const metadata = createMetadata({
+  title: 'Disclaimer | The Stockit',
+  description:
+    'Read The Stockit disclaimer — the limits of liability and reasonable expectations for web design, SEO and digital marketing services delivered to Pakistani businesses.',
+  keywords:
+    'The Stockit disclaimer, digital agency disclaimer Pakistan, web design liability',
+  url: `${SITE.baseUrl}/disclaimer`,
+  image: '/og/og-default.jpg',
+  type: 'website',
+});
 
 const Disclaimer = () => {
     return (

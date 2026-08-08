@@ -1,7 +1,8 @@
 import PakistanServicePage from '@/components/PakistanServicePage';
-import { influencerMarketing } from '@/Data/PakistanServices/influencer-marketing';
+import { getServiceBySlug } from '@/Data/PakistanServices';
 import { buildServiceMetadata } from '@/Data/PakistanServices/_metadata';
 
+const influencerMarketing = getServiceBySlug('influencer-marketing');
 export const metadata = buildServiceMetadata(influencerMarketing);
 
 export default function InfluencerMarketingPage() {

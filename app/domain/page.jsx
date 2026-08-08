@@ -9,6 +9,19 @@ import Image from 'next/image';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Link from 'next/link';
+import { SITE } from '@/constant/site';
+import { createMetadata } from '@/Data/Seo/seo-utils';
+
+export const metadata = createMetadata({
+  title: 'Domain Registration & Deals | The Stockit',
+  description:
+    'Register your .pk, .com or .net domain in Pakistan with The Stockit. Compare domain deals, promo codes and secure your online brand with local support and PKR-friendly guidance.',
+  keywords:
+    'domain registration Pakistan, buy domain Islamabad, .pk domain, domain promo codes, cheapest domain Pakistan, The Stockit domain',
+  url: `${SITE.baseUrl}/domain`,
+  image: '/og/og-default.jpg',
+  type: 'website',
+});
 
 const Domain = () => {
     const cardsData = [

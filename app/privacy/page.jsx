@@ -1,6 +1,19 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import React from 'react';
+import { SITE } from '@/constant/site';
+import { createMetadata } from '@/Data/Seo/seo-utils';
+
+export const metadata = createMetadata({
+  title: 'Privacy Policy | The Stockit',
+  description:
+    'Read The Stockit privacy policy — how we collect, use and protect your data as a Pakistani web design and digital marketing agency in Islamabad & Rawalpindi.',
+  keywords:
+    'The Stockit privacy policy, data privacy Pakistan, digital agency privacy policy',
+  url: `${SITE.baseUrl}/privacy`,
+  image: '/og/og-default.jpg',
+  type: 'website',
+});
 
 const Privacy = () => {
     return (

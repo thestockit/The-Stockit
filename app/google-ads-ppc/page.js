@@ -1,7 +1,8 @@
 import PakistanServicePage from '@/components/PakistanServicePage';
-import { googleAdsPpc } from '@/Data/PakistanServices/google-ads-ppc';
+import { getServiceBySlug } from '@/Data/PakistanServices';
 import { buildServiceMetadata } from '@/Data/PakistanServices/_metadata';
 
+const googleAdsPpc = getServiceBySlug('google-ads-ppc');
 export const metadata = buildServiceMetadata(googleAdsPpc);
 
 export default function GoogleAdsPpcPage() {

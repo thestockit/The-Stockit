@@ -3,6 +3,19 @@ import Header from "@/components/Header";
 import ToolsCard from "@/components/ToolsCard";
 import tool01 from '@/public/ipchecker.webp'
 import tool02 from '@/public/iplookup.webp'
+import { SITE } from "@/constant/site";
+import { createMetadata } from "@/Data/Seo/seo-utils";
+
+export const metadata = createMetadata({
+  title: "Free Tools | The Stockit",
+  description:
+    "Free online tools for Pakistani marketers and developers — IP checker, IP lookup and more from The Stockit. Fast, private and free to use.",
+  keywords:
+    "free tools, IP checker, IP lookup, online tools Pakistan, SEO tools free, The Stockit tools",
+  url: `${SITE.baseUrl}/free-tools`,
+  image: "/og/og-default.jpg",
+  type: "website",
+});
 
 
 const ToolsPage = () => {

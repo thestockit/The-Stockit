@@ -1,7 +1,8 @@
 import PakistanServicePage from '@/components/PakistanServicePage';
-import { aiWorkflowAutomation } from '@/Data/PakistanServices/ai-workflow-automation';
+import { getServiceBySlug } from '@/Data/PakistanServices';
 import { buildServiceMetadata } from '@/Data/PakistanServices/_metadata';
 
+const aiWorkflowAutomation = getServiceBySlug('ai-workflow-automation');
 export const metadata = buildServiceMetadata(aiWorkflowAutomation);
 
 export default function AiWorkflowAutomationPage() {

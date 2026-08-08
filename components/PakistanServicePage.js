@@ -15,6 +15,8 @@ import ServiceFaqs from '@/components/ServiceFaqs';
 import CTABanner from '@/components/CTABanner';
 import FinalCTA from '@/components/FinalCTA';
 import ServiceSchema from '@/components/ServiceSchema';
+import ServiceRelatedLinks from '@/components/ServiceRelatedLinks';
+import LocalPayments from '@/components/LocalPayments';
 
 const PakistanServicePage = ({ service }) => {
   const {
@@ -49,8 +51,10 @@ const PakistanServicePage = ({ service }) => {
       <Tech />
       <LocalEdge />
       <PricingSection pricing={pricing} />
+      <LocalPayments />
       <CaseStudies items={caseStudies} />
       <Projects />
+      <ServiceRelatedLinks service={service} />
       <ExploreMore />
       <ServiceFaqs
         faqItems={faqItems}

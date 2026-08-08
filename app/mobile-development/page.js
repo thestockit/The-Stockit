@@ -1,7 +1,8 @@
 import PakistanServicePage from '@/components/PakistanServicePage';
-import { mobileDevelopment } from '@/Data/PakistanServices/mobile-development';
+import { getServiceBySlug } from '@/Data/PakistanServices';
 import { buildServiceMetadata } from '@/Data/PakistanServices/_metadata';
 
+const mobileDevelopment = getServiceBySlug('mobile-development');
 export const metadata = buildServiceMetadata(mobileDevelopment);
 
 export default function MobileDevelopmentPage() {
