@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import ToolFaqs from "@/components/ToolFaqs";
 import ToolsSchema from "@/components/ToolsSchema";
 import CTABanner from "@/components/CTABanner";
+import EzoicAdSlot from "@/components/EzoicAdSlot";
 
 const ArticleSection = ({ id, title, children }) => (
   <section id={id} className="mx-auto max-w-5xl scroll-mt-24 px-6 py-10 md:py-14">
@@ -108,6 +109,8 @@ const ToolPageLayout = ({
           )}
         </div>
       </div>
+
+      <EzoicAdSlot />
 
       {children}
 

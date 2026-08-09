@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import EzoicAdSlot from '@/components/EzoicAdSlot';
 import Sidebarad from '@/components/Sidebarad';
 import BlogSchema from '@/components/seo/BlogSchema';
 import { SITE } from '@/constant/site';
@@ -158,7 +159,13 @@ export default async function BlogPostPage({ params }: PageProps) {
             </nav>
           )}
 
+          <EzoicAdSlot />
+
           <div className="mt-6">{content}</div>
+
+          <div className="mt-10">
+            <EzoicAdSlot />
+          </div>
         </article>
 
         <aside className="sticky top-28 hidden h-[calc(100vh-120px)] flex-col self-start md:flex">

@@ -5,6 +5,7 @@ import IpLookup from "@/components/IpLookup";
 import ToolFaqs from "@/components/ToolFaqs";
 import ToolsSchema from "@/components/ToolsSchema";
 import CTABanner from "@/components/CTABanner";
+import EzoicAdSlot from "@/components/EzoicAdSlot";
 import { SITE } from "@/constant/site";
 import { createMetadata } from "@/Data/Seo/seo-utils";
 import { ipLookupFaqs } from "@/Data/Tools/faqs";
@@ -162,6 +163,8 @@ const IpLookupPage = () => (
         </p>
       </div>
     </div>
+
+    <EzoicAdSlot />
 
     <IpLookup />
 

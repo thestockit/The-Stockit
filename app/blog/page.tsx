@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import EzoicAdSlot from '@/components/EzoicAdSlot';
 import { SITE } from '@/constant/site';
 import { createMetadata } from '@/Data/Seo/seo-utils';
 import { getAllPosts, type BlogPost } from '@/lib/mdx';
@@ -88,6 +89,8 @@ export default function BlogPage() {
             ))}
           </div>
         )}
+
+        <EzoicAdSlot />
 
         <div className="grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
