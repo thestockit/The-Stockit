@@ -1,0 +1,218 @@
+---
+title: "How To Change Domain In StableHost"
+description: "A complete guide on how to change your main domain in StableHost. Discover two easy methods: through the support team or by updating manually. Learn how to..."
+date: "2025-09-15"
+author: "The Stockit"
+category: "domains"
+tags: ["domains","StableHost domain change","how to change domain in StableHost","StableHost hosting","change domain manually StableHost","register new domain StableHost","StableHost support domain update","StableHost web hosting guide"]
+coverImage: "/Hosting.webp"
+excerpt: "Learn how to change your main domain in StableHost easily. Follow this step-by-step guide to update, replace, or register a new domain with StableHost hosting."
+---
+
+# How To Change Domain In StableHost
+
+<Callout type="info" title="Before you start">
+Changing your main domain is a hosting-level change: it tells StableHost which domain name is the primary one tied to your files, email, and SSL certificate. It does not automatically redirect your old domain to the new one, preserve your old email addresses, or rewrite the URLs inside your WordPress site. Before you begin, back up your files and database, write down your old domain and every place it is referenced, and read this guide once in full. The actual switch takes minutes. Everything that makes the switch safe — DNS, SSL, WordPress URLs, and redirects — is what the rest of this guide is about.
+</Callout>
+
+If you are using StableHost web hosting and want to replace your existing domain with a new one, the process is simple. Many users buy a new domain after starting with an older one, and StableHost makes it easy to switch. In this article, you will learn exactly how to change your main domain in StableHost using two different methods: one through the support team, and one directly in your client area.
+
+This guide also walks you through what happens after the change, because the button that swaps your primary domain is only the beginning. You still need to point your DNS correctly, reissue your SSL certificate, update the URLs inside WordPress, test everything, and protect your search rankings. Skip those steps and you will end up with a website that technically has a new domain but shows a security warning to visitors, breaks on every internal link, and loses its position in Google. Follow the full process and the change is as close to seamless as a domain switch gets.
+
+<StatCard title="Typical DNS propagation time" value="24–48 hours" trend="Hedged estimate — can finish in minutes with a low TTL, but can stretch toward 72 hours depending on your registrar and local ISP caches" />
+
+DNS propagation is the period between when you change where a domain points and when every server on the internet has learned about the change. It is not a single flip of a switch. Different internet service providers, mobile carriers, and DNS resolvers cache your domain's records independently, which means some visitors will see the new site almost immediately while others keep loading the old one for a day or more. The range above is typical for a default setup. You can shrink it, but you cannot eliminate it — which is exactly why the order of operations in this guide matters.
+
+## Why You Might Change Your Domain
+
+There is no single reason people change domains, but most fall into a handful of patterns:
+
+- **Rebranding.** The business changed its name, and the old domain no longer fits. A company called BrightMason Marketing, for example, should not keep its site at an old personal domain.
+- **A better name.** The original domain was long, misspelled, or hard to say out loud. Moving to something short and brandable is one of the most common triggers.
+- **TLD upgrades.** Many people start on a regional or niche extension and later want a .com because that is what customers type by default.
+- **Leaving a former brand behind.** Freelancers and agencies outgrow an old project name and launch a new brand with a matching domain.
+- **Consolidation.** You own several domains and want to bring everything under one primary name instead of juggling addon domains.
+
+Whatever your reason, the mechanics are the same. This guide covers them in the order you should perform them: understanding domain types, making the switch, fixing DNS and SSL, updating WordPress, testing, and handling SEO.
+
+## What Happens When You Change Your Main Domain
+
+Before touching anything, it helps to understand what the "Change Domain Name" option in StableHost actually does. The tool reassigns the primary domain that your cPanel account treats as its main name. The account stays the same, your disk space stays the same, and your files stay where they are — but the new domain becomes the address that maps to the main document root (public_html).
+
+Here is what the change does not do, and this is where most people get tripped up:
+
+- It does not automatically create a redirect from your old domain to your new one.
+- It does not move or copy your files.
+- It does not update the site address inside WordPress.
+- It does not reissue your SSL certificate for the new name.
+- It does not transfer or update your email accounts.
+
+If your old domain's DNS still points at StableHost but the domain is no longer recognized as the main domain on your account, visitors can land on a "no website configured" or parked page instead of your site. That is a common source of panic immediately after a switch. The fix is either to set up the old domain properly or to point its DNS elsewhere — both covered below.
+
+## Understanding Domain Types in cPanel
+
+StableHost is a cPanel-based host, which means before you change anything you should know the three ways a domain can sit on your account: addon domains, parked domains, and subdomains. Each behaves differently, and changing your main domain is not the same as adding any of these. Many people confuse the two and end up with a second site instead of a replacement.
+
+<ComparisonTable caption="Addon vs parked vs subdomain in cPanel" headers={["Domain type", "Purpose", "When to use"]} rows={[["Addon domain", "Hosts a completely separate website on the same account, with its own files and folder", "You want multiple independent sites on one hosting plan"], ["Parked domain", "An alias that serves the exact same content as the main domain", "You own several TLDs and want them all to reach the same site"], ["Subdomain", "A third-level address such as shop.example.com that belongs to the main domain", "You want to organize sections of the same site under one domain"]]} />
+
+Breaking that down:
+
+- **Addon domain.** This is an entirely different website living in its own folder beneath public_html. It gets its own files, its own email, and its own SSL coverage. Use an addon domain when you want to run a second, unrelated site on the same hosting plan.
+- **Parked domain.** A parked domain is an alias. It loads the exact same content as your main domain because it maps to the main domain's document root. Use a parked domain when you own example.net and example.org and want both to display example.com.
+- **Subdomain.** A prefix such as shop.example.com or blog.example.com. It belongs to your main domain and typically points to its own folder inside the account. Use subdomains for sections of the same site or for a separate test environment.
+
+Here is the key distinction for this guide: the "Change Domain Name" tool in StableHost replaces which domain is primary. Adding an addon or parked domain via cPanel is for adding names alongside your primary domain, not for replacing it. If your goal is to fully swap your main domain — the one your account is known by — use the change process below, not the cPanel domain manager.
+
+## Method 1: Change Your Domain via the Support Team
+
+The first and simplest method is to request help from the StableHost support team. This is a good option if you are not comfortable in the client area, if you are switching domains for the first time, or if you want a human to double-check the details before the switch happens.
+
+1. Log in to your StableHost client dashboard.
+2. Click the live chat support icon in your dashboard.
+3. Select the technical support option.
+4. Wait a few moments for a representative to connect — usually within minutes.
+5. Explain that you would like to update your main domain and provide the new domain name.
+6. Confirm your account details if asked, then let the representative handle the change.
+
+The advantage of this method is that the team verifies the details for you. They can confirm whether the new domain's DNS is ready, warn you if anything is missing, and point you to the next steps for SSL and WordPress. It is the least error-prone route, which is why we recommend it for beginners. Once the representative confirms the change, you can move on to the DNS, SSL, and WordPress steps below.
+
+## Method 2: Change Your Domain Manually
+
+The second method is to change your domain yourself through the StableHost client area. It takes about two minutes and is the method to use if you prefer to control the process or handle it outside support hours.
+
+1. Log in to your StableHost hosting account.
+2. Go to the services section located in the header and select "My Services."
+3. Click on your active hosting plan to open its settings.
+4. Inside the overview section, find the option labeled "Change Domain Name."
+5. Enter your new domain name in the field provided.
+6. Submit the change. The main domain connected to your hosting account is updated instantly.
+
+Once submitted, the new domain becomes the primary domain on your account. That is the moment your clock starts on DNS propagation, so before you submit, make sure you are ready for the steps that follow. If your new domain was registered elsewhere, its nameservers need to be pointed at StableHost (or an A record set to your account's IP) before the domain will load anything.
+
+<Callout type="warning" title="Do not delete your old domain yet">
+Keep your old domain registered and active until the new domain is fully live and propagation has finished. If you cancel or delete the old domain immediately after switching, you lose the ability to set up a redirect from it — and any visitors, bookmarks, and backlinks that still point at the old address will hit a dead page instead of being carried over to your new site. Register for the mistake most people make: remove the old domain too early and you have a website with no way in.
+</Callout>
+
+## Registering a New Domain in StableHost
+
+If you have purchased a new domain but have not yet connected it, StableHost allows you to register and assign it as your primary domain directly from your dashboard.
+
+1. Go to the domain section in the header of your dashboard.
+2. Select "Register a New Domain."
+3. Search for the availability of your desired domain name.
+4. Add it to your cart and complete the purchase.
+5. Once registration is complete, go back to your hosting services.
+6. Set the newly purchased domain as your main domain by following the steps in Method 2 above.
+
+You are not required to register your new domain through StableHost. You can register it at any reputable registrar — Namecheap, Porkbun, Cloudflare, and GoDaddy are common choices — and then point it at StableHost. Registrars sometimes offer cheaper first-year pricing on some TLDs, so it is worth comparing before you buy. Wherever you register, keep the same order of operations in mind: register first, switch the primary domain second, and handle DNS third.
+
+## Pointing an External Domain: DNS and Nameservers
+
+If you registered your new domain at another registrar, there are two ways to connect it to your StableHost account:
+
+**Option A — Change the nameservers.** At your registrar, replace the default nameservers with StableHost's nameservers. StableHost's nameservers follow the ns1.stablehost.com / ns2.stablehost.com pattern — check your welcome email or the current StableHost documentation for the exact pair, because they can change. Once the nameservers propagate, StableHost's DNS automatically handles your domain's records, including web, mail, and any subdomains you create in cPanel. This is the cleanest option for most people.
+
+**Option B — Keep your registrar's nameservers.** Leave the nameservers where they are and add the individual records yourself. You will need at least an A record pointing your domain (and usually a www record) to your StableHost account's IP address, plus MX records if you want email on the domain. This gives you more control but more room for error, and you have to manage every record manually.
+
+<BarChartSVG title="Typical DNS propagation window by TTL (illustrative)" data={[{ label: "5 min TTL", value: 6 }, { label: "1 hour TTL", value: 24 }, { label: "12 hour TTL", value: 48 }, { label: "24 hour TTL", value: 72 }]} />
+
+The chart above shows an illustrative relationship between TTL and propagation. TTL — time to live — tells resolvers how long they may cache a record before asking the authoritative server again. A 5-minute TTL means updates spread within a few hours in most cases. A 24-hour TTL, which is the default for many records, can leave the change taking up to three days for slow-caching resolvers.
+
+Practical advice: if you can, lower the TTL on your old domain's records a day or two before you plan to switch, let the lower TTL propagate, then make the change. You will get faster propagation because nothing is caching the old values for long. Propagation is also not global at any single moment — someone on a provider that cached the old record will see the old site while a visitor on a fresh resolver sees the new one. Check the status with a public DNS checker rather than panicking that something broke.
+
+<Callout type="warning" title="The SSL gap is real">
+As soon as you change your main domain, the certificate tied to the old name stops applying, and until the new domain has a certificate, visitors will see a "connection is not secure" warning. That warning destroys trust instantly — people close the tab before they ever see your site. Reissue SSL for the new domain as one of your very first steps, and do not go live with the new domain until the padlock is working. The same applies to email: clients configured for the old domain will keep working only while the old domain remains valid.
+</Callout>
+
+## Reissuing Your SSL Certificate
+
+Secure Sockets Layer — and its modern counterpart, TLS — is the encryption that gives your site the padlock icon. After a domain change, the new domain needs its own certificate. StableHost uses cPanel, and in recent cPanel versions the process is built in:
+
+1. Log in to your cPanel account.
+2. Open the SSL/TLS section (look for "SSL/TLS Status" in recent cPanel versions).
+3. Run the automatic SSL tool (AutoSSL or Let's Encrypt) for your new domain.
+4. If the automatic issuance fails, check that the domain's DNS is live first — certificate authorities verify domain ownership over DNS, so a not-yet-propagated domain cannot be issued a certificate.
+5. Confirm the certificate is active by visiting your site over https:// and checking the padlock icon.
+
+If you use a third-party certificate you purchased with your old domain, you will typically need to reissue it with the new domain or purchase a new one — certificates are issued for a specific domain name and cannot simply be moved. For most sites, the free automatic certificates in cPanel are completely sufficient. If your domain is registered externally and kept on your registrar's nameservers, make sure the A record is pointing at StableHost before you run SSL issuance, because domain control validation has to reach your server.
+
+## Updating WordPress After a Domain Change
+
+If your site runs WordPress — and most StableHost sites do — changing your main domain does not change the URLs stored inside your database. WordPress still believes it lives at the old address, which means every link, asset, and permalink keeps pointing at the old domain. You have to tell WordPress about the move:
+
+1. Go to wp-admin → Settings → General.
+2. Update the "WordPress Address (URL)" and "Site Address (URL)" fields to the new domain.
+3. Save your changes. WordPress will log you out — log back in at the new address.
+4. Go to Settings → Permalinks and click Save to flush your rewrite rules.
+5. Run a search-and-replace across your database so every remaining reference to the old domain becomes the new one. This includes post content, menus, widgets, and options.
+
+For the search-and-replace step, the safest tool is one that understands how WordPress stores data. WP-CLI users can run `wp search-replace` on the command line, which handles serialized data correctly. If you do not use WP-CLI, a plugin such as Better Search Replace does the same job from the dashboard. A word of caution: doing a raw find-and-replace directly in phpMyAdmin can corrupt WordPress settings, because some values are serialized with lengths that break when strings change length. Use a WordPress-aware tool and you avoid that class of bug entirely.
+
+After the database is updated, walk the site: check your header logo, navigation menus, forms, and any hardcoded URLs in your theme or child theme. Update anything outside WordPress too — your analytics property, social media profiles, business listings, and email signatures all still carry the old domain.
+
+## Testing Before You Switch
+
+The professional way to switch domains is to test everything before the public even knows the change happened. Because DNS propagation gives you a window, you can preview the new domain as if it were live:
+
+1. Edit your computer's hosts file to map the new domain to your StableHost account's IP address. This makes your browser resolve the new domain to your server while everyone else still sees the old DNS.
+2. Browse the new domain in a private window and confirm the design, links, and media all load.
+3. Test https:// with the new SSL certificate and confirm the padlock works.
+4. Test email on the new domain — send and receive at least one test message.
+5. Test your forms, payment gateway, and any third-party integrations, since these often have URLs stored in their settings.
+
+This pre-flight test catches the two failures people discover embarrassingly late: a broken SSL certificate and a WordPress site that still points at the old domain. Fix both before you point your real DNS at the new site and you will have a clean launch instead of a scramble.
+
+## SEO Considerations When Changing Domains
+
+A domain change is a site move in the eyes of search engines, and done carelessly it can cost you rankings. Done carefully, it preserves most of your equity. This is the checklist:
+
+- **Set up 301 redirects.** Every URL on your old domain should permanently redirect to its equivalent on the new domain, page by page where possible. A 301 passes most of the link equity; a 302 does not, and no redirect at all means the old pages simply die.
+- **Redirect consistently.** Pick one version — www or non-www — and redirect everything to it. Mixed versions split your link equity and confuse crawlers.
+- **Update internal links.** Do not rely on redirects for your own navigation. Point every internal link at the new domain so users and crawlers stop hitting the old one.
+- **Update your sitemap and robots.txt** for the new domain, and submit the new sitemap in Google Search Console and Bing Webmaster Tools.
+- **Add the old domain in Search Console too**, so you can monitor what happens to it, and consider the Change of Address tool when you move the site.
+- **Keep the old domain registered and renewing for at least a year.** You need it alive to serve those 301 redirects. This is also the single most important reason not to delete the old domain early.
+- **Update every backlink you control** — directory listings, guest posts, social profiles, business citations — and expect a temporary dip in referral traffic as third-party links catch up.
+- **Update your analytics.** Create a new property (or a view) for the new domain before you switch so you do not lose the historical comparison.
+
+Expect rankings to wobble for a few weeks while search engines recrawl and consolidate the move. With proper 301s, the overwhelming majority of sites recover their rankings and often pass most of the old domain's authority to the new one. Without them, you are effectively starting over.
+
+## FAQs
+
+### How long does it take to change the main domain in StableHost?
+
+The change itself takes about two minutes — through support or through the "Change Domain Name" option in the client area. The domain is updated on your account instantly once submitted. What takes longer is DNS propagation, which typically completes within 24 to 48 hours but can stretch toward 72 hours depending on TTL settings and internet service providers.
+
+### Does changing my main domain cost anything?
+
+StableHost does not charge for changing your main domain on your hosting account. What may cost money is registering or transferring the new domain itself, depending on where you register it. Keep your old domain registered during the transition as well, because you will want it for redirects — and that renewal fee is on you, not your host.
+
+### Will changing my main domain affect my email addresses?
+
+Yes. Email addresses are tied to a domain, so addresses at your old domain stop being valid once the change takes effect. Set up the matching addresses on your new domain before you switch, update your mail client settings, and keep the old mailbox or forwarders running during the transition so you do not miss messages.
+
+### Do I need to reinstall WordPress after changing my domain?
+
+No. Your files and database stay in place. You only need to update the site and home URLs in WordPress, run a search-and-replace across the database, and flush your permalinks. Reinstalling is unnecessary and would lose your content and settings.
+
+### Can I keep my old domain working after the change?
+
+You can, and for SEO reasons you should. Keep it registered, and either set up a redirect from the old domain to the new one or manage it as a parked domain so visitors who type the old address still reach your site. For the longest time it is normal to leave the old domain running on a 301 redirect while traffic and links migrate over.
+
+## Conclusion
+
+StableHost is a leading web hosting provider known for affordable and reliable hosting services. With its updated client dashboard, managing domains and hosting settings has become simple and user-friendly. Whether you choose to update your main domain with the help of the support team or by making the changes manually, both methods are quick and efficient.
+
+The switch itself is the easy part. The value of this guide is in what comes after: keep the old domain alive for redirects, point your DNS correctly, reissue SSL before anyone sees a security warning, update WordPress URLs with a search-and-replace tool that understands serialized data, test before you cut over, and handle your 301s so search engines carry your rankings across. Miss one of those steps and a five-minute change turns into a week of downtime and lost traffic.
+
+If you are new to StableHost, you can take advantage of their generous discount, offering up to 99% off on your first invoice at the time of writing, making it one of the best hosting options for beginners. Along with competitive pricing, StableHost offers three beginner-friendly hosting plans that balance affordability and performance. By following this guide, you can easily change or register a new domain in StableHost and keep your website running smoothly with your preferred domain name.
+
+<Callout type="info" title="Bottom line">
+Changing your main domain in StableHost is genuinely easy — use the live chat support or the "Change Domain Name" option in your client area and the account switch is done in minutes. The work is in the follow-through: point your DNS, reissue SSL immediately, update WordPress with a proper search-and-replace, keep your old domain alive on 301 redirects, and test before you go live. Do the full process and the change is seamless. Skip the follow-through and you will be fixing broken links, warning pages, and lost rankings for weeks.
+</Callout>
+
+<Callout type="warning" title="Disclosure">
+Affiliate disclosure: some links in this guide may earn The Stockit a commission if you purchase through them, at no extra cost to you. We write independently and base our recommendations on research and testing — affiliate relationships never influence our advice. Pricing and features mentioned were accurate at the time of writing and may change.
+</Callout>
+
+_Published by The Stockit – September 15, 2025_

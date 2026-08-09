@@ -144,3 +144,56 @@
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+
+/* ============================================================
+   MDX BLOG SYSTEM
+   ============================================================ */
+
+/* rehype-pretty-code syntax-highlighted blocks (static HTML, no JS) */
+[data-rehype-pretty-code-figure] {
+  margin: 1.75rem 0;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  overflow-x: auto;
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: #0b1120;
+  color: #e5e7eb;
+  font-size: 13.5px;
+  line-height: 1.75;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  scrollbar-width: thin;
+}
+
+[data-rehype-pretty-code-figure] pre [data-line] {
+  display: inline-block;
+  width: 100%;
+  padding: 0 0.25rem;
+}
+
+[data-rehype-pretty-code-figure] [data-rehype-pretty-code-title] {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6366f1;
+}
+
+/* Inline code (any code element not inside a <pre>) */
+:not(pre) > code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  background: #eef2ff;
+  color: #4338ca;
+  border-radius: 0.375rem;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

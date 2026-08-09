@@ -63,6 +63,123 @@ const hubs = [
   ['digital-marketing', 'Digital Marketing'],
 ];
 
+const tools = [
+  {
+    slug: 'og-tools',
+    headline: 'Free Online Tools',
+    subline: 'IP · WHOIS · DNS · JSON · QR · Password & more',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-ip-checker',
+    headline: 'Free IP Checker',
+    subline: 'What is my IP — instant, private & free',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-ip-lookup',
+    headline: 'Free IP Lookup',
+    subline: 'Geolocation, ISP, ASN & timezone for any IP',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-whois-lookup',
+    headline: 'Free WHOIS Lookup',
+    subline: 'Domain ownership, registrar, dates & nameservers',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-dns-lookup',
+    headline: 'Free DNS Lookup',
+    subline: 'A, AAAA, MX, TXT, NS, CNAME & SOA records',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-password-generator',
+    headline: 'Free Password Generator',
+    subline: 'Strong, cryptographically random passwords',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-text-case-converter',
+    headline: 'Free Text Case Converter',
+    subline: 'Upper, lower, title, camelCase, snake_case & more',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-uuid-generator',
+    headline: 'Free UUID Generator',
+    subline: 'RFC 4122 v4 UUIDs in one click, right in your browser',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-json-formatter',
+    headline: 'Free JSON Formatter',
+    subline: 'Beautify, validate & minify JSON instantly',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-base64-converter',
+    headline: 'Free Base64 Encoder',
+    subline: 'Encode & decode text safely, UTF-8 aware',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-url-encoder',
+    headline: 'Free URL Encoder',
+    subline: 'Encode and decode URLs & query strings',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-word-counter',
+    headline: 'Free Word Counter',
+    subline: 'Words, characters, sentences & reading time',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-qr-code-generator',
+    headline: 'Free QR Code Generator',
+    subline: 'Custom QR codes for links, text & Wi-Fi',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-random-number-generator',
+    headline: 'Free Random Number Generator',
+    subline: 'Secure random numbers — any range, any count',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-color-converter',
+    headline: 'Free Color Converter',
+    subline: 'HEX, RGB & HSL with a live color preview',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-hash-generator',
+    headline: 'Free SHA Hash Generator',
+    subline: 'SHA-1, SHA-256, SHA-384 & SHA-512',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-currency-converter',
+    headline: 'Free Currency Converter',
+    subline: 'Live rates for 160+ world currencies',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-temperature-converter',
+    headline: 'Free Temperature Converter',
+    subline: 'Celsius, Fahrenheit & Kelvin in one click',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+  {
+    slug: 'og-tools-list-randomizer',
+    headline: 'Free List Randomizer',
+    subline: 'Shuffle lists & pick random winners',
+    kicker: 'THE STOCKIT — FREE ONLINE TOOLS',
+  },
+];
+
 const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -163,6 +280,7 @@ const specs = [
     subline: 'Hub & Spoke — Websites · SEO · Digital Marketing · AI · Video',
     kicker: 'THE STOCKIT — PKR PRICING · URDU SUPPORT',
   })),
+  ...tools,
 ];
 
 async function main() {

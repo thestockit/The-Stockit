@@ -1,29 +1,12 @@
-"use client";
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { getAllPosts } from '@/lib/mdx';
 
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { blogData } from '@/Data/BlogsData';
-import BlogCard from './BlogCard';
-import usePrefersReducedMotion from './usePrefersReducedMotion';
-
-const EASE = [0.16, 1, 0.3, 1];
+const fallbackCover = '/blog-covers/default.svg';
 
 const Blogs = () => {
-  const reduce = usePrefersReducedMotion();
-
-  const fadeUp = {
-    hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 28 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: EASE },
-    },
-  };
-
-  const container = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.1 } },
-  };
+  const posts = getAllPosts().slice(0, 3);
 
   return (
     <section id="blogs" className="relative overflow-hidden bg-white">
@@ -42,45 +25,30 @@ const Blogs = () => {
 
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
         {/* Section header */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          className="mb-12 flex flex-col gap-6 md:mb-16 lg:flex-row lg:items-end lg:justify-between"
-        >
+        <div className="mb-12 flex flex-col gap-6 md:mb-16 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <motion.span
-              variants={fadeUp}
-              className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/80 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-700"
-            >
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/80 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-700">
               <span className="relative flex h-2 w-2" aria-hidden>
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-600" />
               </span>
               Insights
-            </motion.span>
+            </span>
 
-            <motion.h2
-              variants={fadeUp}
-              className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl"
-            >
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
               Latest
               <span className="block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 blog highlights
               </span>
-            </motion.h2>
+            </h2>
 
-            <motion.p
-              variants={fadeUp}
-              className="mt-4 max-w-xl text-base leading-relaxed text-gray-600 md:text-lg"
-            >
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-gray-600 md:text-lg">
               Practical guides, tools, and strategies on web development, SEO,
               and digital marketing.
-            </motion.p>
+            </p>
           </div>
 
-          <motion.div variants={fadeUp} className="shrink-0">
+          <div className="shrink-0">
             <a
               href="/blog"
               className="group inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-6 py-3 text-sm font-semibold text-blue-700 transition-all duration-300 hover:border-blue-400 hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
@@ -88,21 +56,59 @@ const Blogs = () => {
               See all articles
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Blog grid */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
-        >
-          {blogData.slice(0, 3).map((blog, index) => (
-            <BlogCard key={blog.id || index} blog={blog} index={index} />
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {posts.map((post, index) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_4px_20px_-10px_rgba(79,70,229,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_-14px_rgba(79,70,229,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={`/blog-covers/${post.slug}.svg`}
+                  alt={post.frontmatter.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+              </div>
+
+              <div className="relative flex flex-1 flex-col p-6">
+                <div className="flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-wider text-gray-400">
+                  <span className="text-blue-600">
+                    {post.frontmatter.category || 'Blog'}
+                  </span>
+                  {post.frontmatter.date && <span>{post.frontmatter.date}</span>}
+                </div>
+
+                <h3 className="mt-3 text-lg font-extrabold leading-snug tracking-tight text-gray-900 transition-colors duration-200 group-hover:text-blue-700">
+                  {post.frontmatter.title}
+                </h3>
+
+                <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-gray-600">
+                  {post.frontmatter.excerpt || post.frontmatter.description}
+                </p>
+
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
+                  Read article
+                  <ArrowUpRight
+                    aria-hidden
+                    className="h-4 w-4 text-gray-300 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blue-600"
+                  />
+                </span>
+              </div>
+            </Link>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

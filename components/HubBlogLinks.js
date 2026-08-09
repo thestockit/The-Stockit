@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 
-const postsDirectory = path.join(process.cwd(), 'posts');
+const postsDirectory = path.join(process.cwd(), 'content', 'blog');
 
 const HubBlogLinks = async ({ slugs }) => {
   let posts = [];
@@ -16,8 +16,8 @@ const HubBlogLinks = async ({ slugs }) => {
 
     posts = await Promise.all(
       filenames
-        .filter((f) => /\.md$/i.test(f))
-        .filter((f) => wanted.has(f.replace(/\.md$/, '')))
+        .filter((f) => /\.mdx$/i.test(f))
+        .filter((f) => wanted.has(f.replace(/\.mdx$/, '')))
         .map(async (filename) => {
           const fileContents = await fs.promises.readFile(
             path.join(postsDirectory, filename),
@@ -25,12 +25,12 @@ const HubBlogLinks = async ({ slugs }) => {
           );
           const { data } = matter(fileContents);
           return {
-            slug: filename.replace(/\.md$/, ''),
+            slug: filename.replace(/\.mdx$/, ''),
             title: data.title || 'Untitled',
             excerpt: data.excerpt || data.metaDescription || '',
             category: data.category || 'Blog',
             date: data.date || '',
-            coverImage: data.coverImage || '/blog-banner-1200x675.webp',
+            coverImage: data.coverImage || '/blog-covers/default.svg',
           };
         })
     );
@@ -81,7 +81,7 @@ const HubBlogLinks = async ({ slugs }) => {
             >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
-                  src={post.coverImage}
+                  src={`/blog-covers/${post.slug}.svg`}
                   alt={post.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"

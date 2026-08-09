@@ -1,6 +1,3 @@
-"use client";
-
-import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Layers,
@@ -103,7 +100,6 @@ const ServiceHero = ({
   h1Gradient = 'Islamabad & Rawalpindi',
   h1After = '',
   subtitle = 'Research-driven, conversion-focused design that turns Pakistani visitors into paying customers.',
-  videoSrc = '',
   mediaIcon = 'layers',
   mediaBadge = 'Premium service',
   infoItems = defaultInfoItems,
@@ -114,16 +110,7 @@ const ServiceHero = ({
   trustLine = 'Trusted by 100+ Pakistani businesses in Islamabad, Rawalpindi, Lahore & Karachi',
   trustLogos = defaultTrustLogos,
 }) => {
-  const videoRef = useRef(null);
   const MediaIcon = ICONS[mediaIcon] || Layers;
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.log('Autoplay prevented:', error);
-      });
-    }
-  }, []);
 
   return (
     <section className="w-full bg-white py-8 md:py-12 px-4 md:px-8 font-sans">
@@ -147,47 +134,22 @@ const ServiceHero = ({
 
             <div className="lg:w-1/3 flex justify-center lg:justify-end">
               <div className="relative w-full max-w-[320px] aspect-[4/5] rounded-3xl overflow-hidden shadow-lg border border-gray-200">
-                {videoSrc ? (
-                  <>
-                    <video
-                      ref={videoRef}
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    >
-                      <source src={videoSrc} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent flex items-center justify-center">
-                      <div className="absolute bottom-6 left-6 bg-white rounded-full p-4 shadow-md hover:scale-110 transition-transform duration-300">
-                        <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-gray-900 border-b-[8px] border-b-transparent ml-1" />
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600" />
-                    <div
-                      aria-hidden
-                      className="absolute inset-0 opacity-20"
-                      style={{
-                        backgroundImage:
-                          'linear-gradient(to right, rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.3) 1px, transparent 1px)',
-                        backgroundSize: '32px 32px',
-                      }}
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <MediaIcon className="h-24 w-24 text-white/90" aria-hidden />
-                    </div>
-                    <div className="absolute bottom-6 left-6 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider text-white">
-                      {mediaBadge}
-                    </div>
-                  </>
-                )}
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600" />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    backgroundImage:
+                      'linear-gradient(to right, rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.3) 1px, transparent 1px)',
+                    backgroundSize: '32px 32px',
+                  }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <MediaIcon className="h-24 w-24 text-white/90" aria-hidden />
+                </div>
+                <div className="absolute bottom-6 left-6 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider text-white">
+                  {mediaBadge}
+                </div>
               </div>
             </div>
           </div>

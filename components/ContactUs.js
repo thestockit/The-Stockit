@@ -55,14 +55,10 @@ const ContactUs = () => {
                     <iframe
                         width="100%"
                         height="100%"
-                        className="absolute inset-0"
-                        frameBorder="0"
-                        title="map"
-                        marginHeight="0"
-                        marginWidth="0"
-                        scrolling="no"
+                        className="absolute inset-0 border-0"
+                        title="Map showing The Stockit office location in Bahria Town Phase 7, Rawalpindi"
                         src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Asian%20Business%20Center,%20First%20Floor,%20Bahria%20Town%20Phase%207,%20Rawalpindi&ie=UTF8&t=&z=14&iwloc=B&output=embed"
-                        style={{ filter: 'grayscale(1) contrast(1.2) opacity(0.4)' }}
+                        style={{ filter: 'grayscale(1) contrast(1.2) opacity(0.9)' }}
                     ></iframe>
                     <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
                         <div className="lg:w-1/2 px-6">
@@ -99,7 +95,7 @@ const ContactUs = () => {
                                 required
                                 aria-invalid={errors.name ? "true" : "false"}
                                 aria-describedby={errors.name ? "name-error" : undefined}
-                                className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                             />
                             {errors.name && (
                                 <p id="name-error" className="text-xs text-red-600 mt-1" role="alert">{errors.name}</p>
@@ -117,7 +113,7 @@ const ContactUs = () => {
                                 required
                                 aria-invalid={errors.email ? "true" : "false"}
                                 aria-describedby={errors.email ? "email-error" : undefined}
-                                className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                             />
                             {errors.email && (
                                 <p id="email-error" className="text-xs text-red-600 mt-1" role="alert">{errors.email}</p>
@@ -134,7 +130,7 @@ const ContactUs = () => {
                                 required
                                 aria-invalid={errors.message ? "true" : "false"}
                                 aria-describedby={errors.message ? "message-error" : undefined}
-                                className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                                className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                             ></textarea>
                             {errors.message && (
                                 <p id="message-error" className="text-xs text-red-600 mt-1" role="alert">{errors.message}</p>
@@ -142,7 +138,7 @@ const ContactUs = () => {
                         </div>
                         <button
                             type="submit"
-                            className="bg-gradient-to-r from-indigo-400 to-pink-600 text-white border-0 py-2 px-6 focus:outline-none hover:bg-gradient-to-r hover:from-indigo-500 hover:to-pink-700 rounded text-lg"
+                            className="bg-gradient-to-r from-indigo-400 to-pink-600 text-white border-0 py-2 px-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-pink-700 rounded text-lg"
                         >
                             Send Message
                         </button>

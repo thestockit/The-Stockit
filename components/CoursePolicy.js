@@ -37,7 +37,11 @@ const CoursePolicy = () => {
                         <div className="px-6 h-96 lg:h-100% w-full max-w-2xl col-span-6 flex items-center mx-auto">
                             <div style={{ width: '100%', height: '100%' }}>
                                 <div style={{ width: '100%', height: '100%' }}>
-                                    <iframe frameBorder="0" allowFullScreen="1"
+                                    <iframe
+                                        className="border-0"
+                                        allowFullScreen="1"
+                                        title="The Stockit courses introduction video"
+                                        loading="lazy"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         width="100%" height="100%"
                                         src="https://www.youtube.com/embed/W1RwZzMvtOU"

@@ -1,7 +1,7 @@
 import { SITE } from '@/constant/site';
 import { BUSINESS, pkCitiesForSchema } from '@/Data/Seo/business';
 
-export const brandSuffix = 'TheStockIt Pakistan';
+export const brandSuffix = 'The Stockit';
 
 export const normalizeTitle = (title) =>
   title
@@ -29,7 +29,7 @@ export const buildOpenGraph = ({ title, description, url, image, type = 'website
   url,
   type,
   siteName: SITE.name,
-  locale: 'en_PK',
+  locale: 'en',
   images: [
     {
       url: image || BUSINESS.ogImage,
@@ -167,6 +167,27 @@ export const faqPageSchema = (faqItems) => ({
       text: answer,
     },
   })),
+});
+
+export const webApplicationSchema = ({ name, slug, description, keywords }) => ({
+  '@type': 'WebApplication',
+  '@id': `${SITE.baseUrl}/${slug}#webapp`,
+  name,
+  url: `${SITE.baseUrl}/${slug}`,
+  description,
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Any',
+  browserRequirements: 'Requires JavaScript',
+  inLanguage: 'en-PK',
+  isAccessibleForFree: true,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  ...(keywords ? { keywords } : {}),
+  publisher: { '@id': `${SITE.baseUrl}/#organization` },
+  provider: { '@id': `${SITE.baseUrl}/#localbusiness` },
 });
 
 export const serviceSchema = ({ serviceName, slug, description }) => ({

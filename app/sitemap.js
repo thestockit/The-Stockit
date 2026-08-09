@@ -5,10 +5,11 @@ import { SITE } from '@/constant/site';
 import { pakistanServices } from '@/Data/PakistanServices';
 import { locations } from '@/Data/Locations';
 import { hubs } from '@/Data/Hubs/hubs';
+import { tools } from '@/Data/Tools/tools';
 
 export default function sitemap() {
   const baseUrl = SITE.baseUrl;
-  const siteLastModified = '2026-08-07';
+  const siteLastModified = '2026-08-08';
 
   const staticPages = [
     { url: baseUrl, changeFrequency: 'monthly', priority: 1.0 },
@@ -25,6 +26,13 @@ export default function sitemap() {
     { url: `${baseUrl}/terms`, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${baseUrl}/disclaimer`, changeFrequency: 'yearly', priority: 0.3 },
   ].map((page) => ({ ...page, lastModified: siteLastModified }));
+
+  const toolUrls = tools.map((tool) => ({
+    url: `${baseUrl}${tool.path}`,
+    lastModified: siteLastModified,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
 
   const serviceUrls = pakistanServices.map((service) => ({
     url: `${baseUrl}/${service.slug}`,
@@ -48,21 +56,21 @@ export default function sitemap() {
   }));
 
   let postUrls = [];
-  const postsDirectory = path.join(process.cwd(), 'posts');
+  const postsDirectory = path.join(process.cwd(), 'content', 'blog');
   try {
     if (fs.existsSync(postsDirectory)) {
       const filenames = fs
         .readdirSync(postsDirectory)
-        .filter((f) => /\.md$/i.test(f));
+        .filter((f) => /\.mdx$/i.test(f));
 
       postUrls = filenames.map((filename) => {
         const filePath = path.join(postsDirectory, filename);
         const { data } = matter(fs.readFileSync(filePath, 'utf8'));
         return {
-          url: `${baseUrl}/blog/${filename.replace(/\.md$/, '')}`,
+          url: `${baseUrl}/blog/${filename.replace(/\.mdx$/, '')}`,
           lastModified: data.date || siteLastModified,
-          changeFrequency: 'yearly',
-          priority: 0.6,
+          changeFrequency: 'monthly',
+          priority: 0.7,
         };
       });
     }
@@ -72,6 +80,7 @@ export default function sitemap() {
 
   return [
     ...staticPages,
+    ...toolUrls,
     ...hubUrls,
     ...serviceUrls,
     ...locationUrls,

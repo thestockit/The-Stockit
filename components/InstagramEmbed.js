@@ -1,31 +1,6 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
-import { Instagram, ArrowUpRight } from 'lucide-react';
+import { Instagram, ArrowUpRight, Camera, Heart } from 'lucide-react';
 
 const InstagramEmbed = () => {
-  const embedRef = useRef(null);
-
-  useEffect(() => {
-    let script = document.getElementById('instagram-embed-js');
-    if (!script) {
-      script = document.createElement('script');
-      script.id = 'instagram-embed-js';
-      script.src = 'https://www.instagram.com/embed.js';
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
-    // Re-process embeds if Instagram provides the global helper
-    if (window?.instgrm && embedRef.current) {
-      try {
-        window.instgrm.Embeds.process();
-      } catch {
-        // ignore — embed renders via the plugin on script load
-      }
-    }
-  }, []);
-
   return (
     <section id="instagram" className="relative overflow-hidden bg-white">
       {/* Decorative background */}
@@ -38,7 +13,7 @@ const InstagramEmbed = () => {
       {/* Hairline divider */}
       <div
         aria-hidden
-        className="relative h-px bg-gradient-to-r from-transparent via-blue-200/80 to-transparent"
+        className="relative h-px bg-gradient-to-r from-transparent via-pink-200/80 to-transparent"
       />
 
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -80,26 +55,43 @@ const InstagramEmbed = () => {
             </a>
           </div>
 
-          {/* Instagram embed */}
-          <div ref={embedRef} className="flex-1">
-            <div className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_4px_20px_-10px_rgba(79,70,229,0.18)]">
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/thestockit/"
-                data-instgrm-version="14"
-                style={{
-                  background: '#FFF',
-                  border: 0,
-                  borderRadius: '3px',
-                  boxShadow:
-                    '0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)',
-                  margin: '1px',
-                  maxWidth: '658px',
-                  minWidth: '326px',
-                  padding: 0,
-                  width: 'calc(100% - 2px)',
-                }}
-              />
+          {/* Static follow card (no third-party embed) */}
+          <div className="flex-1">
+            <div className="relative overflow-hidden rounded-2xl border border-gray-100 bg-gradient-to-br from-pink-50/60 via-white to-purple-50/40 p-8 text-center shadow-[0_4px_20px_-10px_rgba(79,70,229,0.18)]">
+              <span
+                className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 via-rose-500 to-purple-500 text-white shadow-lg shadow-pink-500/25"
+                aria-hidden
+              >
+                <Instagram className="h-8 w-8 fill-white" />
+              </span>
+              <p className="text-xl font-extrabold text-gray-900">@thestockit</p>
+              <p className="mt-1 text-sm text-gray-500">
+                Behind the scenes, case studies &amp; design inspiration
+              </p>
+
+              <div className="mt-6 flex items-center justify-center gap-6 text-sm text-gray-600">
+                <span className="inline-flex items-center gap-2">
+                  <Camera className="h-4 w-4 text-pink-600" aria-hidden />
+                  Daily posts
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Heart className="h-4 w-4 text-pink-600" aria-hidden />
+                  120+ brands
+                </span>
+              </div>
+
+              <a
+                href="https://www.instagram.com/thestockit/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-pink-500/25 transition-all duration-300 hover:shadow-lg hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2"
+              >
+                Follow us on Instagram
+                <ArrowUpRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  aria-hidden
+                />
+              </a>
             </div>
           </div>
         </div>

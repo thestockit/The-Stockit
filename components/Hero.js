@@ -1,25 +1,13 @@
  "use client";
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Play, Sparkles, Star } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Sparkles, Star } from 'lucide-react';
 
 const HeroSection = () => {
-  const videoRef = useRef(null);
-
   // Animations are CSS-driven and start on load (no JS required to see content).
   const [isAnimating, setIsAnimating] = useState(true);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const playPromise = video.play();
-    if (playPromise) {
-      playPromise.catch(() => {
-        // Autoplay may be blocked by the browser; poster remains visible.
-      });
-    }
-  }, []);
 
   return (
     <section className="relative overflow-hidden">
@@ -181,30 +169,15 @@ const HeroSection = () => {
                 className="pointer-events-none absolute -inset-px z-10 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 blur-xl animate-glow-slow"
               />
 
-              {/* Video */}
-              <video
-                ref={videoRef}
-                className="absolute inset-0 h-full w-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster="/video%20banner.webp"
-              >
-                <source
-                  src="https://res.cloudinary.com/ddndoajjw/video/upload/v1767090936/UIUX-Showreel_online-video-cutter.com_uujuxb.mp4"
-                  type="video/mp4"
-                />
-              </video>
-
-              {/* No-JS fallback (poster image) */}
-              <noscript>
-                <img
-                  src="/video%20banner.webp"
-                  alt=""
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </noscript>
+              {/* Showreel image (static, lightweight, LCP-friendly) */}
+              <Image
+                src="/hero-showreel.webp"
+                alt="The Stockit UI/UX showreel banner"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover"
+              />
 
               {/* Readability overlay */}
               <div
@@ -224,14 +197,8 @@ const HeroSection = () => {
               {/* Bottom caption */}
               <div className="absolute bottom-5 left-5 right-5">
                 <div className="flex items-center gap-3">
-                  <span
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur"
-                    aria-hidden
-                  >
-                    <Play className="h-5 w-5 fill-white" />
-                  </span>
                   <div>
-                    <p className="text-sm font-semibold text-white">Watch our showreel</p>
+                    <p className="text-sm font-semibold text-white">Our showreel</p>
                     <p className="text-xs text-white/70">Web, SEO &amp; marketing in 60 seconds</p>
                   </div>
                 </div>

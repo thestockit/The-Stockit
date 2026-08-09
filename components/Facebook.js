@@ -1,15 +1,6 @@
-"use client";
-
-import { useEffect, useState } from 'react';
-import { Facebook as FacebookIcon, ArrowUpRight } from 'lucide-react';
+import { Facebook as FacebookIcon, ArrowUpRight, ThumbsUp, Users } from 'lucide-react';
 
 const Facebook = () => {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   return (
     <section id="facebook" className="relative overflow-hidden bg-white">
       {/* Decorative background */}
@@ -66,18 +57,44 @@ const Facebook = () => {
             </a>
           </div>
 
-          {/* Facebook embed */}
+          {/* Static follow card (no third-party embed) */}
           <div className="relative flex justify-center">
-            {isClient && (
-              <iframe
-                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTheStockit&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                title="The Stockit Facebook page"
-                loading="lazy"
-                className="min-h-[500px] w-full max-w-[500px] rounded-2xl border border-gray-100 shadow-[0_4px_20px_-10px_rgba(79,70,229,0.18)]"
-                style={{ border: 'none' }}
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              />
-            )}
+            <div className="w-full max-w-md rounded-2xl border border-gray-100 bg-gradient-to-br from-blue-50/60 via-white to-indigo-50/40 p-8 text-center shadow-[0_4px_20px_-10px_rgba(79,70,229,0.18)]">
+              <span
+                className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-600/25"
+                aria-hidden
+              >
+                <FacebookIcon className="h-8 w-8 fill-white" />
+              </span>
+              <p className="text-xl font-extrabold text-gray-900">The Stockit</p>
+              <p className="mt-1 text-sm text-gray-500">
+                Web design &amp; digital marketing agency in Pakistan
+              </p>
+
+              <div className="mt-6 flex items-center justify-center gap-6 text-sm text-gray-600">
+                <span className="inline-flex items-center gap-2">
+                  <ThumbsUp className="h-4 w-4 text-blue-600" aria-hidden />
+                  Follow for updates
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Users className="h-4 w-4 text-blue-600" aria-hidden />
+                  120+ brands
+                </span>
+              </div>
+
+              <a
+                href="https://www.facebook.com/TheStockit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-blue-600/25 transition-all duration-300 hover:shadow-lg hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              >
+                Follow us on Facebook
+                <ArrowUpRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  aria-hidden
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>

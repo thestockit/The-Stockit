@@ -24,6 +24,9 @@ import LocalPayments from '@/components/LocalPayments';
 import PakistanEntities from '@/components/PakistanEntities';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import { pkTestimonialsFeatured } from '@/Data/Locations/testimonials';
+import Blogs from '@/components/Blogs';
+import Facebook from '@/components/Facebook';
+import InstagramEmbed from '@/components/InstagramEmbed';
 
 // Dynamically imported components
 const Projects = dynamic(() => import('@/components/Projects'), {
@@ -35,17 +38,8 @@ const DigitalMarketing = dynamic(() => import('@/components/DigitalMarketing'));
 const Teams = dynamic(() => import('@/components/Teams'), {
   ssr: false,
 });
-const Blogs = dynamic(() => import('@/components/Blogs'), {
-  ssr: false,
-});
 const CTA = dynamic(() => import('@/components/CTA'));
 const Footer = dynamic(() => import('@/components/Footer'));
-const Facebook = dynamic(() => import('@/components/Facebook'), {
-  ssr: false,
-});
-const InstagramEmbed = dynamic(() => import('@/components/InstagramEmbed'), {
-  ssr: false,
-});
 
 export default function Home() {
   return (
