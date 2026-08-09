@@ -58,6 +58,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* eslint-disable @next/next/no-sync-scripts */}
         {/* Ezoic privacy scripts (must load before header script) */}
         <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
         <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
