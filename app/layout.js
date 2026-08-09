@@ -58,6 +58,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Ezoic privacy scripts (must load before header script) */}
+        <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+        <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+        {/* Ezoic header script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "window.ezstandalone = window.ezstandalone || {}; ezstandalone.cmd = ezstandalone.cmd || [];",
+          }}
+        ></script>
+        <script src="//www.ezojs.com/ezoic/sa.min.js"></script>
+        <script src="//ezoicanalytics.com/analytics.js"></script>
+
         {/* Bing search verification */}
         <meta name="msvalidate.01" content="7F776B3F3070C484B922BE380BAC3C4D" />
         {/* Google search verification */}
