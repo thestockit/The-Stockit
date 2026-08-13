@@ -634,3 +634,99 @@ export const listRandomizerFaqs = [
       "Shuffle meeting order or presentation slots, randomize quiz questions, pick a random task from a to-do list, draw a random country or dish for dinner, or randomly assign team members to groups.",
   },
 ];
+
+export const fbrTaxCalculatorFaqs = [
+  {
+    question: "How is income tax calculated in Pakistan?",
+    answer:
+      "Pakistan uses a progressive slab system for individuals. For Tax Year 2025, the first Rs. 600,000 of taxable income is exempt. Income above that is taxed at rates ranging from 5% to 35% depending on the bracket. Companies pay a flat 29%. The FBR also deducts withholding tax at source, which is adjusted against your final liability when you file your annual return.",
+  },
+  {
+    question: "What is the tax slab for salaried employees in Pakistan 2025?",
+    answer:
+      "For Tax Year 2025, salaried individuals pay: 0% on income up to Rs. 600,000; 5% on income from Rs. 600,001 to Rs. 1,200,000; 15% on income from Rs. 1,200,001 to Rs. 2,200,000; 25% on income from Rs. 2,200,001 to Rs. 3,200,000; 30% on income from Rs. 3,200,001 to Rs. 4,100,000; and 35% on income above Rs. 4,100,000.",
+  },
+  {
+    question: "Do freelancers in Pakistan have to pay tax?",
+    answer:
+      "Yes. Freelancers are classified as non-salaried taxpayers and must file annual returns if their income exceeds Rs. 600,000. Banks deduct withholding tax on foreign remittances — 0.75% for filers and 1.5% for non-filers (for income up to Rs. 20 million). Freelancers can also claim business expenses like internet, equipment and software subscriptions to reduce their taxable income.",
+  },
+  {
+    question: "How do I register for FBR tax as a freelancer?",
+    answer:
+      "Visit the FBR Iris portal (iris.fbr.gov.pk) and register for an NTN (National Tax Number) as a non-salaried individual. You will need your CNIC, bank account details and proof of income. Once registered, you can file your annual return and monthly withholding statements. Many freelancers also register for sales tax if their turnover exceeds Rs. 3 million.",
+  },
+  {
+    question: "What is the difference between filer and non-filer in Pakistan?",
+    answer:
+      "A filer is someone who regularly files their income tax returns with FBR. Non-filers face higher withholding tax rates on nearly every financial transaction — banking, property, vehicles, dividends and services. For example, the withholding tax on services for filers is 0.75%, while non-filers pay 1.5%. Being a filer also improves your credit profile and makes visa applications easier.",
+  },
+  {
+    question: "What is the company tax rate in Pakistan?",
+    answer:
+      "Companies in Pakistan pay a flat 29% on their taxable income under Section 100C of the Income Tax Ordinance, 2001. This applies to private limited companies, public limited companies and single-member companies. There is no slab system for companies — the flat rate applies regardless of income level.",
+  },
+  {
+    question: "Can I reduce my tax liability legally in Pakistan?",
+    answer:
+      "Yes. Pakistan's tax code offers several legal deductions: investment in listed shares (Section 62), life insurance premiums (Section 63), pension fund contributions (Section 64), donations to approved charities (Section 61), and depreciation on business assets. Consult a registered tax advisor to optimize your deductions based on your specific situation.",
+  },
+  {
+    question: "When is the tax filing deadline in Pakistan?",
+    answer:
+      "The deadline for individual taxpayers (salaried and non-salaried) is typically September 30 each year. Company returns are due by December 31. Late filing attracts penalties starting at Rs. 1,000 per day for individuals, plus additional surcharges. It is best to file early to avoid last-minute issues.",
+  },
+  {
+    question: "Is this FBR tax calculator accurate?",
+    answer:
+      "This calculator provides estimates based on the officially published FBR tax slabs for Tax Year 2025. While we strive for accuracy, your actual tax liability may vary based on surcharges, credits, exemptions, minimum tax provisions and other specific circumstances. Always consult a registered tax practitioner and refer to fbr.gov.pk for official filing.",
+  },
+  {
+    question: "What is withholding tax and how does it work?",
+    answer:
+      "Withholding tax is tax deducted at the source of income — your employer, bank or client deducts it before paying you. In Pakistan, salaries, services, bank withdrawals and foreign remittances all attract withholding tax. The deducted amount is adjusted against your final annual tax liability when you file your return. If you are over-withheld, you receive a refund; if under-withheld, you pay the balance.",
+  },
+];
+
+export const aiImageDetectorFaqs = [
+  {
+    question: "How does the AI image detector work?",
+    answer:
+      "The tool analyses your image using six independent detection methods — metadata scanning, frequency-domain (FFT) analysis, colour distribution, noise patterns, edge coherence and texture complexity. Each method produces a score, and the results are combined into a single AI-probability rating. Everything runs in your browser; the image is never uploaded to any server.",
+  },
+  {
+    question: "Which AI generators can this tool detect?",
+    answer:
+      "The detector is trained to recognise patterns from ChatGPT (DALL-E), Midjourney, Stable Diffusion, Adobe Firefly, Gemini (Imagen), Flux and Leonardo AI. It looks for metadata signatures, spectral artefacts and statistical fingerprints that each generator leaves behind. Detection accuracy varies by generator and image complexity.",
+  },
+  {
+    question: "Is my uploaded image stored or shared?",
+    answer:
+      "No. Your image never leaves your browser. The entire analysis runs locally using the Canvas API and JavaScript — no data is sent to a server, logged or stored. Close the tab and the image is gone.",
+  },
+  {
+    question: "How accurate is the detector?",
+    answer:
+      "Accuracy depends on image size, quality and the generator used. For large, high-quality images from major generators the tool achieves strong detection rates. Low-resolution, heavily compressed or heavily edited images are harder to classify. Always use the result as a guide alongside human judgement.",
+  },
+  {
+    question: "Can the tool detect AI images that have been edited or filtered?",
+    answer:
+      "Light editing (cropping, resizing, basic colour correction) usually preserves the underlying AI signatures the tool looks for. Heavy edits — such as significant inpainting,风格transfer or extensive Photoshop work — can mask or alter those signatures, reducing accuracy.",
+  },
+  {
+    question: "Why does the tool show different scores for different generators?",
+    answer:
+      "Each AI generator leaves slightly different artefacts. Some generators embed metadata (making detection easy), while others rely on diffusion-based synthesis that creates specific frequency patterns. The tool weighs each detection method differently based on which generator's fingerprints it finds.",
+  },
+  {
+    question: "Is this tool free to use?",
+    answer:
+      "Yes. The AI image detector is completely free with no usage limits, no sign-up required and no watermarks. You can analyse as many images as you need.",
+  },
+  {
+    question: "Does the tool work with all image formats?",
+    answer:
+      "The tool supports all major image formats including JPEG, PNG, WebP, GIF and BMP. For best results use the original high-quality image rather than a heavily compressed screenshot. Larger images provide more data for the analysis engine to work with.",
+  },
+];

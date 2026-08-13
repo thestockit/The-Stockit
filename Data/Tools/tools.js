@@ -236,6 +236,34 @@ export const tools = [
     icon: "shuffle",
     accent: "from-teal-600 to-cyan-600",
   },
+  {
+    slug: "fbr-tax-calculator",
+    path: "/tools/fbr-tax-calculator",
+    title: "FBR Tax Calculator — Pakistan Income Tax Calculator 2025",
+    shortTitle: "FBR Tax Calculator",
+    description:
+      "Calculate Pakistan income tax instantly based on official FBR slabs for Tax Year 2025. Supports salaried, freelancers, businesses and companies.",
+    keywords:
+      "FBR tax calculator, Pakistan income tax, tax slabs 2025, freelancer tax, business tax Pakistan, salaried tax calculator",
+    ogImage: "/og/og-tools-fbr-tax-calculator.jpg",
+    icon: "calculator",
+    badge: "New",
+    accent: "from-green-600 to-emerald-600",
+  },
+  {
+    slug: "ai-image-detector",
+    path: "/tools/ai-image-detector",
+    title: "AI Image Detector — Check if Image is AI Generated",
+    shortTitle: "AI Image Detector",
+    description:
+      "Upload any image to detect if it was created by AI — ChatGPT, Midjourney, Stable Diffusion, Gemini and more. Free, private, runs in your browser.",
+    keywords:
+      "AI image detector, AI generated image check, detect AI art, is this image AI, ChatGPT image detector, Midjourney detector, Stable Diffusion detector",
+    ogImage: "/og/og-tools-ai-image-detector.jpg",
+    icon: "scan-eye",
+    badge: "New",
+    accent: "from-violet-600 to-purple-600",
+  },
 ];
 
 export const siteLinks = [
