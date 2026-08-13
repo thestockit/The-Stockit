@@ -1,8 +1,9 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/ads.txt",
-      "destination": "/ads.txt"
+      "destination": "https://srv.adstxtmanager.com/84937/thestockit.com",
+      "permanent": true
     }
   ]
 }
