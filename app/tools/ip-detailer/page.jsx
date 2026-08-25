@@ -5,7 +5,6 @@ import IpChecker from "@/components/IpChecker";
 import ToolFaqs from "@/components/ToolFaqs";
 import ToolsSchema from "@/components/ToolsSchema";
 import CTABanner from "@/components/CTABanner";
-import EzoicAdSlot from "@/components/EzoicAdSlot";
 import { SITE } from "@/constant/site";
 import { createMetadata } from "@/Data/Seo/seo-utils";
 import { ipCheckerFaqs } from "@/Data/Tools/faqs";
@@ -156,8 +155,6 @@ const IpDetailerPage = () => (
         </p>
       </div>
     </div>
-
-    <EzoicAdSlot />
 
     <IpChecker />
 
