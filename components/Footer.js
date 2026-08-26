@@ -38,6 +38,15 @@ const serviceLinks = [
   { label: 'Digital Marketing', href: '/services/digital-marketing' },
 ];
 
+const locationLinks = [
+  { label: 'Islamabad', href: '/locations/islamabad' },
+  { label: 'Lahore', href: '/locations/lahore' },
+  { label: 'Karachi', href: '/locations/karachi' },
+  { label: 'Rawalpindi', href: '/locations/rawalpindi' },
+  { label: 'Faisalabad', href: '/locations/faisalabad' },
+  { label: 'All Locations', href: '/locations' },
+];
+
 const socialLinks = [
   {
     label: 'Facebook',
@@ -126,7 +135,7 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8">
             <div>
               <h3 className="text-sm font-bold uppercase tracking-wider text-white">
                 Company
@@ -155,6 +164,28 @@ const Footer = () => {
               </h3>
               <ul className="mt-4 space-y-3">
                 {serviceLinks.map(({ label, href }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className="group inline-flex items-center gap-1 text-sm text-gray-400 transition-colors duration-200 hover:text-white"
+                    >
+                      {label}
+                      <ArrowUpRight
+                        className="h-3.5 w-3.5 text-blue-500 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
+                        aria-hidden
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-white">
+                Locations
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {locationLinks.map(({ label, href }) => (
                   <li key={label}>
                     <Link
                       href={href}

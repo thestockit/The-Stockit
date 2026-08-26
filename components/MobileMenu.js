@@ -13,6 +13,7 @@ const mobileLinks = [
   { label: 'Web Hosting', href: '/hosting' },
   { label: 'Domains', href: '/domain' },
   { label: 'Services', href: '/services' },
+  { label: 'Locations', href: '/locations' },
   { label: 'Tools', href: '/free-tools' },
   { label: 'Courses', href: '/courses' },
   { label: 'Blog', href: '/blog' },

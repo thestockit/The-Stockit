@@ -16,6 +16,7 @@ export default function sitemap() {
     { url: baseUrl, changeFrequency: 'monthly', priority: 1.0 },
     { url: `${baseUrl}/about`, changeFrequency: 'yearly', priority: 0.7 },
     { url: `${baseUrl}/services`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/locations`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/blog`, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/portfolio`, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/courses`, changeFrequency: 'monthly', priority: 0.6 },
