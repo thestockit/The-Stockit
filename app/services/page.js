@@ -27,7 +27,7 @@ import { SITE } from '@/constant/site';
 import { createMetadata } from '@/Data/Seo/seo-utils';
 
 export const metadata = createMetadata({
-  title: 'Web Design, Development & Digital Marketing Services in Pakistan',
+  title: 'Web Design, Development & Digital Marketing Services in Pakistan | The Stockit',
   description:
     'Full-service digital agency in Islamabad & Rawalpindi offering web design, development, AI, SEO, and video editing for Pakistani businesses. PKR pricing, Urdu support, 100+ clients.',
   keywords:

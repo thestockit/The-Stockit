@@ -55,6 +55,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     type: 'article',
     authors: post.frontmatter.author ? [post.frontmatter.author] : undefined,
     publishedTime: post.frontmatter.date,
+    modifiedTime: post.frontmatter.dateModified || post.frontmatter.date,
   });
 }
 

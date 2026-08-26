@@ -12,9 +12,12 @@ const mobileLinks = [
   { label: 'Home', href: '/' },
   { label: 'Web Hosting', href: '/hosting' },
   { label: 'Domains', href: '/domain' },
+  { label: 'Services', href: '/services' },
+  { label: 'Tools', href: '/free-tools' },
   { label: 'Courses', href: '/courses' },
   { label: 'Blog', href: '/blog' },
   { label: 'Projects', href: '/portfolio' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const MobileMenu = ({ isOpen, toggleMenu }) => {

@@ -56,7 +56,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en-PK">
       <head>
         {/* Bing search verification */}
         <meta name="msvalidate.01" content="7F776B3F3070C484B922BE380BAC3C4D" />

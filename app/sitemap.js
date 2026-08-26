@@ -9,7 +9,8 @@ import { tools } from '@/Data/Tools/tools';
 
 export default function sitemap() {
   const baseUrl = SITE.baseUrl;
-  const siteLastModified = '2026-08-08';
+  const now = new Date().toISOString().split('T')[0];
+  const siteLastModified = now;
 
   const staticPages = [
     { url: baseUrl, changeFrequency: 'monthly', priority: 1.0 },
@@ -66,9 +67,10 @@ export default function sitemap() {
       postUrls = filenames.map((filename) => {
         const filePath = path.join(postsDirectory, filename);
         const { data } = matter(fs.readFileSync(filePath, 'utf8'));
+        const fileLastModified = fs.statSync(filePath).mtime.toISOString().split('T')[0];
         return {
           url: `${baseUrl}/blog/${filename.replace(/\.mdx$/, '')}`,
-          lastModified: data.date || siteLastModified,
+          lastModified: data.dateModified || fileLastModified,
           changeFrequency: 'monthly',
           priority: 0.7,
         };

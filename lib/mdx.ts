@@ -8,6 +8,7 @@ export interface BlogFrontmatter {
   title: string;
   description: string;
   date: string;
+  dateModified?: string;
   author: string;
   category: string;
   tags?: string[];
@@ -48,6 +49,7 @@ const normalizeFrontmatter = (data: Record<string, unknown>): BlogFrontmatter =>
   title: String(data.title || 'Untitled'),
   description: String(data.description || data.excerpt || data.metaDescription || ''),
   date: String(data.date || ''),
+  dateModified: data.dateModified ? String(data.dateModified) : undefined,
   author: String(data.author || 'The Stockit Editorial Team'),
   category: String(data.category || 'marketing'),
   tags: Array.isArray(data.tags)

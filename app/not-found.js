@@ -1,5 +1,11 @@
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Page Not Found | The Stockit',
+  description: 'The page you are looking for does not exist, has moved, or is no longer available.',
+  robots: { index: false, follow: true },
+};
+
 export default function NotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4">

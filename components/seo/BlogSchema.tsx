@@ -27,7 +27,7 @@ export default function BlogSchema({ frontmatter, slug }: BlogSchemaProps) {
       url,
       image,
       datePublished,
-      dateModified: datePublished,
+      dateModified: frontmatter.dateModified || datePublished,
       author: { '@type': 'Person', name: author, url: `${SITE.baseUrl}/about` },
       publisher: { '@id': `${SITE.baseUrl}/#organization` },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },

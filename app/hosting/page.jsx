@@ -148,11 +148,34 @@ const Hosting = () => {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'WebPage',
+                '@id': `${SITE.baseUrl}/hosting#webpage`,
+                name: 'Web Hosting Reviews & Deals',
+                url: `${SITE.baseUrl}/hosting`,
+              },
+              {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.baseUrl },
+                  { '@type': 'ListItem', position: 2, name: 'Web Hosting', item: `${SITE.baseUrl}/hosting` },
+                ],
+              },
+            ],
+          }),
+        }}
+      />
       <Header />
       <div className="relative px-6 mt-10 mb-10 md:mt-20 mx-auto max-w-5xl text-center">
-        <h2 className="block w-full text-black font-bold text-3xl sm:text-4xl">
+        <h1 className="block w-full text-black font-bold text-3xl sm:text-4xl">
           Explore Our Web Hosting Solutions
-        </h2>
+        </h1>
         <p className="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
           At The Stockit, we offer reliable and high-performance web hosting services to ensure your websites run smoothly and efficiently. Discover our range of hosting plans designed to meet your specific needs.
         </p>

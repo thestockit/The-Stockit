@@ -28,10 +28,12 @@ const ToolsSchema = ({ tool, name, path, description, faqItems, keywords }) => {
     });
   }
 
+  const jsonLd = { '@context': 'https://schema.org', '@graph': schema };
+
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />
   );
 };

@@ -9,7 +9,7 @@ export const normalizeTitle = (title) =>
     .replace(/\s*\|\s*$/i, '')
     .trim();
 
-export const truncateMetaDescription = (description, max = 160) => {
+export const truncateMetaDescription = (description, max = 155) => {
   const clean = description.trim();
   if (clean.length <= max) {
     return clean;
@@ -20,9 +20,6 @@ export const truncateMetaDescription = (description, max = 160) => {
   return `${trimmed}...`;
 };
 
-export const ogImageUrl = (path) =>
-  `${SITE.baseUrl}/og/${path}`;
-
 export const buildOpenGraph = ({ title, description, url, image, type = 'website' }) => ({
   title,
   description,
@@ -32,7 +29,7 @@ export const buildOpenGraph = ({ title, description, url, image, type = 'website
   locale: 'en',
   images: [
     {
-      url: image || BUSINESS.ogImage,
+      url: image?.startsWith('http') ? image : `${SITE.baseUrl}${image || '/og/og-default.jpg'}`,
       width: 1200,
       height: 630,
       alt: title,
@@ -44,7 +41,7 @@ export const buildTwitter = ({ title, description, image }) => ({
   card: 'summary_large_image',
   title,
   description,
-  images: [image || BUSINESS.ogImage],
+  images: [image?.startsWith('http') ? image : `${SITE.baseUrl}${image || '/og/og-default.jpg'}`],
 });
 
 export const createMetadata = ({
@@ -56,6 +53,7 @@ export const createMetadata = ({
   type,
   authors,
   publishedTime,
+  modifiedTime,
 }) => {
   const cleanTitle = normalizeTitle(title);
   const cleanDescription = truncateMetaDescription(description);
@@ -67,8 +65,11 @@ export const createMetadata = ({
     type,
   });
 
-  if (publishedTime) {
-    openGraph.article = { publishedTime };
+  if (publishedTime || modifiedTime) {
+    openGraph.article = {
+      ...(publishedTime ? { publishedTime } : {}),
+      ...(modifiedTime ? { modifiedTime } : {}),
+    };
   }
 
   return {
@@ -207,29 +208,4 @@ export const serviceSchema = ({ serviceName, slug, description }) => ({
   },
 });
 
-export const blogPostingSchema = ({
-  title,
-  description,
-  url,
-  datePublished,
-  dateModified,
-  author,
-  coverImage,
-  category,
-}) => ({
-  '@type': 'BlogPosting',
-  '@id': `${url}#blogposting`,
-  headline: title,
-  description,
-  url,
-  image: coverImage ? `${SITE.baseUrl}${coverImage}` : BUSINESS.ogImage,
-  datePublished: datePublished || undefined,
-  dateModified: dateModified || datePublished || undefined,
-  author: {
-    '@type': 'Person',
-    name: author || 'The Stockit Team',
-  },
-  publisher: { '@id': `${SITE.baseUrl}/#organization` },
-  mainEntityOfPage: url,
-  ...(category ? { keywords: category } : {}),
-});
+

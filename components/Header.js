@@ -4,18 +4,16 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
+import MobileMenu from './MobileMenu';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import logo from '@/public/logo.2eb85d29b6c42e62c4ad.webp';
-
-const MobileMenu = dynamic(() => import('./MobileMenu'), {
-  ssr: false,
-});
 
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Web Hosting', href: '/hosting' },
   { label: 'Domains', href: '/domain' },
+  { label: 'Services', href: '/services' },
+  { label: 'Tools', href: '/free-tools' },
   { label: 'Courses', href: '/courses' },
   { label: 'Blog', href: '/blog' },
   { label: 'Projects', href: '/portfolio' },

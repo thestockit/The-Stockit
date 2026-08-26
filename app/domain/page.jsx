@@ -34,11 +34,34 @@ const Domain = () => {
 
     return (
         <div >
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@graph': [
+                    {
+                      '@type': 'WebPage',
+                      '@id': `${SITE.baseUrl}/domain#webpage`,
+                      name: 'Domain Registration & Deals',
+                      url: `${SITE.baseUrl}/domain`,
+                    },
+                    {
+                      '@type': 'BreadcrumbList',
+                      itemListElement: [
+                        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.baseUrl },
+                        { '@type': 'ListItem', position: 2, name: 'Domains', item: `${SITE.baseUrl}/domain` },
+                      ],
+                    },
+                  ],
+                }),
+              }}
+            />
             <Header />
             <div className="relative px-6 mt-10 mb-10 md:mt-20 mx-auto max-w-5xl text-center">
-                <h2 className="block w-full text-black font-bold text-3xl sm:text-4xl">
+                <h1 className="block w-full text-black font-bold text-3xl sm:text-4xl">
                     Our Domain Partners
-                </h2>
+                </h1>
                 <p className="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
                     At The Stockit, find your dream domain with the most affordable prices with our partner domain registrars.
                 </p>
