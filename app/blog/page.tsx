@@ -18,6 +18,7 @@ export const metadata: Metadata = createMetadata({
   type: 'website',
   authors: undefined,
   publishedTime: undefined,
+  modifiedTime: undefined,
 });
 
 const fallbackCover = '/blog-covers/default.svg';
