@@ -26,10 +26,73 @@
   animation: scroll 40s linear infinite;
 }
 
+
+/* ============================================================
+   PAYMENT GATEWAY CTA
+   ============================================================ */
+
+.payment-cta {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.payment-cta a {
+  display: flex !important;
+  width: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+
+  padding: 0.75rem 1.25rem !important;
+
+  background: #7c3aed !important;
+  background-color: #7c3aed !important;
+
+  border-radius: 0.75rem !important;
+  border: none !important;
+
+  text-decoration: none !important;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Force the actual text to white */
+.payment-cta a .payment-cta-text {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+}
+
+.payment-cta a:hover {
+  background: #6d28d9 !important;
+  background-color: #6d28d9 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.payment-cta a:hover .payment-cta-text {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+
+/* ============================================================
+   SLIDER
+   ============================================================ */
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(
       calc(-400px * 7)
@@ -49,6 +112,7 @@
     width: 100%;
   }
 }
+
 .slide {
   height: auto; /* Increase height */
   width: 400px; /* Increase width */
@@ -124,10 +188,9 @@
 }
 
 
-
-/* styles/globals.css or component-specific CSS */
-
-
+/* ============================================================
+   3D / CARD EFFECTS
+   ============================================================ */
 
 .perspective-1000 {
   perspective: 1000px;
@@ -144,6 +207,7 @@
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+
 
 /* ============================================================
    MDX BLOG SYSTEM
@@ -181,6 +245,7 @@
   color: #6366f1;
 }
 
+
 /* Inline code (any code element not inside a <pre>) */
 :not(pre) > code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
@@ -191,6 +256,11 @@
   font-size: 0.85em;
   white-space: nowrap;
 }
+
+
+/* ============================================================
+   ACCESSIBILITY / MOTION
+   ============================================================ */
 
 @media (prefers-reduced-motion: no-preference) {
   html {

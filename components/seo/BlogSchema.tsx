@@ -17,6 +17,8 @@ export default function BlogSchema({ frontmatter, slug }: BlogSchemaProps) {
     ? `${SITE.baseUrl}${frontmatter.coverImage}`
     : `${SITE.baseUrl}/og/og-default.jpg`;
   const datePublished = frontmatter.date || undefined;
+  // A genuine human re-review is the most accurate freshness signal available.
+  const dateModified = frontmatter.lastReviewed || frontmatter.dateModified || datePublished;
 
   const graph: Record<string, unknown>[] = [
     {
@@ -27,7 +29,7 @@ export default function BlogSchema({ frontmatter, slug }: BlogSchemaProps) {
       url,
       image,
       datePublished,
-      dateModified: frontmatter.dateModified || datePublished,
+      dateModified,
       author: { '@type': 'Person', name: author, url: `${SITE.baseUrl}/about` },
       publisher: { '@id': `${SITE.baseUrl}/#organization` },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },

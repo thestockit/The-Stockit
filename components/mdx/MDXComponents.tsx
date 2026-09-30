@@ -1,7 +1,7 @@
 import type { DetailedHTMLProps, ReactNode, TableHTMLAttributes } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { AlertTriangle, CheckCircle2, Info } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, Info, Lightbulb, NotebookPen } from 'lucide-react';
 import { nodeToText, slugify } from '@/lib/slugify';
 
 /* ------------------------------------------------------------------ */
@@ -140,6 +140,68 @@ const MDXImage = ({
   );
 };
 
+/**
+ * Semantic article-body figure.
+ *
+ * `alt` is required and describes the image for assistive technology.
+ * `caption` is optional and rendered as a visible <figcaption>; it is never
+ * derived from `alt`, so the two are not duplicated on screen.
+ */
+export const Figure = ({
+  src,
+  alt,
+  caption,
+  width,
+  height,
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+  priority?: boolean;
+}) => {
+  const isExternal = /^https?:\/\//.test(src);
+  const w = width ?? 1370;
+  const h = height ?? 744;
+
+  return (
+    <figure className="my-9">
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+        {isExternal ? (
+          // eslint-disable-next-line @next/next/no-img-element -- remote image, next/image domains not configured
+          <img
+            src={src}
+            alt={alt}
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
+            width={w}
+            height={h}
+            className="h-auto w-full"
+          />
+        ) : (
+          <Image
+            src={src}
+            alt={alt}
+            width={w}
+            height={h}
+            priority={priority}
+            loading={priority ? undefined : 'lazy'}
+            sizes="(max-width: 768px) 100vw, 720px"
+            className="h-auto w-full"
+          />
+        )}
+      </div>
+      {caption && (
+        <figcaption className="mt-2.5 text-center text-xs leading-relaxed text-slate-400">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+};
+
 const Table = ({
   children,
   ...rest
@@ -265,51 +327,75 @@ export interface ComparisonRow {
   [key: string]: string | number;
 }
 
+const CELL_PAD = 'px-4 py-3.5 align-top';
+
 export const ComparisonTable = ({
   headers,
   rows,
   caption,
+  emphasisColumn = 0,
 }: {
   headers: string[];
   rows: (string | number)[][];
   caption?: string;
+  /** Column index rendered as the row label (bold). Defaults to the first column. */
+  emphasisColumn?: number;
 }) => (
-  <figure className="my-8">
-    <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
-      <table className="w-full min-w-[520px] border-collapse text-left text-sm">
-        {caption && <caption className="sr-only">{caption}</caption>}
-        <thead>
-          <tr>
-            {headers.map((h) => (
-              <TH key={h}>{h}</TH>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, i) => (
-            <TR key={i}>
-              {row.map((cell, j) => (
-                <td
-                  key={j}
-                  className={
-                    j === 0
-                      ? 'border-b border-gray-100 px-4 py-3 text-[13.5px] font-semibold text-gray-900'
-                      : 'border-b border-gray-100 px-4 py-3 text-[13.5px] leading-relaxed text-gray-600'
-                  }
+  <figure className="my-9 not-prose">
+    <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="min-w-[560px]">
+        <table className="w-full border-collapse text-left text-sm">
+          {caption && <caption className="sr-only">{caption}</caption>}
+          <thead>
+            <tr className="border-b border-slate-200 bg-slate-50/90">
+              {headers.map((h, i) => (
+                <th
+                  key={h}
+                  scope="col"
+                  className={`${CELL_PAD} text-[11px] font-bold uppercase tracking-[0.07em] text-slate-600 ${
+                    i === 0 ? 'sticky left-0 bg-slate-50/90' : ''
+                  }`}
                 >
-                  {cell}
-                </td>
+                  {h}
+                </th>
               ))}
-            </TR>
-          ))}
-        </tbody>
-      </table>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, i) => (
+              <tr
+                key={i}
+                className={`border-b border-slate-100 last:border-b-0 ${
+                  i % 2 === 1 ? 'bg-slate-50/50' : 'bg-white'
+                } transition-colors hover:bg-indigo-50/40`}
+              >
+                {row.map((cell, j) => (
+                  <td
+                    key={j}
+                    className={`${CELL_PAD} text-[13.5px] leading-relaxed ${
+                      j === emphasisColumn
+                        ? 'text-[13.5px] font-semibold text-slate-900'
+                        : 'text-slate-600'
+                    }`}
+                  >
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
-    {caption && <figcaption className="mt-2 text-center text-xs text-gray-400">{caption}</figcaption>}
+    {caption && (
+      <figcaption className="mt-2.5 text-center text-xs leading-relaxed text-slate-400">
+        {caption}
+      </figcaption>
+    )}
   </figure>
 );
 
-type CalloutType = 'info' | 'warning' | 'success';
+type CalloutType = 'info' | 'warning' | 'success' | 'tip' | 'note';
 
 const calloutConfig: Record<
   CalloutType,
@@ -332,6 +418,18 @@ const calloutConfig: Record<
     label: 'text-emerald-800',
     body: 'text-emerald-900',
     icon: <CheckCircle2 className="h-5 w-5 shrink-0" aria-hidden="true" />,
+  },
+  tip: {
+    wrapper: 'border-indigo-200 bg-indigo-50/70',
+    label: 'text-indigo-700',
+    body: 'text-indigo-900',
+    icon: <Lightbulb className="h-5 w-5 shrink-0" aria-hidden="true" />,
+  },
+  note: {
+    wrapper: 'border-slate-200 bg-slate-50',
+    label: 'text-slate-700',
+    body: 'text-slate-700',
+    icon: <NotebookPen className="h-5 w-5 shrink-0" aria-hidden="true" />,
   },
 };
 
@@ -438,6 +536,7 @@ export const MDXComponents = {
   blockquote: Blockquote,
   hr: HR,
   img: MDXImage,
+  Figure,
   table: Table,
   tr: TR,
   th: TH,

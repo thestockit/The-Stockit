@@ -55,7 +55,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     type: 'article',
     authors: post.frontmatter.author ? [post.frontmatter.author] : undefined,
     publishedTime: post.frontmatter.date,
-    modifiedTime: post.frontmatter.dateModified || post.frontmatter.date,
+    modifiedTime:
+      post.frontmatter.lastReviewed ||
+      post.frontmatter.dateModified ||
+      post.frontmatter.date,
   });
 }
 
@@ -133,6 +136,9 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500">
             <span>By {frontmatter.author || 'The Stockit Editorial Team'}</span>
             {frontmatter.date && <span>· {frontmatter.date}</span>}
+            {frontmatter.lastReviewed && (
+              <span>· Last updated {frontmatter.lastReviewed}</span>
+            )}
             <span>· {post.readingTime.text}</span>
             {frontmatter.category && (
               <span className="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-600">

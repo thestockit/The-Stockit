@@ -9,6 +9,8 @@ export interface BlogFrontmatter {
   description: string;
   date: string;
   dateModified?: string;
+  /** Date the article was last substantively re-reviewed by a human editor. */
+  lastReviewed?: string;
   author: string;
   category: string;
   tags?: string[];
@@ -50,6 +52,7 @@ const normalizeFrontmatter = (data: Record<string, unknown>): BlogFrontmatter =>
   description: String(data.description || data.excerpt || data.metaDescription || ''),
   date: String(data.date || ''),
   dateModified: data.dateModified ? String(data.dateModified) : undefined,
+  lastReviewed: data.lastReviewed ? String(data.lastReviewed) : undefined,
   author: String(data.author || 'The Stockit Editorial Team'),
   category: String(data.category || 'marketing'),
   tags: Array.isArray(data.tags)
